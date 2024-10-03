@@ -22,7 +22,7 @@ const config = {
   eyeOptions: {
     consoleLogging: true,
     command_arguments: { maxBuffer: 1024 * 500 },
-    eyePath: `docker run --rm -v "/c${path.resolve(__dirname, '../../').slice(2).replace(/\\/g, '/')}/":${mountPath} custom-eye`,
+    eyePath: `docker run --rm -v "${path.resolve(__dirname, '../../')}/":${mountPath} eyereasoner/eye`,
     defaultFlags: ['--nope']
   }
 }
