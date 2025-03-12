@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed `Dockerfile`, changed `reasoning.js` to use the official EYE Docker image, updated the README with instructions on using the official Docker image.
 - `reasoning.js`: removed hack to convert windows-like paths to unix-like paths, because it doesn't work on unix-like systems.
 
+### Added 
+- Use Podman if installed, fall back to Docker if not.
+
 ## [1.0.0] - 2023-06-02
 
 ### Added

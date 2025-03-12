@@ -12,8 +12,12 @@
 const path = require('path')
 const exec = require('child-process-promise').exec
 const Glob = require('glob').Glob
+const commandExistsSync = require('command-exists').sync;
 
 const mountPath = "/mnt";
+
+// Use Podman if installed, else Docker
+const containerSystem = commandExistsSync('podman') ? 'podman' : 'docker';
 
 const config = {
   serverOptions: {
@@ -22,7 +26,7 @@ const config = {
   eyeOptions: {
     consoleLogging: true,
     command_arguments: { maxBuffer: 1024 * 500 },
-    eyePath: `docker run --rm -v "${path.resolve(__dirname, '../../')}/":${mountPath} eyereasoner/eye`,
+    eyePath: containerSystem + ` container run --rm -v "${path.resolve(__dirname, '../../')}/":${mountPath} eyereasoner/eye`,
     defaultFlags: ['--nope']
   }
 }
