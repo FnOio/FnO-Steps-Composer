@@ -13,7 +13,7 @@ const DEV_ENV = false;
 main();
 
 async function main() {
-    const label = 'example1';
+    const label = 'example1_to_digichecks';
     const index = {
         "@context": {
             "@vocab": "http://www.example.org#"
@@ -27,7 +27,8 @@ async function main() {
             states: `scenarios/${label}/states.ttl`,
             steps: `scenarios/${label}/steps.ttl`,
         },
-        goalStates: ["http://localhost:8000/states#newEidPincodeRequested"],
+        //goalStates: ["http://localhost:8000/states#newEidPincodeRequested"],
+        goalStates: ["http://localhost:8000/states#buildingPermitApplicationReady"],
     };
     await validateTtl(config.oslo.shapes);
     await validateTtl(config.oslo.states);
