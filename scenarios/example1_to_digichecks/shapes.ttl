@@ -41,7 +41,6 @@ shape:buildingDesignAvailableShape a o-steps:StateShape ;
 shape:buildingDesignAvailablePropertyShape
   a sh:PropertyShape ;
   rdfs:label "Check on design available property."@en ;
-  a sh:PropertyShape ;
   sh:path ex:hasDesign ; # TODO: de-exemplify
   sh:dataType xsd:boolean ; # TODO: replace boolean with e.g. actual design type
   sh:minCount 1 ;
