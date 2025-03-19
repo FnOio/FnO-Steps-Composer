@@ -4,15 +4,6 @@ N3 mapping rules for the workflow composer that dynamically reasons about the ne
 
 ## Set-up
 
-To run the rules, you need an installation of the [EYE reasoner](https://github.com/eyereasoner/eye).
-
-For your convenience, there is a [Docker image](https://hub.docker.com/r/eyereasoner/eye) available.
-To install (pull) it:
-
-```shell
-docker pull eyereasoner/eye
-```
-
 To run the rules, we provided a test script using [Node.js](https://nodejs.org) that ties all phases together.
 To run it, do
 

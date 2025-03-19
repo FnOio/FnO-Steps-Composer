@@ -22,7 +22,7 @@ step:prepareBuildingPermitRequest  a o-steps:JourneyLevelStep, o-steps:Container
                         state:buildingDesignAvailableState ;
   o-steps:requiresState o-steps:emptyState .
 
-step:buildingPermitApplicationReady  a o-steps:JourneyLevelStep, o-steps:ContainerLevelStep, o-steps:ComponentLevelStep ;
+step:buildingPermitApplicationReady  a o-steps:JourneyLevelStep, o-steps:ContainerLevelStep ;
   o-steps:hasDescription [ xl:literalForm "Building permit application ready"@en ];
   o-steps:requiresState state:documentsForBuildingPermitApplicationAvailable ,
                         state:buildingDesignAvailableState ;

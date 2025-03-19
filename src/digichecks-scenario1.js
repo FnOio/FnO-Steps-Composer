@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs/promises');
-const eyePromise = require('./services/reasoning.js').eyePromise;
+const reason = require('./services/reasoning.js').reason;
 const $rdf = require('rdflib');
 const { Namespace } = $rdf;
 const ttl_read = require('@graphy/content.ttl.read');
@@ -556,8 +556,8 @@ async function _cached(output, config, alwaysReason = false) {
 
 async function _reason(step) {
     step.basePath = basePath;
-    const { stdout } = await eyePromise(step);
-    return await fs.writeFile(path.resolve(step.basePath, step.output), stdout, 'utf8');
+    const result = await reason(step);
+    return await fs.writeFile(path.resolve(step.basePath, step.output), result, 'utf8');
 }
 
 async function validateTtl(ttlPath) {

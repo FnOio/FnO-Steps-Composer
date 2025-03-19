@@ -1,5 +1,5 @@
 const path = require('path');
-const eyePromise = require('../services/reasoning.js').eyePromise;
+const eyePromise = require('../services/reasoning.js').reason;
 
 const basePath = path.resolve(__dirname, '../..');
 
@@ -14,9 +14,9 @@ async function main() {
             "rules/oslo-steps/step-reasoning.n3",
             "rules/util/list.n3",
             "rules/shacl/createPattern.n3",
-            "scenarios/_example1/steps.ttl",
-            "scenarios/_example1/shapes.ttl",
-            "scenarios/_example1/states.ttl",
+            "scenarios/example1/steps.ttl",
+            "scenarios/example1/shapes.ttl",
+            "scenarios/example1/states.ttl",
             "_output/example1/goal_journey_state.n3",
         ],
         "eye:flags": [
@@ -26,6 +26,6 @@ async function main() {
         query: "rules/oslo-steps/query_journeyGoalToGPSPath.n3",
     }
     config.basePath = basePath;
-    const { stdout } = await eyePromise(config);
-    console.log(stdout);
+    const result = await eyePromise(config);
+    console.log(result);
 }
