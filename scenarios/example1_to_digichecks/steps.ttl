@@ -16,7 +16,7 @@
 @prefix shape: <http://localhost:8000/shapes#>.
 @prefix step: <http://localhost:8000/steps#>.
 
-step:prepareBuildingPermitRequest  a o-steps:JourneyLevelStep, o-steps:ContainerLevelStep ;
+step:prepareBuildingPermitApplication  a o-steps:JourneyLevelStep, o-steps:ContainerLevelStep ;
   o-steps:hasDescription [ xl:literalForm "Documents to add to a building permit request"@en ];
   o-steps:producesState state:documentsForBuildingPermitApplicationAvailable ,
                         state:buildingDesignAvailableState ;
@@ -28,13 +28,13 @@ step:buildingPermitApplicationReady  a o-steps:JourneyLevelStep, o-steps:Contain
                         state:buildingDesignAvailableState ;
   o-steps:producesState state:buildingPermitApplicationReady .
 
-step:documentsForBuildingPermitApplicationAvailable a o-steps:ComponentLevelStep ;
+step:prepareDocumentsForBuildingPermitApplication a o-steps:ComponentLevelStep ;
   rdfs:label "Documents for building permit application available"@en ;
   o-steps:hasDescription [ xl:literalForm "Documents for building permit application available"@en ];
   o-steps:requiresState o-steps:emptyState ;
   o-steps:producesState state:documentsForBuildingPermitApplicationAvailable .
 
-step:buildingDesignAvailable a o-steps:ComponentLevelStep ;
+step:prepareDesign a o-steps:ComponentLevelStep ;
   rdfs:label "Building design available"@en ;
   o-steps:hasDescription [ xl:literalForm "Building design available"@en ];
   o-steps:requiresState o-steps:emptyState ;

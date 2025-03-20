@@ -57,7 +57,7 @@ async function main() {
     const scenario = [
         {
             'userData': prefixes + 'ex:Jacky a o-persoon:Inwoner . \n',
-            'comment': '1. Initial: Jacky want to rebuild her warehouse into a hotel.',
+            'comment': '1. Initial: Jacky wants to rebuild her warehouse into a hotel.',
         },
         {
             'userData': prefixes + 'ex:Jacky a o-persoon:Inwoner ; \n' +
