@@ -1,0 +1,53 @@
+# https://www.ibz.rrn.fgov.be/nl/identiteitsdocumenten/eid/aanvraag-pincode/
+
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix o-address: <https://data.vlaanderen.be/ns/adres#> .
+@prefix o-steps: <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#> .
+@prefix o-persoon: <https://data.vlaanderen.be/ns/persoon#> .
+@prefix ex: <http://example.org/ns/example#> .
+@prefix xl: <http://www.w3.org/2008/05/skos-xl#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+@prefix state: <http://localhost:8000/states#>.
+@prefix shape: <http://localhost:8000/shapes#>.
+@prefix step: <http://localhost:8000/steps#>.
+
+step:installEquipment  a o-steps:JourneyLevelStep, o-steps:ContainerLevelStep ;
+  o-steps:hasDescription [ xl:literalForm "Install necessary systems"@en ];
+  o-steps:requiresState o-steps:emptyState ;
+  o-steps:producesState state:thermometerInstalled ,
+                        state:humiditySensorInstalled,
+                        state:HVACConnected.
+
+
+step:roomEquiped  a o-steps:JourneyLevelStep, o-steps:ContainerLevelStep ;
+  o-steps:hasDescription [ xl:literalForm "Room is equiped with HVAC control"@en ];
+  o-steps:requiresState state:thermometerInstalled ,
+                        state:humiditySensorInstalled,
+                        state:HVACConnected ;
+  o-steps:producesState state:roomEquipedForHVACControl .
+
+step:installThermometer a o-steps:ComponentLevelStep ;
+  rdfs:label "Install a thermometer"@en ;
+  o-steps:hasDescription [ xl:literalForm "Install a thermometer"@en ];
+  o-steps:requiresState o-steps:emptyState ;
+  o-steps:producesState state:thermometerInstalled .
+
+step:installHumiditySensor a o-steps:ComponentLevelStep ;
+  rdfs:label "Install a humidity sensor"@en ;
+  o-steps:hasDescription [ xl:literalForm "Install a humidity sensor"@en ];
+  o-steps:requiresState o-steps:emptyState ;
+  o-steps:producesState state:humiditySensorInstalled .
+
+step:connectToHVAC a o-steps:ContainerLevelStep,  o-steps:ComponentLevelStep;
+                   o-steps:hasDescription [ xl:literalForm "Room is connected to HVAC system"@en ];
+                   o-steps:requiresState state:thermometerInstalled ,
+                   state:humiditySensorInstalled;
+                   o-steps:producesState state:HVACConnected .
+
+#step:emailDescriptionEnglish1 a xl:Label ;
+#  xl:literalForm "A valid email address containing the address, '@' symbol and hostname."@en .

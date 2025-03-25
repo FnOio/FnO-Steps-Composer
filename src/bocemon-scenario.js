@@ -13,7 +13,7 @@ const DEV_ENV = false;
 main();
 
 async function main() {
-    const label = 'example1_to_digichecks';
+    const label = 'bocemon_example';
     const index = {
         "@context": {
             "@vocab": "http://www.example.org#"
@@ -27,7 +27,7 @@ async function main() {
             states: `scenarios/${label}/states.ttl`,
             steps: `scenarios/${label}/steps.ttl`,
         },
-        goalStates: ["http://localhost:8000/states#buildingPermitApplicationReady"],
+        goalStates: ["http://localhost:8000/states#roomEquipedForHVACControl"],
     };
     await validateTtl(config.oslo.shapes);
     await validateTtl(config.oslo.states);
@@ -56,19 +56,34 @@ async function main() {
 
     const scenario = [
         {
-            'userData': prefixes + 'ex:Jacky a o-persoon:Inwoner . \n',
-            'comment': '1. Initial: Jacky wants to rebuild her warehouse into a hotel.',
+            'userData': prefixes + 'ex:room a o-persoon:Inwoner . \n',
+            'comment': '1. Initial: we want to install HVAC into a room.',
         },
         {
-            'userData': prefixes + 'ex:Jacky a o-persoon:Inwoner ; \n' +
-                'ex:hasDesign true .',
-            'comment': '2. The design is ready.',
+            'userData': prefixes + 'ex:room a o-persoon:Inwoner ; \n' +
+                'ex:hasThermometer true .',
+            'comment': '2. A thermometer has been installed.',
         },
         {
-            'userData': prefixes + 'ex:Jacky a o-persoon:Inwoner ; \n' +
-                'ex:hasDesign true ; \n' +
-                'ex:hasDocumentsForBuildingPermitApplication true .',
-            'comment': '3. All required documents to apply for a building permit are added.',
+            'userData':prefixes + 'ex:room a o-persoon:Inwoner ; \n' +
+                'ex:hasThermometer true ; \n' +
+                'ex:hasHumiditySensor true .',
+            'comment': '3. A humidity sensor has been installed.',
+        },
+        {
+            'userData':prefixes + 'ex:room a o-persoon:Inwoner ; \n' +
+                'ex:hasThermometer true ; \n' +
+                'ex:hasHumiditySensor true ; \n' +
+                'ex:hasHVAC true .',
+            'comment': '4. The sensors have been connected to the HVAC.',
+        },
+        {
+            'userData':prefixes + 'ex:room a o-persoon:Inwoner ; \n' +
+                'ex:hasThermometer true ; \n' +
+                'ex:hasHumiditySensor true ; \n' +
+                'ex:hasHVAC true ; \n' +
+                'ex:roomEquipedForHVACControl true .',
+            'comment': '5. The room has been equiped for HVAC control',
         }
     ];
 
@@ -78,7 +93,7 @@ async function main() {
         cache = {};
 
         console.log(comment + '\n');
-        console.log(`User profile:\n${userData} \n`);
+        console.log(`Room data:\n${userData} \n`);
 
         // write user profile
         await fs.writeFile(path.resolve(basePath, config.personalInfo), userData, 'utf8');
@@ -114,7 +129,7 @@ async function main() {
         const allJourneyLevelSteps = await parsePaths(journeyPathsPath);
         //console.log(allJourneyLevelSteps.join(', '));
 
-        console.log('Steps:');
+        console.log('Steps to take:');
         for (const journeyLevelStep of allJourneyLevelSteps) {
             // 0️⃣
             const containerStepsPath = await reasonContainerLevelSteps([config.oslo.steps, config.oslo.states, config.oslo.shapes], config.baseFolder);
