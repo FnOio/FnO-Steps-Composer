@@ -32,7 +32,7 @@ async function reasonStep(parentLevelStep, stepsPath, descriptionsPath, parentSt
             query: parentGoalPath
         }
     }
-    return await reasonPaths([selectedStepsPath, config.oslo.steps, config.personalInfo, parentExtraRulePath], parentGoalPath, config.baseFolder, parentStepName, type);
+    return await _reasonPaths([selectedStepsPath, config.oslo.steps, config.personalInfo, parentExtraRulePath], parentGoalPath, config.baseFolder, parentStepName, type);
 }
 
 async function generateSelected(step, baseFolder, label, type) {
@@ -84,7 +84,7 @@ async function reasonExtraRule(data, baseFolder, label, type) {
     return output;
 }
 
-async function reasonPaths(data, query, baseFolder, label, type) {
+async function _reasonPaths(data, query, baseFolder, label, type) {
     const produceBase = {
         data: [
             "rules/workflow-composer/gps-plugin_modified_noPermutations.n3",
@@ -121,40 +121,18 @@ async function _reason(step) {
 }
 
 async function reasonJourneyLevelSteps(data, baseFolder) {
-    const produceBase = {
-        data: [
-            "rules/oslo-steps/step-reasoning.n3",
-            "rules/util/list.n3",
-            "rules/shacl/createPattern.n3",
-        ].concat(data),
-        "eye:flags": [
-            "--quantify http://josd.github.io/.well-known/genid/",
-        ],
-        query: "rules/oslo-steps/query_journeyStepToGPSDescription.n3",
-    }
-    const output = `${baseFolder}/steps_journey_level.n3`;
-    await _cached(output, produceBase);
-    return output;
+    return _reasonLevelSteps(data, baseFolder, 'query_journeyStepToGPSDescription.n3', 'steps_journey_level.n3');
 }
 
 async function reasonContainerLevelSteps(data, baseFolder) {
-    const produceBase = {
-        data: [
-            "rules/oslo-steps/step-reasoning.n3",
-            "rules/util/list.n3",
-            "rules/shacl/createPattern.n3",
-        ].concat(data),
-        "eye:flags": [
-            "--quantify http://josd.github.io/.well-known/genid/",
-        ],
-        query: "rules/oslo-steps/query_containerStepToGPSDescription.n3",
-    }
-    const output = `${baseFolder}/steps_container_level.n3`;
-    await _cached(output, produceBase);
-    return output;
+    return _reasonLevelSteps(data, baseFolder, 'query_containerStepToGPSDescription.n3', 'steps_container_level.n3');
 }
 
 async function reasonComponentLevelSteps(data, baseFolder) {
+    return _reasonLevelSteps(data, baseFolder, 'query_componentStepToGPSDescription.n3', 'steps_component_level.n3');
+}
+
+async function _reasonLevelSteps(data, baseFolder, query, outputFile) {
     const produceBase = {
         data: [
             "rules/oslo-steps/step-reasoning.n3",
@@ -164,9 +142,9 @@ async function reasonComponentLevelSteps(data, baseFolder) {
         "eye:flags": [
             "--quantify http://josd.github.io/.well-known/genid/",
         ],
-        query: "rules/oslo-steps/query_componentStepToGPSDescription.n3",
+        query: `rules/oslo-steps/${query}`,
     }
-    const output = `${baseFolder}/steps_component_level.n3`;
+    const output = `${baseFolder}/${outputFile}`;
     await _cached(output, produceBase);
     return output;
 }
