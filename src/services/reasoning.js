@@ -8,11 +8,10 @@
  * Source: https://github.com/cristianvasquez/HES-Agent/blob/master/readme.md
  * @module Services/Reasoning
  */
-const fs = require('fs/promises');
-const n3reasoner = require('eyereasoner').n3reasoner;
-const path = require('path')
-
-const basePath = path.resolve(__dirname, '..', '..');
+import {readFile} from 'fs/promises';
+import {n3reasoner} from "eyereasoner";
+import path from 'path';
+import {basePath} from "./util.js";
 
 /**
  * @typedef {Object} module:Reasoning.Inference
@@ -23,13 +22,13 @@ async function reason(inference) { // TODO: handle proof; is this possible with 
   // first concatenate all input into one big string.
   let dataString = '';
   for (const input of inference.data) {
-    const contents = await fs.readFile(path.resolve(basePath, input), 'utf8');
+    const contents = await readFile(path.resolve(basePath, input), 'utf8');
     dataString = dataString + contents;
   }
 
   let resultString = '';
   if (inference.query) {
-    let queryString = await fs.readFile(path.resolve(basePath, inference.query), 'utf8');
+    let queryString = await readFile(path.resolve(basePath, inference.query), 'utf8');
     resultString = await n3reasoner(dataString, queryString);
   } else {
     resultString = await n3reasoner(dataString);
@@ -37,6 +36,6 @@ async function reason(inference) { // TODO: handle proof; is this possible with 
   return resultString;
 }
 
-module.exports = {
-  reason: reason
+export {
+  reason
 }

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "test.js",
+  "type": "module",
   "scripts": {
     "test": "node test.js",
     "run:test": "node run_test.js"
@@ -13,7 +14,7 @@
   "dependencies": {
     "@util.js/node-streams": "^0.40.0",
     "eyereasoner": "^18.12.7",
-    "graphy": "^4.3.3",
-    "rdflib": "^2.1.7"
+    "rdflib": "^2.1.7",
+    "n3": "^1.24.2"
   }
 }

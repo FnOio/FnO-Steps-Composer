@@ -15,6 +15,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Simple DigiChecks scenario.
 - Simple BOCEMON scenario.
 
+### Changed
+- Switched from CommonJS to ES modules
+- Switched from n3 to graphy to check turtle/rdf files 
+
 ## [1.0.0] - 2023-06-02
 
 ### Added
