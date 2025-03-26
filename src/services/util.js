@@ -14,7 +14,6 @@ async function parsePaths(pathsPath) {
     const mimeType = 'text/turtle'
     const store = $rdf.graph()
     const GPS = Namespace("http://josd.github.io/eye/reasoning/gps/gps-schema#")
-    const EX = Namespace("https://example.org/ns/example#")
     $rdf.parse(contents, store, `file://${pathsPath}`, mimeType)
     const paths = store.match(undefined, GPS('path'), undefined).map(t => t.object);
     const steps = {};
