@@ -64,9 +64,6 @@ async function reasonBlock(data, baseFolder, label, type) {
 async function reasonGoal(data, baseFolder, label, type) {
     const produceBase = {
         data,
-        "eye:flags": [
-            "--quantify http://josd.github.io/.well-known/genid/",
-        ],
         query: "rules/workflow-composer/subgoals/query_subgoalCreation.n3",
     }
     const output = `${baseFolder}/goal_${type}_${label}.n3`;
@@ -139,9 +136,6 @@ async function _reasonLevelSteps(data, baseFolder, query, outputFile) {
             "rules/util/list.n3",
             "rules/shacl/createPattern.n3",
         ].concat(data),
-        "eye:flags": [
-            "--quantify http://josd.github.io/.well-known/genid/",
-        ],
         query: `rules/oslo-steps/${query}`,
     }
     const output = `${baseFolder}/${outputFile}`;
@@ -159,9 +153,6 @@ async function reasonJourneyGoal(data, goalStates, baseFolder) {
             "rules/shacl/createPattern.n3",
             goalStatePath,
         ].concat(data),
-        "eye:flags": [
-            "--quantify http://josd.github.io/.well-known/genid/",
-        ],
         query: "rules/oslo-steps/query_journeyGoalToGPSPath.n3",
     }
     const output = `${baseFolder}/goal_journey.n3`;
