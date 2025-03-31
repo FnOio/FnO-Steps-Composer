@@ -83,7 +83,7 @@ async function main() {
 
     for (const {userData, comment} of scenario) {
         await rm(path.resolve(basePath, '_output/', config.label), {recursive: true, force: true});
-        await mkdir(path.resolve(basePath, '_output/', config.label));
+        await mkdir(path.resolve(basePath, '_output/', config.label), {recursive: true});
 
         console.log(comment + '\n');
         console.log(`User profile:\n${userData} \n`);
