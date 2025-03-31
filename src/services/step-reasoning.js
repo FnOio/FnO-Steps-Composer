@@ -3,7 +3,7 @@ import path from 'path';
 import {stat, writeFile} from "fs/promises";
 import {basePath} from "./util.js";
 
-const cache = {};
+//const cache = {};
 const DEV_ENV = false;
 
 async function reasonStep(parentLevelStep, stepsPath, descriptionsPath, parentStepsPath, config, type, index = {}) {
@@ -37,9 +37,9 @@ async function reasonStep(parentLevelStep, stepsPath, descriptionsPath, parentSt
 
 async function generateSelected(step, baseFolder, label, type) {
     const output = `${baseFolder}/select_${type}_${label}.n3`;
-    if (cache[output]) {
+    /*if (cache[output]) {
         return output;
-    }
+    }*/
     const goal = `
 @prefix step: <http://localhost:8000/steps#>.
 @prefix : <http://example.org#> .
@@ -47,7 +47,7 @@ async function generateSelected(step, baseFolder, label, type) {
 <${step.value}> :findSubpath true.
     `;
     await writeFile(path.resolve(basePath, output), goal, 'utf8');
-    cache[output] = output;
+    //cache[output] = output;
     return output;
 }
 
@@ -97,17 +97,17 @@ async function _reasonPaths(data, query, baseFolder, label, type) {
 
 async function _cached(output, config, alwaysReason = false) {
     // console.log(`Working for output ${output}`)
-    if (!alwaysReason && await _fileExists(path.resolve(basePath, output))) {
-        if (!DEV_ENV) {
-            cache[output] = output;
-        }
-    }
-    if (cache[output]) {
-        return;
-    }
+    // if (!alwaysReason && await _fileExists(path.resolve(basePath, output))) {
+    //     if (!DEV_ENV) {
+    //         cache[output] = output;
+    //     }
+    // }
+    // if (cache[output]) {
+    //     return;
+    // }
     config.output = output;
     await _reason(config);
-    cache[output] = true;
+    //cache[output] = true;
     return;
 }
 
