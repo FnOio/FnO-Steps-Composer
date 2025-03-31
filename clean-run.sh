@@ -1,1 +1,1 @@
-rm -rf _output && node src/bocemon-scenario.js
+rm -rf _output && node src/digichecks-scenario1.js
