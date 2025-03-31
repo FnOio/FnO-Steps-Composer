@@ -9,9 +9,8 @@ import {
     reasonJourney,
     reasonJourneyGoal
 } from "./services/step-reasoning.js";
-import {parsePaths, validateTtl} from "./services/util.js";
+import {parsePaths, validateTtl, basePath} from "./services/util.js";
 import path from 'path';
-import {basePath} from "./services/util.js";
 
 main();
 
