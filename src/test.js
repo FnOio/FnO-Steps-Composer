@@ -92,20 +92,23 @@ async function main() {
     // not same as reasonPaths: this one doesn't include util/graph.n3
     const journeyPathsPath = await reasonJourney([journeySelectedStepsPath, config.oslo.steps, config.personalInfo], goalPath, config.baseFolder);
 
+    // 0️⃣
+    const containerStepsPath = await reasonContainerLevelSteps([config.oslo.steps, config.oslo.states, config.oslo.shapes], config.baseFolder);
+    const containerDescriptionsPath = await reasonShortStepDescriptions([containerStepsPath], baseFolder, `container`);
+
+    // 0️⃣
+    const componentStepsPath = await reasonComponentLevelSteps([config.oslo.steps, config.oslo.states, config.oslo.shapes], config.baseFolder);
+    const componentDescriptionsPath = await reasonShortStepDescriptions([componentStepsPath], baseFolder, `component`);
+
     const allJourneyLevelSteps = await parsePaths(journeyPathsPath);
     console.log(allJourneyLevelSteps.join(', '));
     for (const journeyLevelStep of allJourneyLevelSteps) {
-        // 0️⃣
-        const containerStepsPath = await reasonContainerLevelSteps([config.oslo.steps, config.oslo.states, config.oslo.shapes], config.baseFolder);
-        const containerDescriptionsPath = await reasonShortStepDescriptions([containerStepsPath], baseFolder, `container`);
         // 3️⃣
         const containerPathsPath = await reasonStep(journeyLevelStep, containerStepsPath, containerDescriptionsPath, journeyStepsPath, config, 'containers', index);
         const allContainerLevelSteps = await parsePaths(containerPathsPath);
         console.log(`for journeyLevelStep ${journeyLevelStep}, we find following containerLevelSteps: ${allContainerLevelSteps.join(', ')}`);
         for (const containerLevelStep of allContainerLevelSteps) {
-            // 0️⃣
-            const componentStepsPath = await reasonComponentLevelSteps([config.oslo.steps, config.oslo.states, config.oslo.shapes], config.baseFolder);
-            const componentDescriptionsPath = await reasonShortStepDescriptions([componentStepsPath], baseFolder, `component`);
+
             // 3️⃣
             const componentPathsPath = await reasonStep(containerLevelStep, componentStepsPath, componentDescriptionsPath, containerStepsPath, config, 'components', index);
             const allComponentLevelSteps = await parsePaths(componentPathsPath);
