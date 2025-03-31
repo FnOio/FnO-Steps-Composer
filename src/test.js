@@ -16,7 +16,7 @@ import {basePath} from "./services/util.js";
 main();
 
 async function main() {
-    const label = 'example1_to_digichecks';
+    const label = 'bocemon_example';
     const index = {
         "@context": {
             "@vocab": "http://www.example.org#"
@@ -31,7 +31,7 @@ async function main() {
             steps: path.resolve(basePath, `scenarios/${label}/steps.ttl`),
         },
         //goalStates: ["http://localhost:8000/states#newEidPincodeRequested"],
-        goalStates: ["http://localhost:8000/states#buildingPermitApplicationReady"],
+        goalStates: ["http://localhost:8000/states#roomEquipedForHVACControl"],
     };
     await validateTtl(config.oslo.shapes);
     await validateTtl(config.oslo.states);
@@ -75,7 +75,7 @@ async function main() {
     // same as for other, but without block
     const journeySelectedStepsPath = await reasonSelectedSteps([journeyStepsPath, journeyDescriptionsPath, goalPath], config.baseFolder, `journey`, 'journey')
     index.features['journey_moving'] = {
-        description: "journey moving",
+        description: "journey moving",  // TODO make parameter/variable
         inference: {
             data: [
                 journeySelectedStepsPath,

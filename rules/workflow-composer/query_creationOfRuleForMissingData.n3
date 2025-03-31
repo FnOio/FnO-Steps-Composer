@@ -16,11 +16,11 @@
 =>
 {
     {
-        ?x e:findall ( {?ss ?pp ?oo}  {  ?in2 log:includes {?ss ?pp ?oo}. ?x e:call {?ss ?pp ?oo} } ?out ). 
+        ?x e:findall ( {?ss ?pp ?oo}  {  ?in2 log:includes {?ss ?pp ?oo}. ?x e:call {?ss ?pp ?oo} } ?out ).
 
         (?in2 ?out) :unifyList ?in2.
 
-        #alternative with graphin tersection (is slower)
+        #alternative with graph intersection (is slower)
         #?out log:conjunction ?out2.
         #(?out2 ?in2) e:graphIntersection ?int.
 

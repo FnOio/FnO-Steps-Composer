@@ -646,15 +646,140 @@ Input:
 - descriptionsPath: `_output/bocemon_example/short_step_descriptions_container.n3` (reasonShortStepDescriptions)
 - parentStepsPath: `_output/bocemon_example/steps_journey_level.n3` (reasonJourneyLevelSteps)
 - config: contains label, shapes, steps, states, goal state, personal info
-- type: containers (indicates level)
+- type: `containers` (indicates level)
 - index: all data to write in index.json file?
 
 #### 5.3.1 generateSelected
 
+Tells to find a sub path of the selected **parent** level step, in this case a journey level step.
+
 Input:
-- parentLevelStep
+- parentLevelStep, e.g.: `http://localhost:8000/steps#installEquipment`
 - baseFolder
-- parentStepName
-- type: containers
+- parentStepName, e.g.: `installEquipment`
+- type: `containers`
 
 Output: `_output/bocemon_example/select_containers_installEquipment.n3`
+
+```turtle
+<http://localhost:8000/steps#installEquipment> :findSubpath true.
+```
+
+#### 5.3.2 reasonBlock
+
+Finds all predicates of the container level states that have to be present, 
+i.e. that *block* the current parent (journey) level step.
+
+Input:
+- data:
+  - parentSelectedPath, e.g.: `_output/bocemon_example/select_containers_installEquipment.n3` (generateSelected)
+  - parentStepsPath, e.g.: `_output/bocemon_example/steps_journey_level.n3` (reasonJourneyLevelSteps)
+  - parentStepName, e.g.: `installEquipment`
+  - type: `containers`
+- query: `rules/workflow-composer/subgoals/query_creationOfBlockingInfo.n3`
+
+Output: `_output/bocemon_example/block_containers_installEquipment.n3`
+
+```
+{
+    (<http://www.w3.org/2000/10/swap/var#x_0> ex:hasHVAC) e:skolem <http://www.w3.org/2000/10/swap/var#x_3>.
+} :inInputRule true.
+{
+    (<http://www.w3.org/2000/10/swap/var#x_0> ex:hasHumiditySensor) e:skolem <http://www.w3.org/2000/10/swap/var#x_2>.
+} :inInputRule true.
+{
+    (<http://www.w3.org/2000/10/swap/var#x_0> ex:hasThermometer) e:skolem <http://www.w3.org/2000/10/swap/var#x_1>.
+} :inInputRule true.
+{
+    <http://www.w3.org/2000/10/swap/var#x_0> a o-persoon:Inwoner.
+} :inInputRule true.
+```
+
+#### 5.3.2 reasonGoal
+
+Predicates of substates required to reach goal.
+
+Input:
+- data:
+  - parentSelectedPath, e.g.: `_output/bocemon_example/select_containers_installEquipment.n3` (generateSelected)
+  - parentStepsPath, e.g.: `_output/bocemon_example/steps_journey_level.n3` (reasonJourneyLevelSteps)
+  - parentStepName, e.g.: `installEquipment`
+  - type: `containers`
+- query: `rules/workflow-composer/subgoals/query_subgoalCreation.n3`
+
+Output: `_output/bocemon_example/goal_containers_installEquipment.n3`
+
+```
+{
+    ?t_0 gps:findpath ({
+        ?U_0 ex:hasThermometer ?U_1.
+        ?U_0 ex:hasHumiditySensor ?U_2.
+        ?U_0 ex:hasHVAC ?U_3.
+    } ?t_1 ?t_2 ?t_3 ?t_4 ?t_5 (100 100 0.2 0.2)).
+} => {
+    _:t_6 gps:path (?t_1 ?t_2 ?t_3 ?t_4 ?t_5).
+}.
+```
+
+#### 5.3.3 reasonExtraRule
+
+Not sure what this does.
+
+Input:
+- data:
+  - parentSelectedPath, e.g.: `_output/bocemon_example/select_containers_installEquipment.n3` (generateSelected)
+  - parentStepsPath, e.g.: `_output/bocemon_example/steps_journey_level.n3` (reasonJourneyLevelSteps)
+  - parentStepName, e.g.: `installEquipment`
+  - type: `containers`
+- query: `rules/workflow-composer/query_creationOfRuleForMissingData.n3`
+
+Output: `_output/bocemon_example/extra_rule_containers_installEquipment.n3`
+
+#### 5.3.4 reasonSelectedSteps (container)
+
+See [reasonSelectedSteps (journey)](#4-reasonselectedsteps-journey), but then on container level.
+
+Then, write everything from above steps to index file.
+
+Output: selectedStepsPath, e.g. `_output/bocemon_example/selected_steps_containers_installEquipment.n3`
+
+#### 5.3.4 _reasonPaths
+
+Input:
+- data:
+  - selectedStepsPath, e.g.: `_output/bocemon_example/selected_steps_containers_installEquipment.n3`
+  - `steps.ttl`
+  - `_output/bocemon_example/profile.ttl`
+  - parentExtraRulePath, e.g.: `_output/bocemon_example/extra_rule_containers_installEquipment.n3`
+  - parentStepName, e.g.: `installEquipment`
+  - type: `containers`
+  - `rules/workflow-composer/gps-plugin_modified_noPermutations.n3`
+  - `scenarios/knowledge.n3`
+  - `rules/util/graph.n3`
+- query: parentGoalPath, e.g.: `_output/bocemon_example/goal_containers_installEquipment.n3` 
+
+Output: `_output/bocemon_example/reason_paths_containers_installEquipment.n3`
+
+```
+_:sk_3 gps:path ((("unorderedList" (step:installEquipment))) 10.0 10.0 0.9 0.9).
+```
+
+** For every container level step:**
+
+## 5.4 reasonComponentLevelSteps
+
+Same as *reasonJourneyLevelSteps*, but then on container level.
+
+Input:
+- data:
+  - `rules/oslo-steps/step-reasoning.n3`
+  - `rules/util/list.n3`
+  - `rules/shacl/createPattern.n3`
+  - `steps.ttl`
+  - `states.ttl`
+  - `shapes.ttl`
+- query: `query_componentStepToGPSDescription.n3`
+
+Output: `_output/bocemon_example/steps_component_level.n3`:
+
+**Same for component level steps next...**
