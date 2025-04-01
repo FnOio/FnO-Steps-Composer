@@ -6,25 +6,25 @@ import {basePath} from "./util.js";
 //const cache = {};
 const DEV_ENV = false;
 
-async function reasonStep(parentLevelStep, stepsPath, descriptionsPath, parentStepsPath, config, type, index = {}) {
+async function reasonStep(parentLevelStep, stepsOutputPath, descriptionsPath, parentStepsPath, baseFolder, stepsInputPath, dataPath, type, index = {}) {
     const parentStepName = parentLevelStep.value.split('#')[1];
     // 0️⃣
-    const parentSelectedPath = await generateSelected(parentLevelStep, config.baseFolder, parentStepName, type)
+    const parentSelectedPath = await generateSelected(parentLevelStep, baseFolder, parentStepName, type)
 
     // 1️⃣
-    const parentBlockPath = await reasonBlock([parentSelectedPath, parentStepsPath], config.baseFolder, parentStepName, type)
-    const parentGoalPath = await reasonGoal([parentSelectedPath, parentStepsPath], config.baseFolder, parentStepName, type)
-    const parentExtraRulePath = await reasonExtraRule([parentSelectedPath, parentStepsPath], config.baseFolder, parentStepName, type)
+    const parentBlockPath = await reasonBlock([parentSelectedPath, parentStepsPath], baseFolder, parentStepName, type)
+    const parentGoalPath = await reasonGoal([parentSelectedPath, parentStepsPath], baseFolder, parentStepName, type)
+    const parentExtraRulePath = await reasonExtraRule([parentSelectedPath, parentStepsPath], baseFolder, parentStepName, type)
 
     // 2️⃣
-    const selectedStepsPath = await reasonSelectedSteps([stepsPath, descriptionsPath, parentGoalPath, parentBlockPath], config.baseFolder, parentStepName, type)
+    const selectedStepsPath = await reasonSelectedSteps([stepsOutputPath, descriptionsPath, parentGoalPath, parentBlockPath], baseFolder, parentStepName, type)
 
     // 3️⃣
     index.features[`${type}_${parentStepName}`] = {
         description: `${type} level paths for ${parentStepName}`,
         inference: {
             data: [
-                selectedStepsPath, config.oslo.steps, config.personalInfo, parentExtraRulePath,
+                selectedStepsPath, stepsInputPath, dataPath, parentExtraRulePath,
                 "rules/workflow-composer/gps-plugin_modified_noPermutations.n3",
                 "scenarios/knowledge.n3",
                 "rules/util/graph.n3",
@@ -32,7 +32,7 @@ async function reasonStep(parentLevelStep, stepsPath, descriptionsPath, parentSt
             query: parentGoalPath
         }
     }
-    return await _reasonPaths([selectedStepsPath, config.oslo.steps, config.personalInfo, parentExtraRulePath], parentGoalPath, config.baseFolder, parentStepName, type);
+    return await _reasonPaths([selectedStepsPath, stepsInputPath, dataPath, parentExtraRulePath], parentGoalPath, baseFolder, parentStepName, type);
 }
 
 async function generateSelected(step, baseFolder, label, type) {
@@ -210,3 +210,173 @@ export {
     reasonJourney,
     reasonJourneyGoal
 };
+
+/**
+ * 3️⃣ Journey moving
+ * - gps-plugin_modified_noPermutations -> ENGINE
+ * - knowledge -> ENGINE
+ * - selectedSteps_Journey -> INTERIM
+ * - oslo-steps/steps -> CONFIG
+ * - personalInfo -> RUNTIME
+ * - Q journeyGoal -> GENERATED FOR JOURNEY FROM CONFIG
+ */
+
+/**
+ * 2️⃣ selectedSteps_Journey
+ * - journey-level-steps -> INTERIM
+ * - shortJourneyDescriptions -> INTERIM
+ * - journeyGoal -> GENERATED FOR JOURNEY FROM CONFIG
+ * - preselection -> ENGINE
+ * - knowledge -> ENGINE
+ * - query_preselection -> ENGINE
+ */
+
+/**
+ * 1️⃣ shortJourneyDescriptions
+ * - journey-level-steps -> INTERIM
+ * - knowledge -> ENGINE
+ * - Q pregeneration -> ENGINE
+ */
+
+/**
+ * 0️⃣ journey-level-steps
+ * - oslo-steps/steps -> CONFIG
+ * - oslo-steps/states -> CONFIG
+ * - oslo-steps/shapes -> CONFIG
+ * - step-reasoning -> ENGINE
+ * - help -> ENGINE
+ * - createPattern -> ENGINE
+ * - query_journeyStepToGPSDescription -> ENGINE
+ */
+
+/**
+ * ---------- PER JOURNEY
+ */
+
+/**
+ * 3️⃣ container_providePersonalInformation
+ * - gps-plugin_modified_noPermutations -> ENGINE
+ * - knowledge -> ENGINE
+ * - selectedSteps_personalInfo -> INTERIM
+ * - oslo-steps/steps -> CONFIG
+ * - personalInfo -> RUNTIME
+ * - extraRule_personalInfo -> INTERIM
+ * - util/graph -> ENGINE
+ * - Q createdGoal_PersonalInfo -> INTERIM
+ */
+
+/**
+ * 1️⃣ extraRule_personalInfo
+ * - selected_PersonalInfo -> GENERATED FOR CONTAINER
+ * - journey-level-steps -> INTERIM
+ * - query_creationOfRuleForMissingData -> ENGINE
+ */
+
+/**
+ * 2️⃣ selectedSteps_personalInfo
+ * - container-level-steps -> INTERIM
+ * - shortContainerDescriptions -> INTERIM
+ * - createdGoal_PersonalInfo -> INTERIM
+ * - preselection -> ENGINE
+ * - knowledge -> ENGINE
+ * - block_personalInfo -> INTERIM
+ * - query_preselection -> ENGINE
+ */
+
+/**
+ * 1️⃣ createdGoal_PersonalInfo
+ * - selected_PersonalInfo -> GENERATED FOR CONTAINER
+ * - journey-level-steps -> INTERIM
+ * - query_subgoalCreation -> ENGINE
+ */
+
+/**
+ * 0️⃣ container-level-steps
+ * - oslo-steps/steps -> CONFIG
+ * - oslo-steps/states -> CONFIG
+ * - oslo-steps/shapes -> CONFIG
+ * - step-reasoning -> ENGINE
+ * - help -> ENGINE
+ * - createPattern -> ENGINE
+ * - query_containerStepToGPSDescription -> ENGINE
+ */
+
+/**
+ * 1️⃣ shortContainerDescriptions
+ * - container-level-steps -> INTERIM
+ * - knowledge -> ENGINE
+ * - Q pregeneration -> ENGINE
+ */
+
+/**
+ * 1️⃣ block_personalInfo
+ * - selected_PersonalInfo -> GENERATED FOR CONTAINER
+ * - journey-level-steps -> INTERIM
+ * - query_creationOfBlockingInfo -> ENGINE
+ */
+
+/**
+ * -------- PER CONTAINER
+ */
+
+/**
+ * 3️⃣ component_provideCitizenNameManually
+ * - gps-plugin_modified_noPermutations -> ENGINE
+ * - knowledge -> ENGINE
+ * - personalInfo -> RUNTIME
+ * - extraRule_citizenName -> INTERIM
+ * - util/graph -> ENGINE
+ * - selectedSteps_citizenName -> INTERIM
+ * - oslo-steps/steps -> CONFIG
+ * - Q createdGoal_citizenName -> INTERIM
+ */
+
+/**
+ * 1️⃣ extraRule_citizenName
+ * - selected_CitizenName -> GENERATED FOR CONTAINER
+ * - container-level-steps -> INTERIM
+ * - query_creationOfRuleForMissingData -> ENGINE
+ */
+
+/**
+ * 2️⃣ selectedSteps_citizenName
+ * - component-level-steps -> INTERIM
+ * - shortComponentDescriptions -> INTERIM
+ * - createdGoal_citizenName -> INTERIM
+ * - preselection -> ENGINE
+ * - knowledge -> ENGINE
+ * - block_citizenName -> INTERIM
+ * - query_preselection -> ENGINE
+ */
+
+/**
+ * 1️⃣ createdGoal_citizenName
+ * - selected_CitizenName -> GENERATED FOR CONTAINER
+ * - container-level-steps -> INTERIM
+ * - query_subgoalCreation -> ENGINE
+ */
+
+/**
+ * 0️⃣ component-level-steps
+ * - oslo-steps/steps -> CONFIG
+ * - oslo-steps/states -> CONFIG
+ * - oslo-steps/shapes -> CONFIG
+ * - step-reasoning -> ENGINE
+ * - help -> ENGINE
+ * - createPattern -> ENGINE
+ * - query_componentStepToGPSDescription -> ENGINE
+ */
+
+/**
+ * 1️⃣ shortComponentDescriptions
+ * - component-level-steps -> INTERIM
+ * - knowledge -> ENGINE
+ * - Q pregeneration -> ENGINE
+ */
+
+/**
+ * 1️⃣ block_citizenName
+ * - selected_CitizenName -> GENERATED FOR CONTAINER
+ * - container-level-steps -> INTERIM
+ * - query_creationOfBlockingInfo -> ENGINE
+ */

@@ -1,0 +1,1 @@
+<https://example.org/ns/example#room> a <https://data.vlaanderen.be/ns/persoon#Inwoner> .
