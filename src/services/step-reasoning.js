@@ -1,4 +1,4 @@
-import {reason} from "./reasoning.js";
+import {reason} from "./eye-reasoning.js";
 import path from 'path';
 import {stat, writeFile} from "fs/promises";
 import {basePath} from "./util.js";

@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs/promises');
-const reason = require('./services/reasoning.js').reason;
+const reason = require('./services/eye-reasoning.js').reason;
 const $rdf = require('rdflib');
 const { Namespace } = $rdf;
 const ttl_read = require('@graphy/content.ttl.read');

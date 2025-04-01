@@ -1,5 +1,5 @@
 const path = require('path');
-const eyePromise = require('../services/reasoning.js').reason;
+const eyePromise = require('../services/eye-reasoning.js').reason;
 
 const basePath = path.resolve(__dirname, '../..');
 
