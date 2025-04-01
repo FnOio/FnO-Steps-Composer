@@ -33,6 +33,8 @@ async function reasonFlow(label, dataPath, stepsPath, statesPath, shapesPath, go
     await validateTtl(dataPath);
     console.log('all input files are valid TTL.');
 
+    // TODO: check if goal states are in statesPath
+
     const baseFolder = path.resolve(basePath, '_output/', label);
     await rm(baseFolder, {recursive: true, force: true});
     await mkdir(baseFolder, {recursive: true});
