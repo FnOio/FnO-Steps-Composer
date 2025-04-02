@@ -8,12 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Fixed
-- Use the JAvascript version of eye (eyereasoner). No need for a Docker set-up or local eye installation anymore.
+- Use the Javascript version of eye (eyereasoner). No need for a Docker set-up or local eye installation anymore.
 
 ### Added 
 - Use Podman if installed, fall back to Docker if not.
 - Simple DigiChecks scenario.
 - Simple BOCEMON scenario.
+- Script to run scenario.
 
 ### Changed
 - Switched from CommonJS to ES modules

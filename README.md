@@ -13,6 +13,34 @@ npm install
 npm run test
 ```
 
+## Run a scenario
+```shell
+cd src/
+npm run scenario -- --scenario <name>
+```
+where `name` is the name of a subdirectory in `scenarios/`, e.g. `bocemon_example`.
+
+Running a scenario requires a certain file layout. For example:
+```
+bocemon_example/
+├── data_01.ttl
+├── data_02.ttl
+├── data_03.ttl
+├── data_04.ttl
+├── data_05.ttl
+├── flow.md
+├── goalStates.txt
+├── shapes.ttl
+├── states.ttl
+└── steps.ttl
+```
+- `data_x.ttl`: The input data (knowledge) at stage `x`. Every file represents an iteration of the flow. This data is used to reason upon.
+- `goalStates.txt`: A list of state IRIs that are a goal, i.e. end state of the flow. List one goal per line. These IRIs need to be found in `states.ttl`.
+- `shapes.ttl`: The shapes that define a state. If the data complies to a shape, the flow is in the state that requires the shape.
+- `states.ttl`: The possible states in this flow. A state lists required shapes.
+- `steps.ttl`: The possible steps in this flow. A step lists required states, and which state(s) it produces.
+- `flow.md` (not required): This is a graphical illustration of the flow with states and steps.
+
 ## Organization
 
 - `rules`: all N3 rules
