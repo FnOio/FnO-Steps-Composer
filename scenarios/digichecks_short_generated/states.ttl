@@ -1,0 +1,56 @@
+
+<http://localhost:8000/states#administrativeProcessedDone> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "All administrative processes (e.g. Sending reception letter) are done";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#administrativeProcessedDone> .
+
+<http://localhost:8000/states#architectAssists> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "An architect is found to assist with the building permit application";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#architectAssists> .
+
+<http://localhost:8000/states#architectHasPreliminaryInput> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "Architect has input from authority (preliminary)";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#architectHasPreliminaryInput> .
+
+<http://localhost:8000/states#buildingPermitApplicationPrepared> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "The building permit application is ready to be submitted";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#buildingPermitApplicationPrepared> .
+
+<http://localhost:8000/states#buildingPermitApplicationSubmitted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "The building permit application is submitted to authority";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#buildingPermitApplicationSubmitted> .
+
+<http://localhost:8000/states#buildingPermitApproved> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "The building permit is approved and objections are handled.";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#buildingPermitApproved> .
+
+<http://localhost:8000/states#completenessCheckPassed> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "All required documents are submitted";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#completenessCheckPassed> .
+
+<http://localhost:8000/states#designAvailable> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "The design is ready.";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#designAvailable> .
+
+<http://localhost:8000/states#formatCheckPassed> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "All required documents are in the right format";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#formatCheckPassed> .
+
+<http://localhost:8000/states#permitOfficerAssigned> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "A permit officer is assigned";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#permitOfficerAssigned> .
+
+<http://localhost:8000/states#permittingProcessAnnounced> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "The permitting process is publicly announced, so neighbours can object";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#permittingProcessAnnounced> .
+
+<http://localhost:8000/states#preliminaryCheckPassed> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "The building permit application passed the preliminary checks done bu the authority";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#preliminaryCheckPassed> .
+
+<http://localhost:8000/states#projectRegistered> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "The project is registered with the authority's system";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#projectRegistered> .
+
+<http://localhost:8000/states#requiredDocumentsAvailable> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "Other documents are available";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#requiredDocumentsAvailable> .
