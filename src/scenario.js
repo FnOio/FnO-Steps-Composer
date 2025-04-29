@@ -8,6 +8,7 @@ import {basePath} from "./services/util.js";
 import path from 'path';
 import {readFile, readdir} from "fs/promises";
 import {reasonFlow} from "./services/flow-reasoning.js";
+import {existsSync} from "node:fs";
 
 await main();
 
@@ -40,8 +41,16 @@ async function _runScenario(scenario) {
     // Read goal states
     const goalStates = await _readGoalStates(scenarioPath);
 
-    // Read the data (each file representing a next state of the data)
+    // Read the data paths (each file representing the next state of the data)
     const dataStateFiles = await _listDataStates(scenarioPath);
+
+    // Check if optional knowledge path 'knowledge.n3' exists
+    let knowledgePath = path.resolve(scenarioPath, 'knowledge.n3');
+    if (existsSync(knowledgePath)) {
+        console.log(`Extra reasoning logic found at ${knowledgePath}`);
+    } else {
+        knowledgePath = '';
+    }
 
     // Loop over the data states and reason for every state.
     // The output will be written to a different directory for every data state.
@@ -49,7 +58,7 @@ async function _runScenario(scenario) {
         console.log(`Reasoning for data file ${dataStateFile}`);
         // The label is the scenario name + the name of the data file without extension.
         const label = scenario + '_' + path.basename(dataStateFile, '.ttl');
-        await reasonFlow(label, dataStateFile, stepsPath, statesPath, shapesPath, goalStates);
+        await reasonFlow(label, dataStateFile, stepsPath, statesPath, shapesPath, goalStates, knowledgePath);
         console.log('==================================');
     }
 

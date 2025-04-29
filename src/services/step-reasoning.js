@@ -6,7 +6,7 @@ import {basePath} from "./util.js";
 //const cache = {};
 const DEV_ENV = false;
 
-async function reasonStep(parentLevelStep, stepsOutputPath, descriptionsPath, parentStepsPath, baseFolder, stepsInputPath, dataPath, type, index = {}) {
+async function reasonStep(parentLevelStep, stepsOutputPath, descriptionsPath, parentStepsPath, baseFolder, stepsInputPath, dataPath, type, index = {}, knowledgePath = '') {
     const parentStepName = parentLevelStep.value.split('#')[1];
     // 0️⃣
     const parentSelectedPath = await generateSelected(parentLevelStep, baseFolder, parentStepName, type)
@@ -17,7 +17,7 @@ async function reasonStep(parentLevelStep, stepsOutputPath, descriptionsPath, pa
     const parentExtraRulePath = await reasonExtraRule([parentSelectedPath, parentStepsPath], baseFolder, parentStepName, type)
 
     // 2️⃣
-    const selectedStepsPath = await reasonSelectedSteps([stepsOutputPath, descriptionsPath, parentGoalPath, parentBlockPath], baseFolder, parentStepName, type)
+    const selectedStepsPath = await reasonSelectedSteps([stepsOutputPath, descriptionsPath, parentGoalPath, parentBlockPath], baseFolder, parentStepName, type, knowledgePath)
 
     // 3️⃣
     index.features[`${type}_${parentStepName}`] = {
@@ -160,38 +160,43 @@ async function reasonJourneyGoal(data, goalStates, baseFolder) {
     return output;
 }
 
-async function reasonShortStepDescriptions(data, baseFolder, label) {
+async function reasonShortStepDescriptions(data, baseFolder, label, knowledgePath = '') {
     const produceBase = {
-        data: [
-            "scenarios/knowledge.n3",
-        ].concat(data),
+        data: data,
         query: "rules/workflow-composer/preselection/pregeneration.n3",
+    }
+    if (knowledgePath !== '') {
+        produceBase.data.push(knowledgePath);
     }
     const output = `${baseFolder}/short_step_descriptions_${label}.n3`;
     await _cached(output, produceBase);
     return output;
 }
 
-async function reasonSelectedSteps(data, baseFolder, label, type) {
+async function reasonSelectedSteps(data, baseFolder, label, type, knowledgePath = '') {
     const produceBase = {
         data: [
-            "rules/workflow-composer/preselection/preselection.n3",
-            "scenarios/knowledge.n3",
+            "rules/workflow-composer/preselection/preselection.n3"
         ].concat(data),
         query: "rules/workflow-composer/preselection/query_preselection.n3",
+    }
+    if (knowledgePath !== '') {
+        produceBase.data.push(knowledgePath);
     }
     const output = `${baseFolder}/selected_steps_${type}_${label}.n3`;
     await _cached(output, produceBase);
     return output;
 }
 
-async function reasonJourney(data, query, baseFolder) {
+async function reasonJourney(data, query, baseFolder, knowledgePath = '') {
     const produceBase = {
         data: [
-            "rules/workflow-composer/gps-plugin_modified_noPermutations.n3",
-            "scenarios/knowledge.n3",
+            "rules/workflow-composer/gps-plugin_modified_noPermutations.n3"
         ].concat(data),
         query,
+    }
+    if (knowledgePath !== '') {
+        produceBase.data.push(knowledgePath);
     }
     const output = `${baseFolder}/reason_journey.n3`;
     await _cached(output, produceBase, true);
