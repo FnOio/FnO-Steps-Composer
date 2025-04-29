@@ -1,0 +1,6 @@
+@prefix o-persoon: <https://data.vlaanderen.be/ns/persoon#> .
+@prefix ex: <http://example.com/ns#> .
+
+ex:Bob a o-persoon:Inwoner ;
+       ex:hasreachedA true ;
+       ex:hashasHikingGear true .
