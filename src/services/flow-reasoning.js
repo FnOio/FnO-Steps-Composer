@@ -1,7 +1,7 @@
 /**
  * This file contains code reasoning over a flow (of steps).
  */
-import {mkdir, rm, writeFile, copyFile} from "fs/promises";
+import {mkdir, rm, writeFile, copyFile, readFile} from "fs/promises";
 import path from "path";
 import {basePath, parsePaths, validateTtl} from "./util.js";
 import {
@@ -42,6 +42,10 @@ async function reasonFlow(label, dataPath, stepsPath, statesPath, shapesPath, go
     // copy file dataPath to baseFolder
     const dataCopyPath = path.resolve(baseFolder, 'data.ttl');
     await copyFile(dataPath, dataCopyPath);
+
+    // print data
+    const dataStr = await readFile(dataCopyPath, 'utf8');
+    console.log('data: \n' + dataStr);
 
     // initialize index: an object keeping paths to the generated output
     const index = {
