@@ -1,9 +1,10 @@
 import {readFile, open} from "fs/promises";
 import path, {dirname} from "path";
 import $rdf, {Namespace} from "rdflib";
-import Parser from "n3";
+import {Parser, Store} from "n3";
 
 import { fileURLToPath } from 'url';
+import {NamedNode} from "n3/lib/N3DataFactory.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -34,19 +35,26 @@ async function parsePaths(pathsPath) {
 
 
 async function validateTtl(ttlPath) {
-    const parser = new Parser.Parser();
-    const fd = await open(ttlPath);
-    const rdfStream = fd.createReadStream();
-
-    return new Promise((resolve, reject) => {
-
-        parser.parse(rdfStream, function (error, triple, prefixes) {
-            if (error) {
-                reject(new Error(`${ttlPath} is an invalid Turtle document: ${e_read.message}`));
-            }
-        });
-        resolve();
-    });
+    const contents = await readFile(ttlPath, 'utf-8');
+    const parser = new Parser();
+    return new Store(parser.parse(contents));
 }
 
-export {parsePaths, validateTtl, basePath};
+/**
+ * Give name and description of a Step
+ * @param stepNode {NamedNode}
+ * @param n3store {Store} The RDF store where all steps are described.
+ * @returns {String} A printable version of the step.
+ */
+function formatStep(stepNode, n3store) {
+    // get short step name (last part in URI)
+    const id = stepNode.id()
+
+    // get description of step
+    const descriptionNode = n3store.getObjects(stepNode, new NamedNode('https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription'))[0];
+    const description = n3store.getObjects(descriptionNode, new NamedNode('http://www.w3.org/2008/05/skos-xl#literalForm'))[0].value;
+
+    return `${id}: ${description}`;
+}
+
+export {parsePaths, validateTtl, basePath, formatStep};

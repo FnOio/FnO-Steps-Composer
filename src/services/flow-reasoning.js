@@ -3,7 +3,7 @@
  */
 import {mkdir, rm, writeFile, copyFile, readFile} from "fs/promises";
 import path from "path";
-import {basePath, parsePaths, validateTtl} from "./util.js";
+import {basePath, formatStep, parsePaths, validateTtl} from "./util.js";
 import {
     reasonComponentLevelSteps,
     reasonContainerLevelSteps,
@@ -13,6 +13,7 @@ import {
     reasonSelectedSteps,
     reasonShortStepDescriptions, reasonStep
 } from "./step-reasoning.js";
+import {NamedNode} from "n3/lib/N3DataFactory.js";
 
 /**
  *
@@ -28,7 +29,7 @@ import {
 async function reasonFlow(label, dataPath, stepsPath, statesPath, shapesPath, goalStates, knowledgePath = '') {
 
     // validate input data
-    await validateTtl(stepsPath);
+    const stepsStore = await validateTtl(stepsPath);
     await validateTtl(shapesPath);
     await validateTtl(statesPath);
     await validateTtl(dataPath);
@@ -91,6 +92,10 @@ async function reasonFlow(label, dataPath, stepsPath, statesPath, shapesPath, go
 
     console.log('Steps to take:');
     for (const journeyLevelStep of allJourneyLevelSteps) {
+        // get description object
+        const descriptionNode = stepsStore.getObjects(journeyLevelStep, new NamedNode('https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription'))[0];
+        const description = stepsStore.getObjects(descriptionNode, new NamedNode('http://www.w3.org/2008/05/skos-xl#literalForm'))[0].value;
+
         // 0️⃣
         const containerStepsPath = await reasonContainerLevelSteps([stepsPath, statesPath, shapesPath], baseFolder);
         const containerDescriptionsPath = await reasonShortStepDescriptions([containerStepsPath], baseFolder, `container`, knowledgePath);
@@ -98,10 +103,10 @@ async function reasonFlow(label, dataPath, stepsPath, statesPath, shapesPath, go
         const containerPathsPath =
             await reasonStep(journeyLevelStep, containerStepsPath, containerDescriptionsPath, journeyStepsPath, baseFolder, stepsPath, dataCopyPath, 'containers', index, knowledgePath);
         const allContainerLevelSteps = await parsePaths(containerPathsPath);
-        console.log(`${journeyLevelStep}`);
+        console.log(formatStep(journeyLevelStep, stepsStore));
         //console.log(`for journeyLevelStep ${journeyLevelStep}, we find following containerLevelSteps: ${allContainerLevelSteps.join(', ')}`);
         for (const containerLevelStep of allContainerLevelSteps) {
-            console.log('  ' + containerLevelStep);
+            console.log('  ' + formatStep(containerLevelStep, stepsStore));
             // 0️⃣
             const componentStepsPath = await reasonComponentLevelSteps([stepsPath, statesPath, shapesPath], baseFolder);
             const componentDescriptionsPath = await reasonShortStepDescriptions([componentStepsPath], baseFolder, `component`, knowledgePath);
@@ -110,7 +115,9 @@ async function reasonFlow(label, dataPath, stepsPath, statesPath, shapesPath, go
                 await reasonStep(containerLevelStep, componentStepsPath, componentDescriptionsPath, containerStepsPath, baseFolder, stepsPath, dataCopyPath, 'components', index, knowledgePath);
             const allComponentLevelSteps = await parsePaths(componentPathsPath);
             //console.log(`for containerLevelStep ${containerLevelStep}, we find following componentLevelSteps: ${allComponentLevelSteps.join(', ')}`);
-            console.log(`    ${allComponentLevelSteps.join('\n    ')}`);
+            for (const componentLevelStep of allComponentLevelSteps) {
+                console.log('    ' + formatStep(componentLevelStep, stepsStore));
+            }
         }
     }
     await writeFile(path.resolve(baseFolder, 'index.json'), JSON.stringify(index, null, '  '));
