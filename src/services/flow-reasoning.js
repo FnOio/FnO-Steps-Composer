@@ -1,9 +1,9 @@
 /**
  * This file contains code reasoning over a flow (of steps).
  */
-import {mkdir, rm, writeFile, copyFile, readFile} from "fs/promises";
+import {mkdir, rm, writeFile, copyFile} from "fs/promises";
 import path from "path";
-import {basePath, formatStep, parsePaths, validateTtl} from "./util.js";
+import {basePath, formatAlternativeMap, formatData, formatStep, parsePaths, validateTtl} from "./util.js";
 import {
     reasonComponentLevelSteps,
     reasonContainerLevelSteps,
@@ -13,7 +13,6 @@ import {
     reasonSelectedSteps,
     reasonShortStepDescriptions, reasonStep
 } from "./step-reasoning.js";
-import {NamedNode} from "n3/lib/N3DataFactory.js";
 
 /**
  *
@@ -32,10 +31,7 @@ async function reasonFlow(label, dataPath, stepsPath, statesPath, shapesPath, go
     const stepsStore = await validateTtl(stepsPath);
     await validateTtl(shapesPath);
     await validateTtl(statesPath);
-    await validateTtl(dataPath);
-    console.log('all input files are valid TTL.');
-
-    // TODO: check if goal states are in statesPath
+    const dataStore = await validateTtl(dataPath);
 
     const baseFolder = path.resolve(basePath, '_output/', label);
     await rm(baseFolder, {recursive: true, force: true});
@@ -46,8 +42,8 @@ async function reasonFlow(label, dataPath, stepsPath, statesPath, shapesPath, go
     await copyFile(dataPath, dataCopyPath);
 
     // print data
-    const dataStr = await readFile(dataCopyPath, 'utf8');
-    console.log('data: \n' + dataStr);
+    const dataStr = formatData(dataStore);
+    console.log('* situation: \n' + dataStr);
 
     // initialize index: an object keeping paths to the generated output
     const index = {
@@ -87,14 +83,10 @@ async function reasonFlow(label, dataPath, stepsPath, statesPath, shapesPath, go
     // not same as reasonPaths: this one doesn't include util/graph.n3
     const journeyPathsPath = await reasonJourney([journeySelectedStepsPath, stepsPath, dataCopyPath], goalPath, baseFolder, knowledgePath);
 
-    const allJourneyLevelSteps = await parsePaths(journeyPathsPath);
-    //console.log(allJourneyLevelSteps.join(', '));
+    const {steps: allJourneyLevelSteps} = await parsePaths(journeyPathsPath);
 
-    console.log('Steps to take:');
+    console.log('* Steps to take:');
     for (const journeyLevelStep of allJourneyLevelSteps) {
-        // get description object
-        const descriptionNode = stepsStore.getObjects(journeyLevelStep, new NamedNode('https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription'))[0];
-        const description = stepsStore.getObjects(descriptionNode, new NamedNode('http://www.w3.org/2008/05/skos-xl#literalForm'))[0].value;
 
         // 0️⃣
         const containerStepsPath = await reasonContainerLevelSteps([stepsPath, statesPath, shapesPath], baseFolder);
@@ -102,9 +94,8 @@ async function reasonFlow(label, dataPath, stepsPath, statesPath, shapesPath, go
         // 3️⃣
         const containerPathsPath =
             await reasonStep(journeyLevelStep, containerStepsPath, containerDescriptionsPath, journeyStepsPath, baseFolder, stepsPath, dataCopyPath, 'containers', index, knowledgePath);
-        const allContainerLevelSteps = await parsePaths(containerPathsPath);
+        const {steps: allContainerLevelSteps} = await parsePaths(containerPathsPath);
         console.log(formatStep(journeyLevelStep, stepsStore));
-        //console.log(`for journeyLevelStep ${journeyLevelStep}, we find following containerLevelSteps: ${allContainerLevelSteps.join(', ')}`);
         for (const containerLevelStep of allContainerLevelSteps) {
             console.log('  ' + formatStep(containerLevelStep, stepsStore));
             // 0️⃣
@@ -113,11 +104,9 @@ async function reasonFlow(label, dataPath, stepsPath, statesPath, shapesPath, go
             // 3️⃣
             const componentPathsPath =
                 await reasonStep(containerLevelStep, componentStepsPath, componentDescriptionsPath, containerStepsPath, baseFolder, stepsPath, dataCopyPath, 'components', index, knowledgePath);
-            const allComponentLevelSteps = await parsePaths(componentPathsPath);
-            //console.log(`for containerLevelStep ${containerLevelStep}, we find following componentLevelSteps: ${allComponentLevelSteps.join(', ')}`);
-            for (const componentLevelStep of allComponentLevelSteps) {
-                console.log('    ' + formatStep(componentLevelStep, stepsStore));
-            }
+            const {alternatives: componentAlternatives} = await parsePaths(componentPathsPath);
+            const formattedPaths = formatAlternativeMap(componentAlternatives, stepsStore, 3);
+            console.log(formattedPaths);
         }
     }
     await writeFile(path.resolve(baseFolder, 'index.json'), JSON.stringify(index, null, '  '));

@@ -1,0 +1,49 @@
+
+<http://localhost:8000/steps#fromAtoB> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ContainerLevelStep>,
+    <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#JourneyLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#fromAtoBDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#reachedB>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#emptyState> .
+
+<http://localhost:8000/steps#fromAtoBDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "Go from A to B, but there's a mountain in between..." .
+
+<http://localhost:8000/steps#getHikingGear> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#getHikingGearDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#hasHikingGear>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#hasMoney> .
+
+<http://localhost:8000/steps#getHikingGearDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "Buy hiking gear" .
+
+<http://localhost:8000/steps#getMoney> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#getMoneyDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#hasMoney>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#emptyState> .
+
+<http://localhost:8000/steps#getMoneyDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "Get money and buy hiking gear" .
+
+<http://localhost:8000/steps#getNoHikingGear> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#getNoHikingGearDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#hasNoHikingGear>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#emptyState> .
+
+<http://localhost:8000/steps#getNoHikingGearDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "There is no hiking gear" .
+
+<http://localhost:8000/steps#goThroughTunnel> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#goThroughTunnelDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#reachedB>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#hasNoHikingGear> .
+
+<http://localhost:8000/steps#goThroughTunnelDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "You don't have hiking gear; go through the tunnel" .
+
+<http://localhost:8000/steps#hike> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#hikeDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#reachedB>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#hasHikingGear> .
+
+<http://localhost:8000/steps#hikeDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "Hike over the mountain, only if you have hiking gear" .

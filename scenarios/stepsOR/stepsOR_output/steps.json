@@ -1,0 +1,75 @@
+[
+  {
+    "name": "fromAtoB",
+    "description": "Go from A to B, but there's a mountain in between...",
+    "levels": [
+      "Journey",
+      "Container"
+    ],
+    "start_states": [],
+    "end_states": [
+      "reachedB"
+    ]
+  },
+  {
+    "name": "getMoney",
+    "description": "Get money and buy hiking gear",
+    "levels": [
+      "Component"
+    ],
+    "start_states": [],
+    "end_states": [
+      "hasMoney"
+    ]
+  },
+  {
+    "name": "getHikingGear",
+    "description": "Buy hiking gear",
+    "levels": [
+      "Component"
+    ],
+    "start_states": [
+      "hasMoney"
+    ],
+    "end_states": [
+      "hasHikingGear"
+    ]
+  },
+  {
+    "name": "hike",
+    "description": "Hike over the mountain, only if you have hiking gear",
+    "levels": [
+      "Component"
+    ],
+    "start_states": [
+      "hasHikingGear"
+    ],
+    "end_states": [
+      "reachedB"
+    ]
+  },
+  {
+    "name": "getNoHikingGear",
+    "description": "There is no hiking gear",
+    "levels": [
+      "Component"
+    ],
+    "start_states": [],
+    "end_states": [
+      "hasNoHikingGear"
+    ]
+  },
+  {
+    "name": "goThroughTunnel",
+    "description": "You don't have hiking gear; go through the tunnel",
+    "levels": [
+      "Component"
+    ],
+    "start_states": [
+      "hasNoHikingGear"
+    ],
+    "end_states": [
+      "reachedB"
+    ]
+  }
+]
