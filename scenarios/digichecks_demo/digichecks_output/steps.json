@@ -14,8 +14,8 @@
     "name": "getArchitect",
     "description": "An architect is required to assist with the building permit application",
     "levels": [
-      "Container",
-      "Component"
+      "Component",
+      "Container"
     ],
     "start_states": [],
     "end_states": [
@@ -81,9 +81,9 @@
       "Component"
     ],
     "start_states": [
-      "architectHasPreliminaryInput",
       "designAvailable",
-      "requiredDocumentsAvailable"
+      "requiredDocumentsAvailable",
+      "architectHasPreliminaryInput"
     ],
     "end_states": [
       "buildingPermitApplicationPrepared"
@@ -93,8 +93,8 @@
     "name": "submitApplication",
     "description": "Submit the building permit applicaton",
     "levels": [
-      "Component",
-      "Container"
+      "Container",
+      "Component"
     ],
     "start_states": [
       "buildingPermitApplicationPrepared"
@@ -107,8 +107,8 @@
     "name": "getPermitOfficer",
     "description": "A permit officer working at the city administration is assigned",
     "levels": [
-      "Container",
-      "Component"
+      "Component",
+      "Container"
     ],
     "start_states": [
       "buildingPermitApplicationSubmitted"
@@ -189,10 +189,10 @@
       "Component"
     ],
     "start_states": [
-      "projectRegistered",
-      "completenessCheckPassed",
+      "administrativeProcessesDone",
       "formatCheckPassed",
-      "administrativeProcessesDone"
+      "completenessCheckPassed",
+      "projectRegistered"
     ],
     "end_states": [
       "preliminaryCheckPassed"
@@ -236,6 +236,19 @@
     ],
     "end_states": [
       "contentReviewPassed"
+    ]
+  },
+  {
+    "name": "consultDepartmentToepassingWatertoets",
+    "description": "Consult the department responsible for \"Toepassing van de Watertoets\"",
+    "levels": [
+      "Component"
+    ],
+    "start_states": [
+      "permittingProcessAnnounced"
+    ],
+    "end_states": [
+      "departmentToepassingWatertoetsConsulted"
     ]
   },
   {
@@ -297,9 +310,10 @@
       "Component"
     ],
     "start_states": [
-      "agentschapOnroerendErfgoedConsulted",
+      "departmentToepassingWatertoetsConsulted",
+      "departementMobiliteitEnOpenbareWerkenConsulted",
       "ASTRIDveiligheidscommissieConsulted",
-      "departementMobiliteitEnOpenbareWerkenConsulted"
+      "agentschapOnroerendErfgoedConsulted"
     ],
     "end_states": [
       "contentReviewPassed"
@@ -351,8 +365,9 @@
       "Component"
     ],
     "start_states": [
-      "departementLandbouwEnVisserijConsulted",
-      "departementNatuurEnBosConsulted"
+      "departmentToepassingWatertoetsConsulted",
+      "departementNatuurEnBosConsulted",
+      "departementLandbouwEnVisserijConsulted"
     ],
     "end_states": [
       "contentReviewPassed"
@@ -363,8 +378,8 @@
     "description": "From collection neighbour objections to final ratification",
     "levels": [
       "Journey",
-      "Container",
-      "Component"
+      "Component",
+      "Container"
     ],
     "start_states": [
       "contentReviewPassed"

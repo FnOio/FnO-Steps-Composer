@@ -56,6 +56,10 @@
   <http://www.w3.org/2000/01/rdf-schema#label> "The department 'Natuur en Bos' has been consulted";
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#departementNatuurEnBosConsulted> .
 
+<http://localhost:8000/states#departmentToepassingWatertoetsConsulted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "The department responsible for \"Toepassing van de Watertoets\" is consulted";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#departmentToepassingWatertoetsConsulted> .
+
 <http://localhost:8000/states#designAvailable> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
   <http://www.w3.org/2000/01/rdf-schema#label> "The design is ready.";
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#designAvailable> .

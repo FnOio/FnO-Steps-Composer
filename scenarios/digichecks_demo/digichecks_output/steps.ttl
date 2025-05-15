@@ -56,7 +56,8 @@
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#collectStatementsOfAgenciesCityDescription>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#contentReviewPassed>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#ASTRIDveiligheidscommissieConsulted>,
-    <http://localhost:8000/states#agentschapOnroerendErfgoedConsulted>, <http://localhost:8000/states#departementMobiliteitEnOpenbareWerkenConsulted> .
+    <http://localhost:8000/states#agentschapOnroerendErfgoedConsulted>, <http://localhost:8000/states#departementMobiliteitEnOpenbareWerkenConsulted>,
+    <http://localhost:8000/states#departmentToepassingWatertoetsConsulted> .
 
 <http://localhost:8000/steps#collectStatementsOfAgenciesCityDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "Collect the statements of agencies and departments for the city center" .
@@ -65,7 +66,7 @@
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#collectStatementsOfAgenciesRuralDescription>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#contentReviewPassed>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#departementLandbouwEnVisserijConsulted>,
-    <http://localhost:8000/states#departementNatuurEnBosConsulted> .
+    <http://localhost:8000/states#departementNatuurEnBosConsulted>, <http://localhost:8000/states#departmentToepassingWatertoetsConsulted> .
 
 <http://localhost:8000/steps#collectStatementsOfAgenciesRuralDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "Collect the statements of agencies and departments for a rural area" .
@@ -117,6 +118,14 @@
 
 <http://localhost:8000/steps#consultDepartementNatuurEnBosDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "Consult the department \"Natuur en Bos\"" .
+
+<http://localhost:8000/steps#consultDepartmentToepassingWatertoets> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#consultDepartmentToepassingWatertoetsDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#departmentToepassingWatertoetsConsulted>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#permittingProcessAnnounced> .
+
+<http://localhost:8000/steps#consultDepartmentToepassingWatertoetsDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "Consult the department responsible for \"Toepassing van de Watertoets\"" .
 
 <http://localhost:8000/steps#getArchitect> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>,
     <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ContainerLevelStep>;

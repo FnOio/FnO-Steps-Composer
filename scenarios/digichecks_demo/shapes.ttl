@@ -185,6 +185,20 @@
   <http://www.w3.org/ns/shacl#path> <http://example.com/ns#hasdepartementNatuurEnBosConsulted>;
   <http://www.w3.org/ns/shacl#pattern> "true" .
 
+<http://localhost:8000/shapes#departmentToepassingWatertoetsConsulted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
+  <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#departmentToepassingWatertoetsConsultedPropertyShape>;
+  <http://www.w3.org/ns/shacl#targetClass> <https://data.vlaanderen.be/ns/persoon#Inwoner> .
+
+<http://localhost:8000/shapes#departmentToepassingWatertoetsConsultedPropertyShape>
+  a <http://www.w3.org/ns/shacl#PropertyShape>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
+  <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#boolean>;
+  <http://www.w3.org/ns/shacl#maxCount> 1;
+  <http://www.w3.org/ns/shacl#minCount> 1;
+  <http://www.w3.org/ns/shacl#path> <http://example.com/ns#hasdepartmentToepassingWatertoetsConsulted>;
+  <http://www.w3.org/ns/shacl#pattern> "true" .
+
 <http://localhost:8000/shapes#designAvailable> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
   <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
   <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#designAvailablePropertyShape>;
