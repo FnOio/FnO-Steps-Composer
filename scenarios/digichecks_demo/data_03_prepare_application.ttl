@@ -1,0 +1,11 @@
+@prefix o-persoon: <https://data.vlaanderen.be/ns/persoon#> .
+@prefix ex: <http://example.com/ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:Jacky a o-persoon:Inwoner ;
+  rdfs:comment '''Amy helped Jacky prepare the building permit application by
+- making a design of the renovation;
+- doing some preliminary consultations with the administration;
+- preparing all required documents.''';
+  ex:hasarchitectAssists true ;
+  ex:hasbuildingPermitApplicationPrepared true .
