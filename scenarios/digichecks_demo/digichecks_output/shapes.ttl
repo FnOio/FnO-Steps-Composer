@@ -26,6 +26,19 @@
   <http://www.w3.org/ns/shacl#path> <http://example.com/ns#hasadministrativeProcessesDone>;
   <http://www.w3.org/ns/shacl#pattern> "true" .
 
+<http://localhost:8000/shapes#advisoryDocumentReady> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
+  <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#advisoryDocumentReadyPropertyShape>;
+  <http://www.w3.org/ns/shacl#targetClass> <https://data.vlaanderen.be/ns/persoon#Inwoner> .
+
+<http://localhost:8000/shapes#advisoryDocumentReadyPropertyShape> a <http://www.w3.org/ns/shacl#PropertyShape>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
+  <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#boolean>;
+  <http://www.w3.org/ns/shacl#maxCount> 1;
+  <http://www.w3.org/ns/shacl#minCount> 1;
+  <http://www.w3.org/ns/shacl#path> <http://example.com/ns#hasadvisoryDocumentReady>;
+  <http://www.w3.org/ns/shacl#pattern> "true" .
+
 <http://localhost:8000/shapes#agenciesAndDepartmentsConsulted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
   <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
   <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#agenciesAndDepartmentsConsultedPropertyShape>;
@@ -118,19 +131,6 @@
   <http://www.w3.org/ns/shacl#path> <http://example.com/ns#hasbuildingPermitApplicationSubmitted>;
   <http://www.w3.org/ns/shacl#pattern> "true" .
 
-<http://localhost:8000/shapes#buildingPermitApproved> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
-  <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#buildingPermitApprovedPropertyShape>;
-  <http://www.w3.org/ns/shacl#targetClass> <https://data.vlaanderen.be/ns/persoon#Inwoner> .
-
-<http://localhost:8000/shapes#buildingPermitApprovedPropertyShape> a <http://www.w3.org/ns/shacl#PropertyShape>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
-  <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#boolean>;
-  <http://www.w3.org/ns/shacl#maxCount> 1;
-  <http://www.w3.org/ns/shacl#minCount> 1;
-  <http://www.w3.org/ns/shacl#path> <http://example.com/ns#hasbuildingPermitApproved>;
-  <http://www.w3.org/ns/shacl#pattern> "true" .
-
 <http://localhost:8000/shapes#completenessCheckPassed> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
   <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
   <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#completenessCheckPassedPropertyShape>;
@@ -155,6 +155,19 @@
   <http://www.w3.org/ns/shacl#maxCount> 1;
   <http://www.w3.org/ns/shacl#minCount> 1;
   <http://www.w3.org/ns/shacl#path> <http://example.com/ns#hascontentReviewPassed>;
+  <http://www.w3.org/ns/shacl#pattern> "true" .
+
+<http://localhost:8000/shapes#decisionRatifiedOrRejected> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
+  <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#decisionRatifiedOrRejectedPropertyShape>;
+  <http://www.w3.org/ns/shacl#targetClass> <https://data.vlaanderen.be/ns/persoon#Inwoner> .
+
+<http://localhost:8000/shapes#decisionRatifiedOrRejectedPropertyShape> a <http://www.w3.org/ns/shacl#PropertyShape>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
+  <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#boolean>;
+  <http://www.w3.org/ns/shacl#maxCount> 1;
+  <http://www.w3.org/ns/shacl#minCount> 1;
+  <http://www.w3.org/ns/shacl#path> <http://example.com/ns#hasdecisionRatifiedOrRejected>;
   <http://www.w3.org/ns/shacl#pattern> "true" .
 
 <http://localhost:8000/shapes#departementLandbouwEnVisserijConsulted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
@@ -262,6 +275,19 @@
   <http://www.w3.org/ns/shacl#maxCount> 1;
   <http://www.w3.org/ns/shacl#minCount> 1;
   <http://www.w3.org/ns/shacl#path> <http://example.com/ns#haslocatedInRuralArea>;
+  <http://www.w3.org/ns/shacl#pattern> "true" .
+
+<http://localhost:8000/shapes#neighbourObjectionsCollected> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
+  <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#neighbourObjectionsCollectedPropertyShape>;
+  <http://www.w3.org/ns/shacl#targetClass> <https://data.vlaanderen.be/ns/persoon#Inwoner> .
+
+<http://localhost:8000/shapes#neighbourObjectionsCollectedPropertyShape> a <http://www.w3.org/ns/shacl#PropertyShape>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
+  <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#boolean>;
+  <http://www.w3.org/ns/shacl#maxCount> 1;
+  <http://www.w3.org/ns/shacl#minCount> 1;
+  <http://www.w3.org/ns/shacl#path> <http://example.com/ns#hasneighbourObjectionsCollected>;
   <http://www.w3.org/ns/shacl#pattern> "true" .
 
 <http://localhost:8000/shapes#permitOfficerAssigned> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;

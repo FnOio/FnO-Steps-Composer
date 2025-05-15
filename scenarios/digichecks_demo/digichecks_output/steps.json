@@ -14,8 +14,8 @@
     "name": "getArchitect",
     "description": "An architect is required to assist with the building permit application",
     "levels": [
-      "Component",
-      "Container"
+      "Container",
+      "Component"
     ],
     "start_states": [],
     "end_states": [
@@ -82,8 +82,8 @@
     ],
     "start_states": [
       "requiredDocumentsAvailable",
-      "architectHasPreliminaryInput",
-      "designAvailable"
+      "designAvailable",
+      "architectHasPreliminaryInput"
     ],
     "end_states": [
       "buildingPermitApplicationPrepared"
@@ -189,9 +189,9 @@
       "Component"
     ],
     "start_states": [
-      "administrativeProcessesDone",
       "formatCheckPassed",
       "completenessCheckPassed",
+      "administrativeProcessesDone",
       "projectRegistered"
     ],
     "end_states": [
@@ -310,10 +310,10 @@
       "Component"
     ],
     "start_states": [
+      "departmentToepassingWatertoetsConsulted",
       "ASTRIDveiligheidscommissieConsulted",
-      "departementMobiliteitEnOpenbareWerkenConsulted",
       "agentschapOnroerendErfgoedConsulted",
-      "departmentToepassingWatertoetsConsulted"
+      "departementMobiliteitEnOpenbareWerkenConsulted"
     ],
     "end_states": [
       "agenciesAndDepartmentsConsulted"
@@ -365,9 +365,9 @@
       "Component"
     ],
     "start_states": [
-      "departementNatuurEnBosConsulted",
       "departmentToepassingWatertoetsConsulted",
-      "departementLandbouwEnVisserijConsulted"
+      "departementLandbouwEnVisserijConsulted",
+      "departementNatuurEnBosConsulted"
     ],
     "end_states": [
       "agenciesAndDepartmentsConsulted"
@@ -409,8 +409,8 @@
       "Component"
     ],
     "start_states": [
-      "buildingLawComplianceChecked",
       "agenciesAndDepartmentsConsulted",
+      "buildingLawComplianceChecked",
       "planningLawComplianceChecked"
     ],
     "end_states": [
@@ -422,14 +422,52 @@
     "description": "From collection neighbour objections to final ratification",
     "levels": [
       "Journey",
-      "Container",
+      "Container"
+    ],
+    "start_states": [
+      "contentReviewPassed"
+    ],
+    "end_states": [
+      "decisionRatifiedOrRejected"
+    ]
+  },
+  {
+    "name": "neighboursCanObject",
+    "description": "Neighbours have some time to object",
+    "levels": [
       "Component"
     ],
     "start_states": [
       "contentReviewPassed"
     ],
     "end_states": [
-      "buildingPermitApproved"
+      "neighbourObjectionsCollected"
+    ]
+  },
+  {
+    "name": "writeAdvisoryDocument",
+    "description": "The project officer writes an advisory document with a final decision for the city counsil",
+    "levels": [
+      "Component"
+    ],
+    "start_states": [
+      "neighbourObjectionsCollected"
+    ],
+    "end_states": [
+      "advisoryDocumentReady"
+    ]
+  },
+  {
+    "name": "evaluateDecision",
+    "description": "The city counsil evaluates the decisionwritten in the advisory document",
+    "levels": [
+      "Component"
+    ],
+    "start_states": [
+      "advisoryDocumentReady"
+    ],
+    "end_states": [
+      "decisionRatifiedOrRejected"
     ]
   }
 ]

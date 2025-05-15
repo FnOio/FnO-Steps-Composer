@@ -1,5 +1,4 @@
 "name","shape","description"
-"buildingPermitApproved","buildingPermitApproved","The building permit is approved and objections are handled."
 "buildingPermitApplicationPrepared","buildingPermitApplicationPrepared","The building permit application is ready to be submitted"
 "architectAssists","architectAssists","An architect is found to assist with the building permit application"
 "designAvailable","designAvailable","The design is ready."
@@ -26,3 +25,6 @@
 "departmentToepassingWatertoetsConsulted","departmentToepassingWatertoetsConsulted","The department responsible for "Toepassing van de Watertoets" is consulted"
 "planningLawComplianceChecked","planningLawComplianceChecked","The project is checked for planning law compliance"
 "buildingLawComplianceChecked","buildingLawComplianceChecked","The project is checked for building law compliance"
+"neighbourObjectionsCollected","neighbourObjectionsCollected","The objections of neighbours are collected"
+"advisoryDocumentReady","advisoryDocumentReady","The project officer wrote an advisory document containing info from the content review and objections of neighbours"
+"decisionRatifiedOrRejected","decisionRatifiedOrRejected","The city counsil ratified or rejected the final decision written in the advisory document"

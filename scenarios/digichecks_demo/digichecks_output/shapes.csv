@@ -1,5 +1,4 @@
 "name"
-"buildingPermitApproved"
 "buildingPermitApplicationPrepared"
 "architectAssists"
 "designAvailable"
@@ -26,3 +25,6 @@
 "departmentToepassingWatertoetsConsulted"
 "planningLawComplianceChecked"
 "buildingLawComplianceChecked"
+"neighbourObjectionsCollected"
+"advisoryDocumentReady"
+"decisionRatifiedOrRejected"

@@ -61,10 +61,10 @@
 <http://localhost:8000/steps#checkPlanningLawComplianceDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "Check if the project complies with the planning law" .
 
-<http://localhost:8000/steps#collectAndDecide> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>,
-    <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ContainerLevelStep>, <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#JourneyLevelStep>;
+<http://localhost:8000/steps#collectAndDecide> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ContainerLevelStep>,
+    <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#JourneyLevelStep>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#collectAndDecideDescription>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#buildingPermitApproved>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#decisionRatifiedOrRejected>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#contentReviewPassed> .
 
 <http://localhost:8000/steps#collectAndDecideDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
@@ -155,6 +155,14 @@
 <http://localhost:8000/steps#endContentReviewDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "All steps for the content review are performed" .
 
+<http://localhost:8000/steps#evaluateDecision> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#evaluateDecisionDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#decisionRatifiedOrRejected>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#advisoryDocumentReady> .
+
+<http://localhost:8000/steps#evaluateDecisionDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "The city counsil evaluates the decisionwritten in the advisory document" .
+
 <http://localhost:8000/steps#getArchitect> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>,
     <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ContainerLevelStep>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#getArchitectDescription>;
@@ -188,6 +196,14 @@
 
 <http://localhost:8000/steps#locatedInRuralAreaDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "The project is located in a rural area" .
+
+<http://localhost:8000/steps#neighboursCanObject> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#neighboursCanObjectDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#neighbourObjectionsCollected>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#contentReviewPassed> .
+
+<http://localhost:8000/steps#neighboursCanObjectDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "Neighbours have some time to object" .
 
 <http://localhost:8000/steps#performAdministrativeProcesses> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#performAdministrativeProcessesDescription>;
@@ -269,3 +285,11 @@
 
 <http://localhost:8000/steps#submitApplicationDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "Submit the building permit applicaton" .
+
+<http://localhost:8000/steps#writeAdvisoryDocument> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#writeAdvisoryDocumentDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#advisoryDocumentReady>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#neighbourObjectionsCollected> .
+
+<http://localhost:8000/steps#writeAdvisoryDocumentDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "The project officer writes an advisory document with a final decision for the city counsil" .

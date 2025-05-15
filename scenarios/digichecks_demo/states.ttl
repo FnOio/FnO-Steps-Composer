@@ -7,6 +7,10 @@
   <http://www.w3.org/2000/01/rdf-schema#label> "All administrative processes (e.g. Sending reception letter) are done";
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#administrativeProcessesDone> .
 
+<http://localhost:8000/states#advisoryDocumentReady> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "The project officer wrote an advisory document containing info from the content review and objections of neighbours";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#advisoryDocumentReady> .
+
 <http://localhost:8000/states#agenciesAndDepartmentsConsulted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
   <http://www.w3.org/2000/01/rdf-schema#label> "Agencies and departments are requested to give statements";
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#agenciesAndDepartmentsConsulted> .
@@ -36,10 +40,6 @@
     "The building permit application is submitted to authority";
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#buildingPermitApplicationSubmitted> .
 
-<http://localhost:8000/states#buildingPermitApproved> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "The building permit is approved and objections are handled.";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#buildingPermitApproved> .
-
 <http://localhost:8000/states#completenessCheckPassed> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
   <http://www.w3.org/2000/01/rdf-schema#label> "All required documents are submitted";
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#completenessCheckPassed> .
@@ -47,6 +47,10 @@
 <http://localhost:8000/states#contentReviewPassed> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
   <http://www.w3.org/2000/01/rdf-schema#label> "The content review passed";
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#contentReviewPassed> .
+
+<http://localhost:8000/states#decisionRatifiedOrRejected> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "The city counsil ratified or rejected the final decision written in the advisory document";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#decisionRatifiedOrRejected> .
 
 <http://localhost:8000/states#departementLandbouwEnVisserijConsulted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
   <http://www.w3.org/2000/01/rdf-schema#label> "The department 'Landbouw en Visserij' has been consulted";
@@ -79,6 +83,10 @@
 <http://localhost:8000/states#locatedInRuralArea> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
   <http://www.w3.org/2000/01/rdf-schema#label> "The project is located in a rural area";
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#locatedInRuralArea> .
+
+<http://localhost:8000/states#neighbourObjectionsCollected> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "The objections of neighbours are collected";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#neighbourObjectionsCollected> .
 
 <http://localhost:8000/states#permitOfficerAssigned> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
   <http://www.w3.org/2000/01/rdf-schema#label> "A permit officer is assigned";
