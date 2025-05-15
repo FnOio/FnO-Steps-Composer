@@ -14,8 +14,8 @@
     "name": "getArchitect",
     "description": "An architect is required to assist with the building permit application",
     "levels": [
-      "Container",
-      "Component"
+      "Component",
+      "Container"
     ],
     "start_states": [],
     "end_states": [
@@ -81,9 +81,9 @@
       "Component"
     ],
     "start_states": [
-      "designAvailable",
       "requiredDocumentsAvailable",
-      "architectHasPreliminaryInput"
+      "architectHasPreliminaryInput",
+      "designAvailable"
     ],
     "end_states": [
       "buildingPermitApplicationPrepared"
@@ -93,8 +93,8 @@
     "name": "submitApplication",
     "description": "Submit the building permit applicaton",
     "levels": [
-      "Component",
-      "Container"
+      "Container",
+      "Component"
     ],
     "start_states": [
       "buildingPermitApplicationPrepared"
@@ -189,10 +189,10 @@
       "Component"
     ],
     "start_states": [
-      "projectRegistered",
-      "formatCheckPassed",
       "administrativeProcessesDone",
-      "completenessCheckPassed"
+      "formatCheckPassed",
+      "completenessCheckPassed",
+      "projectRegistered"
     ],
     "end_states": [
       "preliminaryCheckPassed"
@@ -235,7 +235,7 @@
       "permittingProcessAnnounced"
     ],
     "end_states": [
-      "contentReviewPassed"
+      "agenciesAndDepartmentsConsulted"
     ]
   },
   {
@@ -310,13 +310,13 @@
       "Component"
     ],
     "start_states": [
-      "agentschapOnroerendErfgoedConsulted",
-      "departementMobiliteitEnOpenbareWerkenConsulted",
       "ASTRIDveiligheidscommissieConsulted",
+      "departementMobiliteitEnOpenbareWerkenConsulted",
+      "agentschapOnroerendErfgoedConsulted",
       "departmentToepassingWatertoetsConsulted"
     ],
     "end_states": [
-      "contentReviewPassed"
+      "agenciesAndDepartmentsConsulted"
     ]
   },
   {
@@ -365,9 +365,53 @@
       "Component"
     ],
     "start_states": [
-      "departementLandbouwEnVisserijConsulted",
+      "departementNatuurEnBosConsulted",
       "departmentToepassingWatertoetsConsulted",
-      "departementNatuurEnBosConsulted"
+      "departementLandbouwEnVisserijConsulted"
+    ],
+    "end_states": [
+      "agenciesAndDepartmentsConsulted"
+    ]
+  },
+  {
+    "name": "checkPlanningLawCompliance",
+    "description": "Check if the project complies with the planning law",
+    "levels": [
+      "Component",
+      "Container"
+    ],
+    "start_states": [
+      "permittingProcessAnnounced"
+    ],
+    "end_states": [
+      "planningLawComplianceChecked"
+    ]
+  },
+  {
+    "name": "checkBuildingLawCompliance",
+    "description": "Check if the project complies with the building law",
+    "levels": [
+      "Component",
+      "Container"
+    ],
+    "start_states": [
+      "permittingProcessAnnounced"
+    ],
+    "end_states": [
+      "buildingLawComplianceChecked"
+    ]
+  },
+  {
+    "name": "endContentReview",
+    "description": "All steps for the content review are performed",
+    "levels": [
+      "Container",
+      "Component"
+    ],
+    "start_states": [
+      "buildingLawComplianceChecked",
+      "agenciesAndDepartmentsConsulted",
+      "planningLawComplianceChecked"
     ],
     "end_states": [
       "contentReviewPassed"
@@ -378,8 +422,8 @@
     "description": "From collection neighbour objections to final ratification",
     "levels": [
       "Journey",
-      "Component",
-      "Container"
+      "Container",
+      "Component"
     ],
     "start_states": [
       "contentReviewPassed"

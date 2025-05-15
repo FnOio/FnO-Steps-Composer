@@ -24,3 +24,5 @@
 "ASTRIDveiligheidscommissieConsulted","ASTRIDveiligheidscommissieConsulted","The 'ASTRID' safety commision has been consulted"
 "departementLandbouwEnVisserijConsulted","departementLandbouwEnVisserijConsulted","The department 'Landbouw en Visserij' has been consulted"
 "departmentToepassingWatertoetsConsulted","departmentToepassingWatertoetsConsulted","The department responsible for "Toepassing van de Watertoets" is consulted"
+"planningLawComplianceChecked","planningLawComplianceChecked","The project is checked for planning law compliance"
+"buildingLawComplianceChecked","buildingLawComplianceChecked","The project is checked for building law compliance"
