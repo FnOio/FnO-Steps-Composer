@@ -4,5 +4,4 @@
 
 ex:Jacky a o-persoon:Inwoner ;
   rdfs:comment '''We start with Jacky, a person who wants to renovate a building in the city of Antwerp.
-The first thing she needs to do is find an architect to make a design and help with
-the building permit application.'''.
+What does she have to do to get a building permit?'''.
