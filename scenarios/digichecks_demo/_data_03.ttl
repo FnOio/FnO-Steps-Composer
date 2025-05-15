@@ -1,0 +1,11 @@
+@prefix o-persoon: <https://data.vlaanderen.be/ns/persoon#> .
+@prefix ex: <http://example.com/ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:Jacky a o-persoon:Inwoner ;
+  rdfs:comment "Amy made the design, prepared all required documents and held preliminary consultations with the authority.";
+  ex:hasarchitectAssists true ;
+  ex:hasdesignAvailable true ;
+  ex:hasrequiredDocumentsAvailable true ;
+  ex:hasarchitectHasPreliminaryInput true .
+

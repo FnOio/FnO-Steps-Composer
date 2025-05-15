@@ -1,0 +1,8 @@
+@prefix o-persoon: <https://data.vlaanderen.be/ns/persoon#> .
+@prefix ex: <http://example.com/ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:Jacky a o-persoon:Inwoner ;
+  rdfs:comment '''We start with Jacky, a person who wants to renovate a building in the city of Antwerp.
+The first thing she needs to do is find an architect to make a design and help with
+the building permit application.'''.
