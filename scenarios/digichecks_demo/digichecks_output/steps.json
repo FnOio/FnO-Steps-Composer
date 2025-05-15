@@ -14,8 +14,8 @@
     "name": "getArchitect",
     "description": "An architect is required to assist with the building permit application",
     "levels": [
-      "Component",
-      "Container"
+      "Container",
+      "Component"
     ],
     "start_states": [],
     "end_states": [
@@ -81,8 +81,8 @@
       "Component"
     ],
     "start_states": [
-      "architectHasPreliminaryInput",
       "requiredDocumentsAvailable",
+      "architectHasPreliminaryInput",
       "designAvailable",
       "architectAssists"
     ],
@@ -94,8 +94,8 @@
     "name": "submitApplication",
     "description": "Submit the building permit applicaton",
     "levels": [
-      "Component",
-      "Container"
+      "Container",
+      "Component"
     ],
     "start_states": [
       "buildingPermitApplicationPrepared"
@@ -119,6 +119,59 @@
     ]
   },
   {
+    "name": "preliminaryAuthorityCheck",
+    "description": "The authority preforms pleliminary checks",
+    "levels": [
+      "Container"
+    ],
+    "start_states": [
+      "permitOfficerAssigned"
+    ],
+    "end_states": [
+      "preliminaryCheckPassed"
+    ]
+  },
+  {
+    "name": "checkCompleteness",
+    "description": "Permit officer checks if all required documents are present",
+    "levels": [
+      "Component"
+    ],
+    "start_states": [
+      "permitOfficerAssigned"
+    ],
+    "end_states": [
+      "completenessCheckPassed"
+    ]
+  },
+  {
+    "name": "checkFormat",
+    "description": "Permit officer checks if all required documents are well formatted",
+    "levels": [
+      "Component"
+    ],
+    "start_states": [
+      "permitOfficerAssigned"
+    ],
+    "end_states": [
+      "formatCheckPassed"
+    ]
+  },
+  {
+    "name": "allPreliminaryChecksPass",
+    "description": "All preliminary checks pass",
+    "levels": [
+      "Component"
+    ],
+    "start_states": [
+      "formatCheckPassed",
+      "completenessCheckPassed"
+    ],
+    "end_states": [
+      "preliminaryCheckPassed"
+    ]
+  },
+  {
     "name": "approve",
     "description": "last step",
     "levels": [
@@ -126,7 +179,7 @@
       "Component"
     ],
     "start_states": [
-      "buildingPermitApplicationSubmitted"
+      "preliminaryCheckPassed"
     ],
     "end_states": [
       "buildingPermitApproved"

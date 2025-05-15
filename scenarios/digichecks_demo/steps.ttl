@@ -1,9 +1,18 @@
 
+<http://localhost:8000/steps#allPreliminaryChecksPass> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#allPreliminaryChecksPassDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#preliminaryCheckPassed>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#completenessCheckPassed>,
+    <http://localhost:8000/states#formatCheckPassed> .
+
+<http://localhost:8000/steps#allPreliminaryChecksPassDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "All preliminary checks pass" .
+
 <http://localhost:8000/steps#approve> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>,
     <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ContainerLevelStep>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#approveDescription>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#buildingPermitApproved>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#buildingPermitApplicationSubmitted> .
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#preliminaryCheckPassed> .
 
 <http://localhost:8000/steps#approveDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "last step" .
@@ -17,6 +26,22 @@
 
 <http://localhost:8000/steps#buildingPermitApplicationPreparedDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "The building permit application is prepared" .
+
+<http://localhost:8000/steps#checkCompleteness> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#checkCompletenessDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#completenessCheckPassed>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#permitOfficerAssigned> .
+
+<http://localhost:8000/steps#checkCompletenessDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "Permit officer checks if all required documents are present" .
+
+<http://localhost:8000/steps#checkFormat> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#checkFormatDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#formatCheckPassed>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#permitOfficerAssigned> .
+
+<http://localhost:8000/steps#checkFormatDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "Permit officer checks if all required documents are well formatted" .
 
 <http://localhost:8000/steps#digichecks_flow> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#JourneyLevelStep>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#digichecks_flowDescription>;
@@ -43,6 +68,14 @@
 
 <http://localhost:8000/steps#getPermitOfficerDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "A permit officer working at the city administration is assigned" .
+
+<http://localhost:8000/steps#preliminaryAuthorityCheck> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ContainerLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#preliminaryAuthorityCheckDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#preliminaryCheckPassed>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#permitOfficerAssigned> .
+
+<http://localhost:8000/steps#preliminaryAuthorityCheckDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "The authority preforms pleliminary checks" .
 
 <http://localhost:8000/steps#preliminaryInputFromAuthorities> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#preliminaryInputFromAuthoritiesDescription>;

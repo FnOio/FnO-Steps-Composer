@@ -9,3 +9,5 @@
 "preliminaryCheckPassed","preliminaryCheckPassed","The building permit application passed the preliminary checks done bu the authority"
 "buildingPermitApplicationSubmitted","buildingPermitApplicationSubmitted","The building permit application is submitted"
 "permitOfficerAssigned","permitOfficerAssigned","A permit officer is assigned"
+"completenessCheckPassed","completenessCheckPassed","All required documents are submitted"
+"formatCheckPassed","formatCheckPassed","All required documents are in the right format"

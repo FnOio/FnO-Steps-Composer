@@ -20,9 +20,17 @@
   <http://www.w3.org/2000/01/rdf-schema#label> "The building permit is approved and objections are handled.";
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#buildingPermitApproved> .
 
+<http://localhost:8000/states#completenessCheckPassed> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "All required documents are submitted";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#completenessCheckPassed> .
+
 <http://localhost:8000/states#designAvailable> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
   <http://www.w3.org/2000/01/rdf-schema#label> "The design is ready.";
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#designAvailable> .
+
+<http://localhost:8000/states#formatCheckPassed> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "All required documents are in the right format";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#formatCheckPassed> .
 
 <http://localhost:8000/states#permitOfficerAssigned> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
   <http://www.w3.org/2000/01/rdf-schema#label> "A permit officer is assigned";
