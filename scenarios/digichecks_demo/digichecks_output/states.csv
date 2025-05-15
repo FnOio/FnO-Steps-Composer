@@ -11,3 +11,6 @@
 "permitOfficerAssigned","permitOfficerAssigned","A permit officer is assigned"
 "completenessCheckPassed","completenessCheckPassed","All required documents are submitted"
 "formatCheckPassed","formatCheckPassed","All required documents are in the right format"
+"administrativeProcessesDone","administrativeProcessesDone","All administrative processes (e.g. Sending reception letter) are done"
+"projectRegistered","projectRegistered","The project is registered with the authority's system"
+"permittingProcessAnnounced","permittingProcessAnnounced","The permitting process is publicly announced, so neighbours can object"

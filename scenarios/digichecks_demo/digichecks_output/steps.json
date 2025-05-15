@@ -81,10 +81,9 @@
       "Component"
     ],
     "start_states": [
-      "requiredDocumentsAvailable",
       "architectHasPreliminaryInput",
       "designAvailable",
-      "architectAssists"
+      "requiredDocumentsAvailable"
     ],
     "end_states": [
       "buildingPermitApplicationPrepared"
@@ -94,8 +93,8 @@
     "name": "submitApplication",
     "description": "Submit the building permit applicaton",
     "levels": [
-      "Container",
-      "Component"
+      "Component",
+      "Container"
     ],
     "start_states": [
       "buildingPermitApplicationPrepared"
@@ -108,8 +107,8 @@
     "name": "getPermitOfficer",
     "description": "A permit officer working at the city administration is assigned",
     "levels": [
-      "Container",
-      "Component"
+      "Component",
+      "Container"
     ],
     "start_states": [
       "buildingPermitApplicationSubmitted"
@@ -158,6 +157,32 @@
     ]
   },
   {
+    "name": "performAdministrativeProcesses",
+    "description": "Administrative processes (e.g. send reception letter)",
+    "levels": [
+      "Component"
+    ],
+    "start_states": [
+      "permitOfficerAssigned"
+    ],
+    "end_states": [
+      "administrativeProcessesDone"
+    ]
+  },
+  {
+    "name": "registerProject",
+    "description": "The project has to be registered",
+    "levels": [
+      "Component"
+    ],
+    "start_states": [
+      "permitOfficerAssigned"
+    ],
+    "end_states": [
+      "projectRegistered"
+    ]
+  },
+  {
     "name": "allPreliminaryChecksPass",
     "description": "All preliminary checks pass",
     "levels": [
@@ -165,6 +190,8 @@
     ],
     "start_states": [
       "formatCheckPassed",
+      "projectRegistered",
+      "administrativeProcessesDone",
       "completenessCheckPassed"
     ],
     "end_states": [
@@ -172,14 +199,28 @@
     ]
   },
   {
-    "name": "approve",
-    "description": "last step",
+    "name": "announcePermittingProcess",
+    "description": "Publicly announce the permitting process",
     "levels": [
       "Container",
       "Component"
     ],
     "start_states": [
       "preliminaryCheckPassed"
+    ],
+    "end_states": [
+      "permittingProcessAnnounced"
+    ]
+  },
+  {
+    "name": "approve",
+    "description": "last step",
+    "levels": [
+      "Component",
+      "Container"
+    ],
+    "start_states": [
+      "permittingProcessAnnounced"
     ],
     "end_states": [
       "buildingPermitApproved"
