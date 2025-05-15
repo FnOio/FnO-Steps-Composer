@@ -1,4 +1,18 @@
 
+<http://localhost:8000/shapes#ASTRIDveiligheidscommissieConsulted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
+  <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#ASTRIDveiligheidscommissieConsultedPropertyShape>;
+  <http://www.w3.org/ns/shacl#targetClass> <https://data.vlaanderen.be/ns/persoon#Inwoner> .
+
+<http://localhost:8000/shapes#ASTRIDveiligheidscommissieConsultedPropertyShape> a
+    <http://www.w3.org/ns/shacl#PropertyShape>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
+  <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#boolean>;
+  <http://www.w3.org/ns/shacl#maxCount> 1;
+  <http://www.w3.org/ns/shacl#minCount> 1;
+  <http://www.w3.org/ns/shacl#path> <http://example.com/ns#hasASTRIDveiligheidscommissieConsulted>;
+  <http://www.w3.org/ns/shacl#pattern> "true" .
+
 <http://localhost:8000/shapes#administrativeProcessesDone> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
   <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
   <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#administrativeProcessesDonePropertyShape>;
@@ -128,6 +142,20 @@
   <http://www.w3.org/ns/shacl#maxCount> 1;
   <http://www.w3.org/ns/shacl#minCount> 1;
   <http://www.w3.org/ns/shacl#path> <http://example.com/ns#hascontentReviewPassed>;
+  <http://www.w3.org/ns/shacl#pattern> "true" .
+
+<http://localhost:8000/shapes#departementLandbouwEnVisserijConsulted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
+  <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#departementLandbouwEnVisserijConsultedPropertyShape>;
+  <http://www.w3.org/ns/shacl#targetClass> <https://data.vlaanderen.be/ns/persoon#Inwoner> .
+
+<http://localhost:8000/shapes#departementLandbouwEnVisserijConsultedPropertyShape>
+  a <http://www.w3.org/ns/shacl#PropertyShape>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
+  <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#boolean>;
+  <http://www.w3.org/ns/shacl#maxCount> 1;
+  <http://www.w3.org/ns/shacl#minCount> 1;
+  <http://www.w3.org/ns/shacl#path> <http://example.com/ns#hasdepartementLandbouwEnVisserijConsulted>;
   <http://www.w3.org/ns/shacl#pattern> "true" .
 
 <http://localhost:8000/shapes#departementMobiliteitEnOpenbareWerkenConsulted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;

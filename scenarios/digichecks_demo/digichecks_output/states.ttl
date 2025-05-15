@@ -1,4 +1,8 @@
 
+<http://localhost:8000/states#ASTRIDveiligheidscommissieConsulted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "The 'ASTRID' safety commision has been consulted";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#ASTRIDveiligheidscommissieConsulted> .
+
 <http://localhost:8000/states#administrativeProcessesDone> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
   <http://www.w3.org/2000/01/rdf-schema#label> "All administrative processes (e.g. Sending reception letter) are done";
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#administrativeProcessesDone> .
@@ -40,12 +44,16 @@
   <http://www.w3.org/2000/01/rdf-schema#label> "The content review passed";
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#contentReviewPassed> .
 
+<http://localhost:8000/states#departementLandbouwEnVisserijConsulted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "The department 'Landbouw en Visserij' has been consulted";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#departementLandbouwEnVisserijConsulted> .
+
 <http://localhost:8000/states#departementMobiliteitEnOpenbareWerkenConsulted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
   <http://www.w3.org/2000/01/rdf-schema#label> "The department 'Mobiliteit en Openbare Werken' has been consulted";
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#departementMobiliteitEnOpenbareWerkenConsulted> .
 
 <http://localhost:8000/states#departementNatuurEnBosConsulted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "The department 'Natuur en Bos' is consulted";
+  <http://www.w3.org/2000/01/rdf-schema#label> "The department 'Natuur en Bos' has been consulted";
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#departementNatuurEnBosConsulted> .
 
 <http://localhost:8000/states#designAvailable> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;

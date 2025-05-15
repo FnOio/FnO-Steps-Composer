@@ -55,7 +55,8 @@
 <http://localhost:8000/steps#collectStatementsOfAgenciesCity> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#collectStatementsOfAgenciesCityDescription>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#contentReviewPassed>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#departementMobiliteitEnOpenbareWerkenConsulted> .
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#ASTRIDveiligheidscommissieConsulted>,
+    <http://localhost:8000/states#agentschapOnroerendErfgoedConsulted>, <http://localhost:8000/states#departementMobiliteitEnOpenbareWerkenConsulted> .
 
 <http://localhost:8000/steps#collectStatementsOfAgenciesCityDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "Collect the statements of agencies and departments for the city center" .
@@ -63,10 +64,19 @@
 <http://localhost:8000/steps#collectStatementsOfAgenciesRural> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#collectStatementsOfAgenciesRuralDescription>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#contentReviewPassed>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#departementNatuurEnBosConsulted> .
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#departementLandbouwEnVisserijConsulted>,
+    <http://localhost:8000/states#departementNatuurEnBosConsulted> .
 
 <http://localhost:8000/steps#collectStatementsOfAgenciesRuralDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "Collect the statements of agencies and departments for a rural area" .
+
+<http://localhost:8000/steps#consultASTRIDveiligheidscommissie> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#consultASTRIDveiligheidscommissieDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#ASTRIDveiligheidscommissieConsulted>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#locatedInCity> .
+
+<http://localhost:8000/steps#consultASTRIDveiligheidscommissieDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "Consult the \"ASTRID veiligheidscommissie\"" .
 
 <http://localhost:8000/steps#consultAgenciesAndDepartments> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ContainerLevelStep>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#consultAgenciesAndDepartmentsDescription>;
@@ -74,7 +84,23 @@
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#permittingProcessAnnounced> .
 
 <http://localhost:8000/steps#consultAgenciesAndDepartmentsDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
-    "Request agencies and departments for statements when location is in city center" .
+    "consult agencies and departments for advice" .
+
+<http://localhost:8000/steps#consultAgentschapOnroerendErfgoed> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#consultAgentschapOnroerendErfgoedDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#agentschapOnroerendErfgoedConsulted>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#locatedInCity> .
+
+<http://localhost:8000/steps#consultAgentschapOnroerendErfgoedDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "Consult the agency \"onroerend erfgoed\"" .
+
+<http://localhost:8000/steps#consultDepartementLandbouwEnVisserij> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#consultDepartementLandbouwEnVisserijDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#departementLandbouwEnVisserijConsulted>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#locatedInRuralArea> .
+
+<http://localhost:8000/steps#consultDepartementLandbouwEnVisserijDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "Consult the department \"Landbouw en Visserij\"" .
 
 <http://localhost:8000/steps#consultDepartementMobiliteitEnOpenbareWerken> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#consultDepartementMobiliteitEnOpenbareWerkenDescription>;

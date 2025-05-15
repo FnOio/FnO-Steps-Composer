@@ -14,8 +14,8 @@
     "name": "getArchitect",
     "description": "An architect is required to assist with the building permit application",
     "levels": [
-      "Component",
-      "Container"
+      "Container",
+      "Component"
     ],
     "start_states": [],
     "end_states": [
@@ -81,9 +81,9 @@
       "Component"
     ],
     "start_states": [
-      "requiredDocumentsAvailable",
+      "architectHasPreliminaryInput",
       "designAvailable",
-      "architectHasPreliminaryInput"
+      "requiredDocumentsAvailable"
     ],
     "end_states": [
       "buildingPermitApplicationPrepared"
@@ -93,8 +93,8 @@
     "name": "submitApplication",
     "description": "Submit the building permit applicaton",
     "levels": [
-      "Container",
-      "Component"
+      "Component",
+      "Container"
     ],
     "start_states": [
       "buildingPermitApplicationPrepared"
@@ -107,8 +107,8 @@
     "name": "getPermitOfficer",
     "description": "A permit officer working at the city administration is assigned",
     "levels": [
-      "Component",
-      "Container"
+      "Container",
+      "Component"
     ],
     "start_states": [
       "buildingPermitApplicationSubmitted"
@@ -227,7 +227,7 @@
   },
   {
     "name": "consultAgenciesAndDepartments",
-    "description": "Request agencies and departments for statements when location is in city center",
+    "description": "consult agencies and departments for advice",
     "levels": [
       "Container"
     ],
@@ -265,12 +265,40 @@
     ]
   },
   {
+    "name": "consultAgentschapOnroerendErfgoed",
+    "description": "Consult the agency \"onroerend erfgoed\"",
+    "levels": [
+      "Component"
+    ],
+    "start_states": [
+      "locatedInCity"
+    ],
+    "end_states": [
+      "agentschapOnroerendErfgoedConsulted"
+    ]
+  },
+  {
+    "name": "consultASTRIDveiligheidscommissie",
+    "description": "Consult the \"ASTRID veiligheidscommissie\"",
+    "levels": [
+      "Component"
+    ],
+    "start_states": [
+      "locatedInCity"
+    ],
+    "end_states": [
+      "ASTRIDveiligheidscommissieConsulted"
+    ]
+  },
+  {
     "name": "collectStatementsOfAgenciesCity",
     "description": "Collect the statements of agencies and departments for the city center",
     "levels": [
       "Component"
     ],
     "start_states": [
+      "agentschapOnroerendErfgoedConsulted",
+      "ASTRIDveiligheidscommissieConsulted",
       "departementMobiliteitEnOpenbareWerkenConsulted"
     ],
     "end_states": [
@@ -304,12 +332,26 @@
     ]
   },
   {
+    "name": "consultDepartementLandbouwEnVisserij",
+    "description": "Consult the department \"Landbouw en Visserij\"",
+    "levels": [
+      "Component"
+    ],
+    "start_states": [
+      "locatedInRuralArea"
+    ],
+    "end_states": [
+      "departementLandbouwEnVisserijConsulted"
+    ]
+  },
+  {
     "name": "collectStatementsOfAgenciesRural",
     "description": "Collect the statements of agencies and departments for a rural area",
     "levels": [
       "Component"
     ],
     "start_states": [
+      "departementLandbouwEnVisserijConsulted",
       "departementNatuurEnBosConsulted"
     ],
     "end_states": [
@@ -320,9 +362,9 @@
     "name": "collectAndDecide",
     "description": "From collection neighbour objections to final ratification",
     "levels": [
-      "Component",
       "Journey",
-      "Container"
+      "Container",
+      "Component"
     ],
     "start_states": [
       "contentReviewPassed"
