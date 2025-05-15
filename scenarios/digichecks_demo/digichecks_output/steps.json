@@ -1,21 +1,21 @@
 [
   {
-    "name": "digichecks_flow",
-    "description": "The whole flow",
+    "name": "startPermittingProcess",
+    "description": "From plans to announcement of the permitting process",
     "levels": [
       "Journey"
     ],
     "start_states": [],
     "end_states": [
-      "buildingPermitApproved"
+      "permittingProcessAnnounced"
     ]
   },
   {
     "name": "getArchitect",
     "description": "An architect is required to assist with the building permit application",
     "levels": [
-      "Container",
-      "Component"
+      "Component",
+      "Container"
     ],
     "start_states": [],
     "end_states": [
@@ -81,9 +81,9 @@
       "Component"
     ],
     "start_states": [
-      "architectHasPreliminaryInput",
+      "requiredDocumentsAvailable",
       "designAvailable",
-      "requiredDocumentsAvailable"
+      "architectHasPreliminaryInput"
     ],
     "end_states": [
       "buildingPermitApplicationPrepared"
@@ -107,8 +107,8 @@
     "name": "getPermitOfficer",
     "description": "A permit officer working at the city administration is assigned",
     "levels": [
-      "Component",
-      "Container"
+      "Container",
+      "Component"
     ],
     "start_states": [
       "buildingPermitApplicationSubmitted"
@@ -189,9 +189,9 @@
       "Component"
     ],
     "start_states": [
+      "administrativeProcessesDone",
       "formatCheckPassed",
       "projectRegistered",
-      "administrativeProcessesDone",
       "completenessCheckPassed"
     ],
     "end_states": [
@@ -213,11 +213,24 @@
     ]
   },
   {
+    "name": "endPermittingProcess",
+    "description": "From content review to final decision",
+    "levels": [
+      "Journey"
+    ],
+    "start_states": [
+      "permittingProcessAnnounced"
+    ],
+    "end_states": [
+      "buildingPermitApproved"
+    ]
+  },
+  {
     "name": "approve",
     "description": "last step",
     "levels": [
-      "Component",
-      "Container"
+      "Container",
+      "Component"
     ],
     "start_states": [
       "permittingProcessAnnounced"

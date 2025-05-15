@@ -52,13 +52,13 @@
 <http://localhost:8000/steps#checkFormatDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "Permit officer checks if all required documents are well formatted" .
 
-<http://localhost:8000/steps#digichecks_flow> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#JourneyLevelStep>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#digichecks_flowDescription>;
+<http://localhost:8000/steps#endPermittingProcess> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#JourneyLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#endPermittingProcessDescription>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#buildingPermitApproved>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#emptyState> .
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#permittingProcessAnnounced> .
 
-<http://localhost:8000/steps#digichecks_flowDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
-    "The whole flow" .
+<http://localhost:8000/steps#endPermittingProcessDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "From content review to final decision" .
 
 <http://localhost:8000/steps#getArchitect> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>,
     <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ContainerLevelStep>;
@@ -133,6 +133,14 @@
 
 <http://localhost:8000/steps#registerProjectDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "The project has to be registered" .
+
+<http://localhost:8000/steps#startPermittingProcess> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#JourneyLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#startPermittingProcessDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#permittingProcessAnnounced>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#emptyState> .
+
+<http://localhost:8000/steps#startPermittingProcessDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "From plans to announcement of the permitting process" .
 
 <http://localhost:8000/steps#submitApplication> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>,
     <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ContainerLevelStep>;
