@@ -18,15 +18,6 @@
 <http://localhost:8000/steps#announcePermittingProcessDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "Publicly announce the permitting process" .
 
-<http://localhost:8000/steps#approve> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>,
-    <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ContainerLevelStep>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#approveDescription>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#buildingPermitApproved>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#permittingProcessAnnounced> .
-
-<http://localhost:8000/steps#approveDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
-    "last step" .
-
 <http://localhost:8000/steps#buildingPermitApplicationPrepared> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#buildingPermitApplicationPreparedDescription>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#buildingPermitApplicationPrepared>;
@@ -52,13 +43,54 @@
 <http://localhost:8000/steps#checkFormatDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "Permit officer checks if all required documents are well formatted" .
 
-<http://localhost:8000/steps#endPermittingProcess> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#JourneyLevelStep>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#endPermittingProcessDescription>;
+<http://localhost:8000/steps#collectAndDecide> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>,
+    <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ContainerLevelStep>, <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#JourneyLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#collectAndDecideDescription>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#buildingPermitApproved>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#contentReviewPassed> .
+
+<http://localhost:8000/steps#collectAndDecideDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "From collection neighbour objections to final ratification" .
+
+<http://localhost:8000/steps#collectStatementsOfAgenciesCity> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#collectStatementsOfAgenciesCityDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#contentReviewPassed>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#departementMobiliteitEnOpenbareWerkenConsulted> .
+
+<http://localhost:8000/steps#collectStatementsOfAgenciesCityDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "Collect the statements of agencies and departments for the city center" .
+
+<http://localhost:8000/steps#collectStatementsOfAgenciesRural> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#collectStatementsOfAgenciesRuralDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#contentReviewPassed>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#departementNatuurEnBosConsulted> .
+
+<http://localhost:8000/steps#collectStatementsOfAgenciesRuralDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "Collect the statements of agencies and departments for a rural area" .
+
+<http://localhost:8000/steps#consultAgenciesAndDepartments> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ContainerLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#consultAgenciesAndDepartmentsDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#contentReviewPassed>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#permittingProcessAnnounced> .
 
-<http://localhost:8000/steps#endPermittingProcessDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
-    "From content review to final decision" .
+<http://localhost:8000/steps#consultAgenciesAndDepartmentsDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "Request agencies and departments for statements when location is in city center" .
+
+<http://localhost:8000/steps#consultDepartementMobiliteitEnOpenbareWerken> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#consultDepartementMobiliteitEnOpenbareWerkenDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#departementMobiliteitEnOpenbareWerkenConsulted>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#locatedInCity> .
+
+<http://localhost:8000/steps#consultDepartementMobiliteitEnOpenbareWerkenDescription>
+  <http://www.w3.org/2008/05/skos-xl#literalForm> "Consult the department \"Mobiliteit en Openbare Werken\"" .
+
+<http://localhost:8000/steps#consultDepartementNatuurEnBos> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#consultDepartementNatuurEnBosDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#departementNatuurEnBosConsulted>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#locatedInRuralArea> .
+
+<http://localhost:8000/steps#consultDepartementNatuurEnBosDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "Consult the department \"Natuur en Bos\"" .
 
 <http://localhost:8000/steps#getArchitect> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>,
     <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ContainerLevelStep>;
@@ -78,6 +110,22 @@
 <http://localhost:8000/steps#getPermitOfficerDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "A permit officer working at the city administration is assigned" .
 
+<http://localhost:8000/steps#locatedInCityCenter> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#locatedInCityCenterDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#locatedInCity>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#permittingProcessAnnounced> .
+
+<http://localhost:8000/steps#locatedInCityCenterDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "The project is located in the city center" .
+
+<http://localhost:8000/steps#locatedInRuralArea> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#locatedInRuralAreaDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#locatedInRuralArea>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#permittingProcessAnnounced> .
+
+<http://localhost:8000/steps#locatedInRuralAreaDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "The project is located in a rural area" .
+
 <http://localhost:8000/steps#performAdministrativeProcesses> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#performAdministrativeProcessesDescription>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#administrativeProcessesDone>;
@@ -85,6 +133,14 @@
 
 <http://localhost:8000/steps#performAdministrativeProcessesDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "Administrative processes (e.g. send reception letter)" .
+
+<http://localhost:8000/steps#performContentReview> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#JourneyLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#performContentReviewDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#contentReviewPassed>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#permittingProcessAnnounced> .
+
+<http://localhost:8000/steps#performContentReviewDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "The authority performs a thorough content review and checks" .
 
 <http://localhost:8000/steps#preliminaryAuthorityCheck> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ContainerLevelStep>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#preliminaryAuthorityCheckDescription>;

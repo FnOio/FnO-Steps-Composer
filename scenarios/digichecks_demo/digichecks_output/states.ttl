@@ -3,6 +3,14 @@
   <http://www.w3.org/2000/01/rdf-schema#label> "All administrative processes (e.g. Sending reception letter) are done";
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#administrativeProcessesDone> .
 
+<http://localhost:8000/states#agenciesAndDepartmentsConsulted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "Agencies and departments are requested to give statements";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#agenciesAndDepartmentsConsulted> .
+
+<http://localhost:8000/states#agentschapOnroerendErfgoedConsulted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "The 'Agentschap Onroerend Erfgoed' has been consulted";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#agentschapOnroerendErfgoedConsulted> .
+
 <http://localhost:8000/states#architectAssists> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
   <http://www.w3.org/2000/01/rdf-schema#label> "An architect is found to assist with the building permit application";
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#architectAssists> .
@@ -28,6 +36,18 @@
   <http://www.w3.org/2000/01/rdf-schema#label> "All required documents are submitted";
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#completenessCheckPassed> .
 
+<http://localhost:8000/states#contentReviewPassed> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "The content review passed";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#contentReviewPassed> .
+
+<http://localhost:8000/states#departementMobiliteitEnOpenbareWerkenConsulted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "The department 'Mobiliteit en Openbare Werken' has been consulted";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#departementMobiliteitEnOpenbareWerkenConsulted> .
+
+<http://localhost:8000/states#departementNatuurEnBosConsulted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "The department 'Natuur en Bos' is consulted";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#departementNatuurEnBosConsulted> .
+
 <http://localhost:8000/states#designAvailable> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
   <http://www.w3.org/2000/01/rdf-schema#label> "The design is ready.";
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#designAvailable> .
@@ -35,6 +55,14 @@
 <http://localhost:8000/states#formatCheckPassed> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
   <http://www.w3.org/2000/01/rdf-schema#label> "All required documents are in the right format";
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#formatCheckPassed> .
+
+<http://localhost:8000/states#locatedInCity> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "The project is located in the city center";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#locatedInCity> .
+
+<http://localhost:8000/states#locatedInRuralArea> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "The project is located in a rural area";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#locatedInRuralArea> .
 
 <http://localhost:8000/states#permitOfficerAssigned> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
   <http://www.w3.org/2000/01/rdf-schema#label> "A permit officer is assigned";

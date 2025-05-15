@@ -93,8 +93,8 @@
     "name": "submitApplication",
     "description": "Submit the building permit applicaton",
     "levels": [
-      "Component",
-      "Container"
+      "Container",
+      "Component"
     ],
     "start_states": [
       "buildingPermitApplicationPrepared"
@@ -107,8 +107,8 @@
     "name": "getPermitOfficer",
     "description": "A permit officer working at the city administration is assigned",
     "levels": [
-      "Container",
-      "Component"
+      "Component",
+      "Container"
     ],
     "start_states": [
       "buildingPermitApplicationSubmitted"
@@ -189,10 +189,10 @@
       "Component"
     ],
     "start_states": [
-      "administrativeProcessesDone",
-      "formatCheckPassed",
       "projectRegistered",
-      "completenessCheckPassed"
+      "completenessCheckPassed",
+      "formatCheckPassed",
+      "administrativeProcessesDone"
     ],
     "end_states": [
       "preliminaryCheckPassed"
@@ -213,8 +213,8 @@
     ]
   },
   {
-    "name": "endPermittingProcess",
-    "description": "From content review to final decision",
+    "name": "performContentReview",
+    "description": "The authority performs a thorough content review and checks",
     "levels": [
       "Journey"
     ],
@@ -222,18 +222,110 @@
       "permittingProcessAnnounced"
     ],
     "end_states": [
-      "buildingPermitApproved"
+      "contentReviewPassed"
     ]
   },
   {
-    "name": "approve",
-    "description": "last step",
+    "name": "consultAgenciesAndDepartments",
+    "description": "Request agencies and departments for statements when location is in city center",
     "levels": [
-      "Container",
+      "Container"
+    ],
+    "start_states": [
+      "permittingProcessAnnounced"
+    ],
+    "end_states": [
+      "contentReviewPassed"
+    ]
+  },
+  {
+    "name": "locatedInCityCenter",
+    "description": "The project is located in the city center",
+    "levels": [
       "Component"
     ],
     "start_states": [
       "permittingProcessAnnounced"
+    ],
+    "end_states": [
+      "locatedInCity"
+    ]
+  },
+  {
+    "name": "consultDepartementMobiliteitEnOpenbareWerken",
+    "description": "Consult the department \"Mobiliteit en Openbare Werken\"",
+    "levels": [
+      "Component"
+    ],
+    "start_states": [
+      "locatedInCity"
+    ],
+    "end_states": [
+      "departementMobiliteitEnOpenbareWerkenConsulted"
+    ]
+  },
+  {
+    "name": "collectStatementsOfAgenciesCity",
+    "description": "Collect the statements of agencies and departments for the city center",
+    "levels": [
+      "Component"
+    ],
+    "start_states": [
+      "departementMobiliteitEnOpenbareWerkenConsulted"
+    ],
+    "end_states": [
+      "contentReviewPassed"
+    ]
+  },
+  {
+    "name": "locatedInRuralArea",
+    "description": "The project is located in a rural area",
+    "levels": [
+      "Component"
+    ],
+    "start_states": [
+      "permittingProcessAnnounced"
+    ],
+    "end_states": [
+      "locatedInRuralArea"
+    ]
+  },
+  {
+    "name": "consultDepartementNatuurEnBos",
+    "description": "Consult the department \"Natuur en Bos\"",
+    "levels": [
+      "Component"
+    ],
+    "start_states": [
+      "locatedInRuralArea"
+    ],
+    "end_states": [
+      "departementNatuurEnBosConsulted"
+    ]
+  },
+  {
+    "name": "collectStatementsOfAgenciesRural",
+    "description": "Collect the statements of agencies and departments for a rural area",
+    "levels": [
+      "Component"
+    ],
+    "start_states": [
+      "departementNatuurEnBosConsulted"
+    ],
+    "end_states": [
+      "contentReviewPassed"
+    ]
+  },
+  {
+    "name": "collectAndDecide",
+    "description": "From collection neighbour objections to final ratification",
+    "levels": [
+      "Component",
+      "Journey",
+      "Container"
+    ],
+    "start_states": [
+      "contentReviewPassed"
     ],
     "end_states": [
       "buildingPermitApproved"
