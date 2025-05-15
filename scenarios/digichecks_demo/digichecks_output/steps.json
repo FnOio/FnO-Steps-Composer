@@ -14,8 +14,8 @@
     "name": "getArchitect",
     "description": "An architect is required to assist with the building permit application",
     "levels": [
-      "Container",
-      "Component"
+      "Component",
+      "Container"
     ],
     "start_states": [],
     "end_states": [
@@ -81,9 +81,9 @@
       "Component"
     ],
     "start_states": [
-      "requiredDocumentsAvailable",
+      "architectHasPreliminaryInput",
       "designAvailable",
-      "architectHasPreliminaryInput"
+      "requiredDocumentsAvailable"
     ],
     "end_states": [
       "buildingPermitApplicationPrepared"
@@ -107,8 +107,8 @@
     "name": "getPermitOfficer",
     "description": "A permit officer working at the city administration is assigned",
     "levels": [
-      "Container",
-      "Component"
+      "Component",
+      "Container"
     ],
     "start_states": [
       "buildingPermitApplicationSubmitted"
@@ -189,10 +189,10 @@
       "Component"
     ],
     "start_states": [
-      "formatCheckPassed",
-      "completenessCheckPassed",
       "administrativeProcessesDone",
-      "projectRegistered"
+      "completenessCheckPassed",
+      "projectRegistered",
+      "formatCheckPassed"
     ],
     "end_states": [
       "preliminaryCheckPassed"
@@ -310,10 +310,10 @@
       "Component"
     ],
     "start_states": [
-      "departmentToepassingWatertoetsConsulted",
-      "ASTRIDveiligheidscommissieConsulted",
       "agentschapOnroerendErfgoedConsulted",
-      "departementMobiliteitEnOpenbareWerkenConsulted"
+      "departementMobiliteitEnOpenbareWerkenConsulted",
+      "ASTRIDveiligheidscommissieConsulted",
+      "departmentToepassingWatertoetsConsulted"
     ],
     "end_states": [
       "agenciesAndDepartmentsConsulted"
@@ -366,8 +366,8 @@
     ],
     "start_states": [
       "departmentToepassingWatertoetsConsulted",
-      "departementLandbouwEnVisserijConsulted",
-      "departementNatuurEnBosConsulted"
+      "departementNatuurEnBosConsulted",
+      "departementLandbouwEnVisserijConsulted"
     ],
     "end_states": [
       "agenciesAndDepartmentsConsulted"
@@ -409,8 +409,8 @@
       "Component"
     ],
     "start_states": [
-      "agenciesAndDepartmentsConsulted",
       "buildingLawComplianceChecked",
+      "agenciesAndDepartmentsConsulted",
       "planningLawComplianceChecked"
     ],
     "end_states": [
