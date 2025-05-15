@@ -14,8 +14,8 @@
     "name": "getArchitect",
     "description": "An architect is required to assist with the building permit application",
     "levels": [
-      "Component",
-      "Container"
+      "Container",
+      "Component"
     ],
     "start_states": [],
     "end_states": [
@@ -93,8 +93,8 @@
     "name": "submitApplication",
     "description": "Submit the building permit applicaton",
     "levels": [
-      "Container",
-      "Component"
+      "Component",
+      "Container"
     ],
     "start_states": [
       "buildingPermitApplicationPrepared"
@@ -107,8 +107,8 @@
     "name": "getPermitOfficer",
     "description": "A permit officer working at the city administration is assigned",
     "levels": [
-      "Component",
-      "Container"
+      "Container",
+      "Component"
     ],
     "start_states": [
       "buildingPermitApplicationSubmitted"
@@ -189,10 +189,10 @@
       "Component"
     ],
     "start_states": [
-      "administrativeProcessesDone",
+      "projectRegistered",
       "formatCheckPassed",
-      "completenessCheckPassed",
-      "projectRegistered"
+      "administrativeProcessesDone",
+      "completenessCheckPassed"
     ],
     "end_states": [
       "preliminaryCheckPassed"
@@ -310,10 +310,10 @@
       "Component"
     ],
     "start_states": [
-      "departmentToepassingWatertoetsConsulted",
+      "agentschapOnroerendErfgoedConsulted",
       "departementMobiliteitEnOpenbareWerkenConsulted",
       "ASTRIDveiligheidscommissieConsulted",
-      "agentschapOnroerendErfgoedConsulted"
+      "departmentToepassingWatertoetsConsulted"
     ],
     "end_states": [
       "contentReviewPassed"
@@ -365,9 +365,9 @@
       "Component"
     ],
     "start_states": [
+      "departementLandbouwEnVisserijConsulted",
       "departmentToepassingWatertoetsConsulted",
-      "departementNatuurEnBosConsulted",
-      "departementLandbouwEnVisserijConsulted"
+      "departementNatuurEnBosConsulted"
     ],
     "end_states": [
       "contentReviewPassed"
