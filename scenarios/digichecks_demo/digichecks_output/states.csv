@@ -7,3 +7,5 @@
 "architectHasPreliminaryInput","architectHasPreliminaryInput","Architect has input from authority (preliminary)"
 "buildingPermitApplicationSubmitted","buildingPermitApplicationSubmitted","The building permit application is submitted to authority"
 "preliminaryCheckPassed","preliminaryCheckPassed","The building permit application passed the preliminary checks done bu the authority"
+"buildingPermitApplicationSubmitted","buildingPermitApplicationSubmitted","The building permit application is submitted"
+"permitOfficerAssigned","permitOfficerAssigned","A permit officer is assigned"

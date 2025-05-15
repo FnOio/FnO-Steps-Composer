@@ -12,7 +12,8 @@
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#buildingPermitApplicationPrepared> .
 
 <http://localhost:8000/states#buildingPermitApplicationSubmitted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "The building permit application is submitted to authority";
+  <http://www.w3.org/2000/01/rdf-schema#label> "The building permit application is submitted",
+    "The building permit application is submitted to authority";
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#buildingPermitApplicationSubmitted> .
 
 <http://localhost:8000/states#buildingPermitApproved> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
@@ -22,6 +23,10 @@
 <http://localhost:8000/states#designAvailable> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
   <http://www.w3.org/2000/01/rdf-schema#label> "The design is ready.";
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#designAvailable> .
+
+<http://localhost:8000/states#permitOfficerAssigned> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "A permit officer is assigned";
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#permitOfficerAssigned> .
 
 <http://localhost:8000/states#preliminaryCheckPassed> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
   <http://www.w3.org/2000/01/rdf-schema#label> "The building permit application passed the preliminary checks done bu the authority";

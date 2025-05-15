@@ -3,7 +3,7 @@
     <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ContainerLevelStep>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#approveDescription>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#buildingPermitApproved>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#buildingPermitApplicationPrepared> .
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#buildingPermitApplicationSubmitted> .
 
 <http://localhost:8000/steps#approveDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "last step" .
@@ -34,6 +34,15 @@
 
 <http://localhost:8000/steps#getArchitectDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "An architect is required to assist with the building permit application" .
+
+<http://localhost:8000/steps#getPermitOfficer> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>,
+    <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ContainerLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#getPermitOfficerDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#permitOfficerAssigned>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#buildingPermitApplicationSubmitted> .
+
+<http://localhost:8000/steps#getPermitOfficerDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "A permit officer working at the city administration is assigned" .
 
 <http://localhost:8000/steps#preliminaryInputFromAuthorities> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
   <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#preliminaryInputFromAuthoritiesDescription>;
@@ -66,3 +75,12 @@
 
 <http://localhost:8000/steps#prepareRequiredDocumentsDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "Prepare other required documents" .
+
+<http://localhost:8000/steps#submitApplication> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>,
+    <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ContainerLevelStep>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#submitApplicationDescription>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#buildingPermitApplicationSubmitted>;
+  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#buildingPermitApplicationPrepared> .
+
+<http://localhost:8000/steps#submitApplicationDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
+    "Submit the building permit applicaton" .

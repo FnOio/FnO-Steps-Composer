@@ -82,12 +82,40 @@
     ],
     "start_states": [
       "architectHasPreliminaryInput",
+      "requiredDocumentsAvailable",
       "designAvailable",
-      "architectAssists",
-      "requiredDocumentsAvailable"
+      "architectAssists"
     ],
     "end_states": [
       "buildingPermitApplicationPrepared"
+    ]
+  },
+  {
+    "name": "submitApplication",
+    "description": "Submit the building permit applicaton",
+    "levels": [
+      "Component",
+      "Container"
+    ],
+    "start_states": [
+      "buildingPermitApplicationPrepared"
+    ],
+    "end_states": [
+      "buildingPermitApplicationSubmitted"
+    ]
+  },
+  {
+    "name": "getPermitOfficer",
+    "description": "A permit officer working at the city administration is assigned",
+    "levels": [
+      "Container",
+      "Component"
+    ],
+    "start_states": [
+      "buildingPermitApplicationSubmitted"
+    ],
+    "end_states": [
+      "permitOfficerAssigned"
     ]
   },
   {
@@ -98,7 +126,7 @@
       "Component"
     ],
     "start_states": [
-      "buildingPermitApplicationPrepared"
+      "buildingPermitApplicationSubmitted"
     ],
     "end_states": [
       "buildingPermitApproved"
