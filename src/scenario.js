@@ -16,13 +16,14 @@ async function main() {
 
     // parse command line arguments
     program
-        .requiredOption('-s --scenario <name>', 'The scenario to run. It must be a subdirectory of `scenarios`');
+        .requiredOption('-s --scenario <name>', 'The scenario to run. It must be a subdirectory of `scenarios`')
+        .option('-d --dataFile <name of data file>', 'Use this option if you want to run only one data file.');
     program.parse(process.argv);
     const options = program.opts();
 
     const scenario = options.scenario;
     console.log(`Running scenario "${scenario}"`);
-    await _runScenario(scenario);
+    await _runScenario(scenario, options.dataFile);
 }
 
 /**
@@ -31,7 +32,7 @@ async function main() {
  * @returns {Promise<void>} The returned promise
  * @private
  */
-async function _runScenario(scenario) {
+async function _runScenario(scenario, dataFile) {
     const scenarioPath = path.resolve(basePath, 'scenarios', scenario);
 
     const shapesPath =  path.resolve(scenarioPath, 'shapes.ttl');
@@ -42,7 +43,8 @@ async function _runScenario(scenario) {
     const goalStates = await _readGoalStates(scenarioPath);
 
     // Read the data paths (each file representing the next state of the data)
-    const dataStateFiles = await _listDataStates(scenarioPath);
+    // or just use one data file if given
+    const dataStateFiles = dataFile ? [path.resolve(scenarioPath, dataFile)] : await _listDataStates(scenarioPath);
 
     // Check if optional knowledge path 'knowledge.n3' exists
     let knowledgePath = path.resolve(scenarioPath, 'knowledge.n3');
@@ -55,7 +57,7 @@ async function _runScenario(scenario) {
     // Loop over the data states and reason for every state.
     // The output will be written to a different directory for every data state.
     for (const dataStateFile of dataStateFiles) {
-        console.log(`Reasoning for data file ${dataStateFile}`);
+        //console.log(`Reasoning for data file ${dataStateFile}`);
         // The label is the scenario name + the name of the data file without extension.
         const label = scenario + '_' + path.basename(dataStateFile, '.ttl');
         await reasonFlow(label, dataStateFile, stepsPath, statesPath, shapesPath, goalStates, knowledgePath);
