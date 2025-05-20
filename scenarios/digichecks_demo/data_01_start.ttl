@@ -3,5 +3,13 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 ex:Jacky a o-persoon:Inwoner ;
-  rdfs:comment '''We start with Jacky, a person who wants to renovate a building in the city of Antwerp.
-What does she have to do to get a building permit?'''.
+  rdfs:comment '''The building is located in the city of Antwerp.
+This determines which agencies and departments would be consulted during the permitting process''';
+
+# This is to rule out the option of having a parcel in rural area;
+# The trick is to say the path has already been taken.
+# Normally this would go into business logic or excluding shapes.
+
+  ex:hasdepartementNatuurEnBosConsulted true;
+  ex:hasdepartementLandbouwEnVisserijConsulted true;
+  ex:departmentToepassingWatertoetsConsulted true .

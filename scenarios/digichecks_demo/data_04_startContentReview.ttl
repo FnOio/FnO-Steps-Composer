@@ -5,4 +5,12 @@
 ex:Jacky a o-persoon:Inwoner ;
   rdfs:comment '''After the application is submitted and the permitting process is publicly announced,
 the authority performs a thorough content review.''';
-  ex:haspermittingProcessAnnounced true .
+  ex:haspermittingProcessAnnounced true ;
+
+# This is to rule out the option of having a parcel in rural area;
+# The trick is to say the path has already been taken.
+# Normally this would go into business logic or excluding shapes.
+
+  ex:hasdepartementNatuurEnBosConsulted true;
+  ex:hasdepartementLandbouwEnVisserijConsulted true;
+  ex:departmentToepassingWatertoetsConsulted true .

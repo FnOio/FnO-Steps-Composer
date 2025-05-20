@@ -4,4 +4,12 @@
 
 ex:Jacky a o-persoon:Inwoner ;
   rdfs:comment "Jacky asks Amy, an architect, to assist with the building permit application.";
-  ex:hasarchitectAssists true .
+  ex:hasarchitectAssists true ;
+
+# This is to rule out the option of having a parcel in rural area;
+# The trick is to say the path has already been taken.
+# Normally this would go into business logic or excluding shapes.
+
+  ex:hasdepartementNatuurEnBosConsulted true;
+  ex:hasdepartementLandbouwEnVisserijConsulted true;
+  ex:departmentToepassingWatertoetsConsulted true .
