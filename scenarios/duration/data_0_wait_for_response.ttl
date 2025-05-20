@@ -1,0 +1,9 @@
+@prefix o-persoon: <https://data.vlaanderen.be/ns/persoon#> .
+@prefix ex: <http://example.com/ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+ex:Alice a o-persoon:Inwoner ;
+    rdfs:comment "We are now May 20 and waiting for a response (due May 29)";
+    ex:responseDueDate "2025-05-29"^^xsd:date;
+    ex:currentDate "2025-05-20"^^xsd:date.

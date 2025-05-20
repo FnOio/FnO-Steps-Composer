@@ -1,0 +1,15 @@
+[
+  {
+    "name": "waitABit",
+    "description": "Wait long enough to get a response",
+    "levels": [
+      "Container",
+      "Component",
+      "Journey"
+    ],
+    "start_states": [],
+    "end_states": [
+      "Response"
+    ]
+  }
+]
