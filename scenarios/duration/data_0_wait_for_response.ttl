@@ -4,6 +4,5 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
 ex:Alice a o-persoon:Inwoner ;
-    rdfs:comment "We are now May 20 and waiting for a response (due May 29)";
-    ex:responseDueDate "2025-05-29"^^xsd:date;
-    ex:currentDate "2025-05-20"^^xsd:date.
+    rdfs:comment "A due date in the future: we're waiting";
+    ex:responseDueDate "2099-05-29"^^xsd:date .

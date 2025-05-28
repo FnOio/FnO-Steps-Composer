@@ -6,7 +6,7 @@
 # is the subject finally getting a response?
 { ?subject :hasResponse true } <= {
     ?subject :responseDueDate ?responseDueDate .
-    ?subject :currentDate ?now .
+    "" time:localTime ?now.
     (?now ?responseDueDate) math:difference ?F .
     ?F math:greaterThan "P0D"^^xsd:duration .
 }.
