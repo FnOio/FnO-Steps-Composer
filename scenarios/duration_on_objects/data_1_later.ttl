@@ -1,0 +1,28 @@
+@prefix o-persoon: <https://data.vlaanderen.be/ns/persoon#> .
+@prefix : <http://example.com/ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix checks: <https://data.digichecks.eu/def/> .
+
+:John
+    a prov:Person, o-persoon:Inwoner .
+
+:TheProject
+    a checks:Project ;
+    checks:hasPermitRequest :ThePermitRequest .
+#    prov:atLocation :TheLocation ;
+#    prov:qualifiedAssociation :ProjectAssociatedToJacky, :ProjectAssociatedToAmy .
+
+:ThePermitRequest
+    a checks:PermitRequest ;
+    checks:isControlledBy :John . #permitOfficerAssigned
+#    checks:isRequestForPermit :ThePermit ;
+#    checks:isSubmittedBy :Amy . #buildingPermitApplicationSubmitted
+
+:RegisterProject
+    a prov:Activity ;
+    prov:wasAssociatedWith :John ; # projectRegistered
+
+    # The project is only registered after this date has passed
+    prov:endedAtTime "2025-04-01"^^xsd:date . # somewhere in the future to demo

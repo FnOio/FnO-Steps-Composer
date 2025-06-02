@@ -1,0 +1,32 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix time: <http://www.w3.org/2000/10/swap/time#>.
+@prefix math: <http://www.w3.org/2000/10/swap/math#>.
+@prefix : <http://example.com/ns#>.
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix checks: <https://data.digichecks.eu/def/> .
+
+# Check if the project has been registered
+{
+   # A Project has a PermitRequest associated with it.
+   ?project checks:hasPermitRequest ?permitRequest .
+
+   # A PermitRequest is controlled by a Permit Officer (which is not in digiChecks vocabulary)
+   ?permitRequest a checks:PermitRequest .
+   ?permitRequest checks:isControlledBy ?permitOfficer .
+
+   # The registration of a Project is activity done by the Permit Officer.
+   # It is "done" when the end date has passed.
+   # TODO: try with xsd:dateTime as in the digiChecks example, now it uses xsd:date
+   ?registerProject a prov:Activity .
+   ?registerProject prov:wasAssociatedWith ?permitOfficer .
+   ?registerProject prov:endedAtTime ?endDate .
+
+   # Time to reason over the dates:
+   # get the current date and calculate the difference with the end date.
+   "" time:localTime ?now.
+   (?now ?endDate) math:difference ?F .
+   ?F math:greaterThan "P0D"^^xsd:duration .
+} => {
+   # The project has been registered.
+   ?project :isRegistered true .
+}.
