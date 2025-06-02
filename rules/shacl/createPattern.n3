@@ -17,8 +17,7 @@ PREFIX list: <http://www.w3.org/2000/10/swap/list#>
 # 1. shape with targetClasss AND qualifiedValueShape
 {
 ?shape a o-steps:StateShape ;
-    sh:property ?p;
-    sh:targetClass o-persoon:Inwoner.
+    sh:property ?p.
 
 ?p sh:path ?path;
     sh:qualifiedValueShape ?sh2;
@@ -33,15 +32,14 @@ PREFIX list: <http://www.w3.org/2000/10/swap/list#>
 }
 =>
 {
-?shape :pattern ( { var:x ?path ?y. ?y ?p2 ?v. ?y ?p3 ?o} {( var:x ?path ?p2 ?v ?p3 ) e:skolem ?o. ( var:x ?path ?p2 ?v ) e:skolem ?y. } ). 
+?shape :pattern ( { var:x ?path ?y. ?y ?p2 ?v. ?y ?p3 ?o} {( var:x ?path ?p2 ?v ?p3 ) e:skolem ?o. ( var:x ?path ?p2 ?v ) e:skolem ?y. } ).
 }.
 
 # 2a. shape with targetClass and property where the path is not an array
 {
 ?stateShape a o-steps:StateShape;
-    sh:property ?property;
-    sh:targetClass o-persoon:Inwoner .
-     
+    sh:property ?property.
+
 ?property sh:path ?path;
     sh:minCount 1.
 
@@ -59,8 +57,7 @@ PREFIX list: <http://www.w3.org/2000/10/swap/list#>
     sh:property ?property.
 
 ?property sh:path ?path;
-    sh:minCount 1;
-    sh:targetClass o-persoon:Inwoner.
+    sh:minCount 1.
 
 ?path log:rawType ?t.
 ?t log:notEqualTo rdf:List.
@@ -73,8 +70,7 @@ PREFIX list: <http://www.w3.org/2000/10/swap/list#>
 # 2b. shape with targetClass and property where the path _is_ an array
 {
 ?stateShape a o-steps:StateShape;
-    sh:property ?property;
-    sh:targetClass o-persoon:Inwoner .
+    sh:property ?property.
 
 ?property sh:path ?path;
     sh:minCount 1.
@@ -118,7 +114,7 @@ PREFIX list: <http://www.w3.org/2000/10/swap/list#>
 ( ?list ?first 2 ) e:skolem ?o.
 
 ( ?triples { ?var ?first ?o } ) log:conjunction ?newTriples.
-( ?skolems { ( ?var ?first ) e:skolem ?o } ) log:conjunction ?newSkolems. 
+( ?skolems { ( ?var ?first ) e:skolem ?o } ) log:conjunction ?newSkolems.
 
 ?rest :makePattern ( ?newTriples ?newSkolems ?o ?pattern ).
 }.
@@ -128,7 +124,7 @@ PREFIX list: <http://www.w3.org/2000/10/swap/list#>
 ?stateShape a o-steps:StateShape;
     sh:property ?property;
     sh:targetClass ?class .
-    
+
 ?property sh:path ?path;
     sh:hasValue ?value.
 }
