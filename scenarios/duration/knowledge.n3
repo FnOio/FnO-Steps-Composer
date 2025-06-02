@@ -4,9 +4,11 @@
 @prefix : <http://example.com/ns#>.
 
 # is the subject finally getting a response?
-{ ?subject :hasResponse true } <= {
+{
     ?subject :responseDueDate ?responseDueDate .
     "" time:localTime ?now.
     (?now ?responseDueDate) math:difference ?F .
     ?F math:greaterThan "P0D"^^xsd:duration .
+} => {
+    ?subject :hasResponse true .
 }.
