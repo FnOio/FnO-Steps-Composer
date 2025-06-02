@@ -53,11 +53,11 @@ async function reasonFlow(label, dataPath, stepsPath, statesPath, shapesPath, go
         "features": {}
     };
 
-    const journeyStepsPath = await reasonJourneyLevelSteps([stepsPath, statesPath, shapesPath], baseFolder);
+    const journeyStepsPath = await reasonJourneyLevelSteps([stepsPath, statesPath, shapesPath], baseFolder, knowledgePath);
 
     // 1️⃣
     // here we don't need block and extraRule
-    const goalPath = await reasonJourneyGoal([stepsPath, statesPath, shapesPath], goalStates, baseFolder);
+    const goalPath = await reasonJourneyGoal([stepsPath, statesPath, shapesPath], goalStates, baseFolder, knowledgePath);
     const journeyDescriptionsPath = await reasonShortStepDescriptions([journeyStepsPath], baseFolder, `journey`, knowledgePath);
 
     // 2️⃣
@@ -89,7 +89,7 @@ async function reasonFlow(label, dataPath, stepsPath, statesPath, shapesPath, go
     for (const journeyLevelStep of allJourneyLevelSteps) {
 
         // 0️⃣
-        const containerStepsPath = await reasonContainerLevelSteps([stepsPath, statesPath, shapesPath], baseFolder);
+        const containerStepsPath = await reasonContainerLevelSteps([stepsPath, statesPath, shapesPath], baseFolder, knowledgePath);
         const containerDescriptionsPath = await reasonShortStepDescriptions([containerStepsPath], baseFolder, `container`, knowledgePath);
         // 3️⃣
         const containerPathsPath =
@@ -99,7 +99,7 @@ async function reasonFlow(label, dataPath, stepsPath, statesPath, shapesPath, go
         for (const containerLevelStep of allContainerLevelSteps) {
             console.log('  ' + formatStep(containerLevelStep, stepsStore));
             // 0️⃣
-            const componentStepsPath = await reasonComponentLevelSteps([stepsPath, statesPath, shapesPath], baseFolder);
+            const componentStepsPath = await reasonComponentLevelSteps([stepsPath, statesPath, shapesPath], baseFolder, knowledgePath);
             const componentDescriptionsPath = await reasonShortStepDescriptions([componentStepsPath], baseFolder, `component`, knowledgePath);
             // 3️⃣
             const componentPathsPath =

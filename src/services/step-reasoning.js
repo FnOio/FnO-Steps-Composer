@@ -9,12 +9,12 @@ const DEV_ENV = false;
 async function reasonStep(parentLevelStep, stepsOutputPath, descriptionsPath, parentStepsPath, baseFolder, stepsInputPath, dataPath, type, index = {}, knowledgePath = '') {
     const parentStepName = parentLevelStep.value.split('#')[1];
     // 0️⃣
-    const parentSelectedPath = await generateSelected(parentLevelStep, baseFolder, parentStepName, type)
+    const parentSelectedPath = await generateSelected(parentLevelStep, baseFolder, parentStepName, type, knowledgePath)
 
     // 1️⃣
-    const parentBlockPath = await reasonBlock([parentSelectedPath, parentStepsPath], baseFolder, parentStepName, type)
-    const parentGoalPath = await reasonGoal([parentSelectedPath, parentStepsPath], baseFolder, parentStepName, type)
-    const parentExtraRulePath = await reasonExtraRule([parentSelectedPath, parentStepsPath], baseFolder, parentStepName, type)
+    const parentBlockPath = await reasonBlock([parentSelectedPath, parentStepsPath], baseFolder, parentStepName, type, knowledgePath)
+    const parentGoalPath = await reasonGoal([parentSelectedPath, parentStepsPath], baseFolder, parentStepName, type, knowledgePath)
+    const parentExtraRulePath = await reasonExtraRule([parentSelectedPath, parentStepsPath], baseFolder, parentStepName, type, knowledgePath)
 
     // 2️⃣
     const selectedStepsPath = await reasonSelectedSteps([stepsOutputPath, descriptionsPath, parentGoalPath, parentBlockPath], baseFolder, parentStepName, type, knowledgePath)
@@ -26,13 +26,12 @@ async function reasonStep(parentLevelStep, stepsOutputPath, descriptionsPath, pa
             data: [
                 selectedStepsPath, stepsInputPath, dataPath, parentExtraRulePath,
                 "rules/workflow-composer/gps-plugin_modified_noPermutations.n3",
-                "scenarios/knowledge.n3",
                 "rules/util/graph.n3",
             ],
             query: parentGoalPath
         }
     }
-    return await _reasonPaths([selectedStepsPath, stepsInputPath, dataPath, parentExtraRulePath], parentGoalPath, baseFolder, parentStepName, type);
+    return await _reasonPaths([selectedStepsPath, stepsInputPath, dataPath, parentExtraRulePath], parentGoalPath, baseFolder, parentStepName, type, knowledgePath);
 }
 
 async function generateSelected(step, baseFolder, label, type) {
@@ -51,51 +50,50 @@ async function generateSelected(step, baseFolder, label, type) {
     return output;
 }
 
-async function reasonBlock(data, baseFolder, label, type) {
+async function reasonBlock(data, baseFolder, label, type, knowledgePath) {
     const produceBase = {
         data,
         query: "rules/workflow-composer/subgoals/query_creationOfBlockingInfo.n3",
     }
     const output = `${baseFolder}/block_${type}_${label}.n3`;
-    await _cached(output, produceBase);
+    await _cached(output, produceBase, knowledgePath);
     return output;
 }
 
-async function reasonGoal(data, baseFolder, label, type) {
+async function reasonGoal(data, baseFolder, label, type, knowledgePath) {
     const produceBase = {
         data,
         query: "rules/workflow-composer/subgoals/query_subgoalCreation.n3",
     }
     const output = `${baseFolder}/goal_${type}_${label}.n3`;
-    await _cached(output, produceBase);
+    await _cached(output, produceBase, knowledgePath);
     return output;
 }
 
-async function reasonExtraRule(data, baseFolder, label, type) {
+async function reasonExtraRule(data, baseFolder, label, type, knowledgePath) {
     const produceBase = {
         data,
         query: "rules/workflow-composer/query_creationOfRuleForMissingData.n3",
     }
     const output = `${baseFolder}/extra_rule_${type}_${label}.n3`;
-    await _cached(output, produceBase);
+    await _cached(output, produceBase, knowledgePath);
     return output;
 }
 
-async function _reasonPaths(data, query, baseFolder, label, type) {
+async function _reasonPaths(data, query, baseFolder, label, type, knowledgePath) {
     const produceBase = {
         data: [
             "rules/workflow-composer/gps-plugin_modified_noPermutations.n3",
-            "scenarios/knowledge.n3",
             "rules/util/graph.n3",
         ].concat(data),
         query,
     }
     const output = `${baseFolder}/reason_paths_${type}_${label}.n3`;
-    await _cached(output, produceBase, true);
+    await _cached(output, produceBase, knowledgePath);
     return output;
 }
 
-async function _cached(output, config, alwaysReason = false) {
+async function _cached(output, config, knowledgePath) {
     // console.log(`Working for output ${output}`)
     // if (!alwaysReason && await _fileExists(path.resolve(basePath, output))) {
     //     if (!DEV_ENV) {
@@ -106,30 +104,28 @@ async function _cached(output, config, alwaysReason = false) {
     //     return;
     // }
     config.output = output;
-    await _reason(config);
+    if (knowledgePath !== '') {
+        config.data.push(knowledgePath);
+    }
+    config.basePath = basePath;
+    const result = await reason(config);
+    return await writeFile(path.resolve(config.basePath, config.output), result, 'utf8');
     //cache[output] = true;
-    return;
 }
 
-async function _reason(step) {
-    step.basePath = basePath;
-    const result = await reason(step);
-    return await writeFile(path.resolve(step.basePath, step.output), result, 'utf8');
+async function reasonJourneyLevelSteps(data, baseFolder, knowledgePath) {
+    return _reasonLevelSteps(data, baseFolder, 'query_journeyStepToGPSDescription.n3', 'steps_journey_level.n3', knowledgePath);
 }
 
-async function reasonJourneyLevelSteps(data, baseFolder) {
-    return _reasonLevelSteps(data, baseFolder, 'query_journeyStepToGPSDescription.n3', 'steps_journey_level.n3');
+async function reasonContainerLevelSteps(data, baseFolder, knowledgePath) {
+    return _reasonLevelSteps(data, baseFolder, 'query_containerStepToGPSDescription.n3', 'steps_container_level.n3', knowledgePath);
 }
 
-async function reasonContainerLevelSteps(data, baseFolder) {
-    return _reasonLevelSteps(data, baseFolder, 'query_containerStepToGPSDescription.n3', 'steps_container_level.n3');
+async function reasonComponentLevelSteps(data, baseFolder, knowledgePath) {
+    return _reasonLevelSteps(data, baseFolder, 'query_componentStepToGPSDescription.n3', 'steps_component_level.n3', knowledgePath);
 }
 
-async function reasonComponentLevelSteps(data, baseFolder) {
-    return _reasonLevelSteps(data, baseFolder, 'query_componentStepToGPSDescription.n3', 'steps_component_level.n3');
-}
-
-async function _reasonLevelSteps(data, baseFolder, query, outputFile) {
+async function _reasonLevelSteps(data, baseFolder, query, outputFile, knowledgePath) {
     const produceBase = {
         data: [
             "rules/oslo-steps/step-reasoning.n3",
@@ -139,11 +135,11 @@ async function _reasonLevelSteps(data, baseFolder, query, outputFile) {
         query: `rules/oslo-steps/${query}`,
     }
     const output = `${baseFolder}/${outputFile}`;
-    await _cached(output, produceBase);
+    await _cached(output, produceBase, knowledgePath);
     return output;
 }
 
-async function reasonJourneyGoal(data, goalStates, baseFolder) {
+async function reasonJourneyGoal(data, goalStates, baseFolder, knowledgePath) {
     const goalStatePath = `${baseFolder}/goal_journey_state.n3`;
     await writeFile(path.resolve(basePath, goalStatePath), goalStates.map(s => `<${s}> a <https://example.org/ns/example#goalState> .`).join('\n'), 'utf8');
     const produceBase = {
@@ -156,50 +152,41 @@ async function reasonJourneyGoal(data, goalStates, baseFolder) {
         query: "rules/oslo-steps/query_journeyGoalToGPSPath.n3",
     }
     const output = `${baseFolder}/goal_journey.n3`;
-    await _cached(output, produceBase);
+    await _cached(output, produceBase, knowledgePath);
     return output;
 }
 
-async function reasonShortStepDescriptions(data, baseFolder, label, knowledgePath = '') {
+async function reasonShortStepDescriptions(data, baseFolder, label, knowledgePath) {
     const produceBase = {
         data: data,
         query: "rules/workflow-composer/preselection/pregeneration.n3",
     }
-    if (knowledgePath !== '') {
-        produceBase.data.push(knowledgePath);
-    }
     const output = `${baseFolder}/short_step_descriptions_${label}.n3`;
-    await _cached(output, produceBase);
+    await _cached(output, produceBase, knowledgePath);
     return output;
 }
 
-async function reasonSelectedSteps(data, baseFolder, label, type, knowledgePath = '') {
+async function reasonSelectedSteps(data, baseFolder, label, type, knowledgePath) {
     const produceBase = {
         data: [
             "rules/workflow-composer/preselection/preselection.n3"
         ].concat(data),
         query: "rules/workflow-composer/preselection/query_preselection.n3",
     }
-    if (knowledgePath !== '') {
-        produceBase.data.push(knowledgePath);
-    }
     const output = `${baseFolder}/selected_steps_${type}_${label}.n3`;
-    await _cached(output, produceBase);
+    await _cached(output, produceBase, knowledgePath);
     return output;
 }
 
-async function reasonJourney(data, query, baseFolder, knowledgePath = '') {
+async function reasonJourney(data, query, baseFolder, knowledgePath) {
     const produceBase = {
         data: [
             "rules/workflow-composer/gps-plugin_modified_noPermutations.n3"
         ].concat(data),
         query,
     }
-    if (knowledgePath !== '') {
-        produceBase.data.push(knowledgePath);
-    }
     const output = `${baseFolder}/reason_journey.n3`;
-    await _cached(output, produceBase, true);
+    await _cached(output, produceBase, knowledgePath);
     return output;
 }
 
