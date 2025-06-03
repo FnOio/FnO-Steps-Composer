@@ -1,11 +1,10 @@
 ```mermaid
 stateDiagram-v2
 
-
+  state fork_state <<fork>>
     [*] --> fork_state
 
     state installEquipment {
-        state fork_state <<fork>>
         fork_state --> thermometerInstalled : installThermometer
         fork_state --> humiditySensorInstalled : installHumiditySensor
 
