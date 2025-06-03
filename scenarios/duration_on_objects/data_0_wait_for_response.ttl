@@ -23,6 +23,8 @@
 :RegisterProject
     a prov:Activity ;
     prov:wasAssociatedWith :John ; # projectRegistered
-
-    # The project is only registered after this date has passed
+    prov:startedAtTime "2025-06-02" ;
+    # The project is not registered yet, so if there is no predicate "prov:endedAtTime"
+    # or "prov:endedAtTime" is somewhere in the future, the reasoner decides the project is
+    # not registered yet.
     prov:endedAtTime "2100-04-15"^^xsd:date . # somewhere in the future to demo
