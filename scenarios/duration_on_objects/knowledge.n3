@@ -16,7 +16,6 @@
 
    # The registration of a Project is activity done by the Permit Officer.
    # It is "done" when the end date has passed.
-   # TODO: try with xsd:dateTime as in the digiChecks example, now it uses xsd:date
    ?registerProject a prov:Activity .
    ?registerProject prov:wasAssociatedWith ?permitOfficer .
    ?registerProject prov:endedAtTime ?endDate .
