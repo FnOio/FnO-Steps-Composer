@@ -8,17 +8,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Fixed
-- Use the Javascript version of eye (eyereasoner). No need for a Docker set-up or local eye installation anymore.
+- Used the Javascript version of eye (eyereasoner). No need for a Docker set-up or local eye installation anymore.
+- Extra rules (`knowledge.n3` in a scenario) are always passed to the reasoner.
 
-### Added 
-- Use Podman if installed, fall back to Docker if not.
+### Added
 - Simple DigiChecks scenario.
 - Simple BOCEMON scenario.
 - Script to run scenario.
 
 ### Changed
 - Switched from CommonJS to ES modules
-- Switched from n3 to graphy to check turtle/rdf files 
+- Switched from n3 to graphy to check turtle/rdf files
+- Removed target class `o-persoon:Inwoner` from `o-steps:StateShape`, so shapes can define their own target class.
 
 ## [1.0.0] - 2023-06-02
 
