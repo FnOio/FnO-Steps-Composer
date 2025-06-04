@@ -96,7 +96,7 @@ function formatStep(stepNode, n3store) {
  */
 function formatAlternativeMap(alternativesMap, n3Store, indent = 0) {
     if (alternativesMap.size === 0) {
-        return "None!";
+        return "";
     }
     const indentStr = " ".repeat(indent);
     let resultStr = "";
