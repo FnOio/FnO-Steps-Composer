@@ -4,23 +4,18 @@ N3 mapping rules for the workflow composer that dynamically reasons about the ne
 
 ## Set-up
 
-To run the rules, we provided a test script using [Node.js](https://nodejs.org) that ties all phases together.
-To run it, do
-
+Install all required modules:
 ```shell
 cd src/
 npm install
-npm run test
 ```
 
-## Run a scenario
-```shell
-cd src/
-npm run scenario -- --scenario <name>
-```
-where `name` is the name of a subdirectory in `scenarios/`, e.g. `bocemon_example`.
+## Scenarios
 
-Running a scenario requires a certain file layout. For example:
+The workflow composer typically runs a *scenario*.
+A scenario consists of a set of *states*, *shapes* and *states*, a set of *data* files and a set of *goal states*.
+
+Here is an example of a scenario (`scenarios/bocemon_example`):
 ```
 bocemon_example/
 ├── data_01.ttl
@@ -41,18 +36,38 @@ bocemon_example/
 - `steps.ttl`: The possible steps in this flow. A step lists required states, and which state(s) it produces.
 - `flow.md` (not required): This is a graphical illustration of the flow with states and steps.
 
+## Running a scenario
+Go to the `src` directory.
+```shell
+cd src/
+```
+
+Show help:
+
+```shell
+node scenario.js --help
+Usage: scenario [options]
+
+Options:
+  -s --scenario <name>               The scenario to run. It must be a subdirectory of `scenarios`
+  -d --dataFile <name of data file>  Use this option if you want to run only one data file.
+  -h, --help                         display help for command
+```
+
+where `name` is the name of a subdirectory in `scenarios/`, e.g. `bocemon_example`
+and `name of data file` is a certain data file
+
 ## Organization
 
 - `rules`: all N3 rules
-  - `oslo-steps`: all OSLO-Steps specific rules
+  - `oslo-steps`: all FnO-Steps rules
   - `shacl`: transformation rules for SHACL as shape language
-  - `util`: utility funcitons
+  - `util`: utility functions
   - `workflow-composer`: workflow composer (optimization) rules
 - `scenarios`: demonstrator sets of steps, states, and shapes
 - `src`: JavaScript Node.js code to use the N3 rules
 
 All output files are stored under `_output`, per scenario.
-This means some intermediate files are used as cache and subsequent runs will be much faster.
 
 ## Development environment
 
@@ -64,17 +79,3 @@ This means some intermediate files are used as cache and subsequent runs will be
 
 - Preselection to make sure that only the linked to steps are taken into account, not _all_ described steps.
 - noPermutations: disable permutations to make sure no redundant suggestions are made (e.g. when there are no dependencies between them, paths `provideFirstName > provideLastName` is equivalent to `provideLastName > provideFirstName` are deemed equivalent)
-
-### Unclarities
-
-- What is :pattern?
-  - input: stateShape
-  - output: list of 4 elements
-    - 1. triples graph with the path
-    - 2. graph where the path graph is skolemed to the output
-    - 3. output: deprecated?
-    - 4. ???
-- What does the :separate function do?
-- What does the :unfold function do?
-- What does e:skolem do?
-- :ShortDescription and :reliesOn?
