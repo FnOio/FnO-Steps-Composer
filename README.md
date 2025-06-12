@@ -1,6 +1,17 @@
-# README
+# FnO-Steps composer
 
-N3 mapping rules for the workflow composer that dynamically reasons about the next journey, container, or component-level steps to be executed.
+Composing a workflow using [FnO-Steps](https://github.com/FnOio/FnO-Steps).
+
+Based on the OSLO-steps workflow composer as presented in:
+
+Dörthe Arndt, Sven Lieber, Raf Buyle, Sander Goossens, David De Block,
+Ben De Meester, and Erik Mannens. 2021.
+Dynamic Workflow Composition with OSLO-steps: Data Re-use and Simplification
+of Automated Administration.
+In Proceedings of the 11th Knowledge Capture Conference (K-CAP ’21),
+December 2–3, 2021, Virtual Event, USA. ACM, New York, NY, USA,
+4 pages.
+<https://doi.org/10.1145/3460210.3493559>
 
 ## Set-up
 
