@@ -1,6 +1,6 @@
 # FnO-Steps composer
 
-Composing a workflow using [FnO-Steps](https://github.com/FnOio/FnO-Steps).
+Composing a workflow using FnO-Steps.
 
 Based on the OSLO-steps workflow composer as presented in:
 
@@ -92,9 +92,7 @@ node scenario.js -s fromAtoB -d data_03.ttl
 
 All output files are stored under `_output`, per scenario.
 
-## Background
-
-### Workflow Composer Optimizations
+## Optimizations
 
 - Preselection to make sure that only the linked to steps are taken into account, not _all_ described steps.
-- noPermutations: disable permutations to make sure no redundant suggestions are made (e.g. when there are no dependencies between them, paths `provideFirstName > provideLastName` is equivalent to `provideLastName > provideFirstName` are deemed equivalent)
+- disable permutations to make sure no redundant suggestions are made (e.g. when there are no dependencies between them, paths `provideFirstName > provideLastName` is equivalent to `provideLastName > provideFirstName` are deemed equivalent)
