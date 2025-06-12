@@ -128,7 +128,7 @@ async function reasonComponentLevelSteps(data, baseFolder, knowledgePath) {
 async function _reasonLevelSteps(data, baseFolder, query, outputFile, knowledgePath) {
     const produceBase = {
         data: [
-            "rules/oslo-steps/step-reasoning.n3",
+            "rules/fno-steps/step-reasoning.n3",
             "rules/util/list.n3",
             "rules/shacl/createPattern.n3",
         ].concat(data),
@@ -144,12 +144,12 @@ async function reasonJourneyGoal(data, goalStates, baseFolder, knowledgePath) {
     await writeFile(path.resolve(basePath, goalStatePath), goalStates.map(s => `<${s}> a <https://example.org/ns/example#goalState> .`).join('\n'), 'utf8');
     const produceBase = {
         data: [
-            "rules/oslo-steps/step-reasoning.n3",
+            "rules/fno-steps/step-reasoning.n3",
             "rules/util/list.n3",
             "rules/shacl/createPattern.n3",
             goalStatePath,
         ].concat(data),
-        query: "rules/oslo-steps/query_journeyGoalToGPSPath.n3",
+        query: "rules/fno-steps/query_journeyGoalToGPSPath.n3",
     }
     const output = `${baseFolder}/goal_journey.n3`;
     await _cached(output, produceBase, knowledgePath);
@@ -208,7 +208,7 @@ export {
  * - gps-plugin_modified_noPermutations -> ENGINE
  * - knowledge -> ENGINE
  * - selectedSteps_Journey -> INTERIM
- * - oslo-steps/steps -> CONFIG
+ * - fno-steps/steps -> CONFIG
  * - personalInfo -> RUNTIME
  * - Q journeyGoal -> GENERATED FOR JOURNEY FROM CONFIG
  */
@@ -232,9 +232,9 @@ export {
 
 /**
  * 0️⃣ journey-level-steps
- * - oslo-steps/steps -> CONFIG
- * - oslo-steps/states -> CONFIG
- * - oslo-steps/shapes -> CONFIG
+ * - fno-steps/steps -> CONFIG
+ * - fno-steps/states -> CONFIG
+ * - fno-steps/shapes -> CONFIG
  * - step-reasoning -> ENGINE
  * - help -> ENGINE
  * - createPattern -> ENGINE
@@ -250,7 +250,7 @@ export {
  * - gps-plugin_modified_noPermutations -> ENGINE
  * - knowledge -> ENGINE
  * - selectedSteps_personalInfo -> INTERIM
- * - oslo-steps/steps -> CONFIG
+ * - fno-steps/steps -> CONFIG
  * - personalInfo -> RUNTIME
  * - extraRule_personalInfo -> INTERIM
  * - util/graph -> ENGINE
@@ -284,9 +284,9 @@ export {
 
 /**
  * 0️⃣ container-level-steps
- * - oslo-steps/steps -> CONFIG
- * - oslo-steps/states -> CONFIG
- * - oslo-steps/shapes -> CONFIG
+ * - fno-steps/steps -> CONFIG
+ * - fno-steps/states -> CONFIG
+ * - fno-steps/shapes -> CONFIG
  * - step-reasoning -> ENGINE
  * - help -> ENGINE
  * - createPattern -> ENGINE
@@ -319,7 +319,7 @@ export {
  * - extraRule_citizenName -> INTERIM
  * - util/graph -> ENGINE
  * - selectedSteps_citizenName -> INTERIM
- * - oslo-steps/steps -> CONFIG
+ * - fno-steps/steps -> CONFIG
  * - Q createdGoal_citizenName -> INTERIM
  */
 
@@ -350,9 +350,9 @@ export {
 
 /**
  * 0️⃣ component-level-steps
- * - oslo-steps/steps -> CONFIG
- * - oslo-steps/states -> CONFIG
- * - oslo-steps/shapes -> CONFIG
+ * - fno-steps/steps -> CONFIG
+ * - fno-steps/states -> CONFIG
+ * - fno-steps/shapes -> CONFIG
  * - step-reasoning -> ENGINE
  * - help -> ENGINE
  * - createPattern -> ENGINE
