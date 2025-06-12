@@ -27,14 +27,13 @@ The workflow composer typically runs a *scenario*.
 A scenario consists of a set of *states*, *shapes* and *states*, a set of *data* files and a set of *goal states*.
 Make sure all files are UTF-8 encoded.
 
-Here is an example of a scenario (`scenarios/bocemon_example`):
+Here is an example of a scenario (`scenarios/fromAtoB`):
 ```
 bocemon_example/
 ├── data_01.ttl
 ├── data_02.ttl
 ├── data_03.ttl
 ├── data_04.ttl
-├── data_05.ttl
 ├── flow.md
 ├── goalStates.txt
 ├── shapes.ttl
@@ -66,25 +65,25 @@ Options:
   -h, --help                         display help for command
 ```
 
-where `name` is the name of a subdirectory in `scenarios/`, e.g. `bocemon_example`
+where `name` is the name of a subdirectory in `scenarios/`, e.g. `fromAtoB`
 and `name of data file` is a certain data file.
 
 ### examples
 
 Run the `bocemon_example` scenario:
 ```shell
-node scenario.js -s bocemon_example
+node scenario.js -s fromAtoB
 ```
 
 Run the example with the (data) state as described in `data_03.ttl`:
 ```shell
-node scenario.js -s bocemon_example -d data_03.ttl
+node scenario.js -s fromAtoB -d data_03.ttl
 ```
 
 ## Organization
 
 - `rules`: all N3 rules
-  - `oslo-steps`: all FnO-Steps rules
+  - `fno-steps`: all FnO-Steps rules
   - `shacl`: transformation rules for SHACL as shape language
   - `util`: utility functions
   - `workflow-composer`: workflow composer (optimization) rules

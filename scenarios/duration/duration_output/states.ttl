@@ -1,4 +1,0 @@
-
-<http://localhost:8000/states#Response> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "A response has been given";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#Response> .
