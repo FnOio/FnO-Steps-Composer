@@ -132,7 +132,7 @@ async function _reasonLevelSteps(data, baseFolder, query, outputFile, knowledgeP
             "rules/util/list.n3",
             "rules/shacl/createPattern.n3",
         ].concat(data),
-        query: `rules/oslo-steps/${query}`,
+        query: `rules/fno-steps/${query}`,
     }
     const output = `${baseFolder}/${outputFile}`;
     await _cached(output, produceBase, knowledgePath);
