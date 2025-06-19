@@ -1,0 +1,20 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix : <http://localhost:8000/shapes#> .
+@prefix fno-steps: <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+@prefix shacl: <http://www.w3.org/ns/shacl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xmls: <http://www.w3.org/2001/XMLSchema#> .
+@prefix checks: <https://data.digichecks.eu/def/> .
+
+
+:architectAssists a fno-steps:StateShape;
+  shacl:property :architectAssistsPropertyShape;
+  shacl:targetClass prov:Association .
+
+:architectAssistsPropertyShape a shacl:PropertyShape;
+  shacl:maxCount 1;
+  shacl:minCount 1;
+  shacl:path checks:role;
+  shacl:hasValue "Architect" .
+

@@ -1,0 +1,17 @@
+@prefix : <https://example.com/> .
+@prefix checks: <https://data.digichecks.eu/def/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:Jacky a prov:Person ;
+  rdfs:comment '''We start with Jacky, a person who wants to renovate a building.
+What does she have to do to get a building permit?'''.
+
+:TheProject
+  a checks:Project ;
+  prov:qualifiedAssociation :ProjectAssociatedToJacky .
+
+:ProjectAssociatedToJacky
+    a prov:Association ;
+    prov:agent :Jacky .
+    #checks:role "Owner" .

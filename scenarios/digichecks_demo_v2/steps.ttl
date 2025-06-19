@@ -1,0 +1,23 @@
+@prefix : <http://localhost:8000/steps#> .
+@prefix fno-steps: <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#> .
+@prefix states: <http://localhost:8000/states#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+
+
+:startPermittingProcess a fno-steps:JourneyLevelStep;
+                        fno-steps:hasDescription :startPermittingProcessDescription;
+                        fno-steps:producesState states:architectAssists;
+                        fno-steps:requiresState fno-steps:emptyState .
+
+:startPermittingProcessDescription skosxl:literalForm
+                                           "From plans to announcement of the permitting process" .
+
+:getArchitect a fno-steps:ComponentLevelStep, fno-steps:ContainerLevelStep;
+  fno-steps:hasDescription :getArchitectDescription;
+  fno-steps:producesState states:architectAssists;
+  fno-steps:requiresState fno-steps:emptyState .
+
+:getArchitectDescription skosxl:literalForm
+    "An architect is required to assist with the building permit application" .
+
+

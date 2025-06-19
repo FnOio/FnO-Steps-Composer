@@ -1,0 +1,8 @@
+@prefix : <http://localhost:8000/states#> .
+@prefix fno-steps: <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix shapes: <http://localhost:8000/shapes#> .
+
+:architectAssists a fno-steps:State;
+  rdfs:label "An architect is found to assist with the building permit application";
+  fno-steps:hasStateShape shapes:architectAssists .
