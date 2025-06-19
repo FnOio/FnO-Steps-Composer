@@ -4,7 +4,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 :Jacky a prov:Person ;
-  rdfs:comment '''Jacky asks Amy, an architect, to assist with the building permit application.'''.
+  rdfs:comment '''Amy did some preliminary checks with Carla of Onroerend Erfgoed'''.
 
 :Amy a prov:Person .
 
@@ -13,8 +13,8 @@
     prov:actedOnBehalfOf :OnroerendErfgoed .
 
 :TheProject
-  a checks:Project ;
-  prov:qualifiedAssociation :ProjectAssociatedToJacky, :ProjectAssociatedToAmy .
+    a checks:Project ;
+    prov:qualifiedAssociation :ProjectAssociatedToJacky, :ProjectAssociatedToAmy .
 
 :ProjectAssociatedToJacky
     a prov:Association ;
