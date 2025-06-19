@@ -1,23 +1,337 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix : <http://localhost:8000/steps#> .
-@prefix fno-steps: <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#> .
 @prefix states: <http://localhost:8000/states#> .
 @prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+@prefix fno-steps: <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#> .
+
+######
+# 1. #
+######
+
+:startPermittingProcess
+    a fno-steps:JourneyLevelStep ;
+    fno-steps:hasDescription :startPermittingProcessDescription ;
+    fno-steps:producesState states:architectHasPreliminaryInput ;
+    fno-steps:requiresState fno-steps:emptyState .
+
+:startPermittingProcessDescription
+    skosxl:literalForm "From plans to announcement of the permitting process" .
+
+#######
+# 1.1 #
+#######
+
+:getArchitect
+    a fno-steps:ComponentLevelStep, fno-steps:ContainerLevelStep ;
+    fno-steps:hasDescription :getArchitectDescription ;
+    fno-steps:producesState states:architectAssists ;
+    fno-steps:requiresState fno-steps:emptyState .
+
+:getArchitectDescription
+    skosxl:literalForm "An architect is required to assist with the building permit application" .
+
+#######
+# 1.2 #
+#######
+
+:prepareBuildingPermitApplication
+    a fno-steps:ContainerLevelStep ;
+    fno-steps:hasDescription :prepareBuildingPermitApplicationDescription ;
+    fno-steps:producesState states:architectHasPreliminaryInput ;
+    fno-steps:requiresState states:architectAssists .
+
+:prepareBuildingPermitApplicationDescription
+    skosxl:literalForm "Prepare the building permit application" .
+
+:preliminaryInputFromAuthorities
+    a fno-steps:ComponentLevelStep ;
+    fno-steps:hasDescription :preliminaryInputFromAuthoritiesDescription ;
+    fno-steps:producesState states:architectHasPreliminaryInput ;
+    fno-steps:requiresState states:architectAssists .
+
+:preliminaryInputFromAuthoritiesDescription
+    skosxl:literalForm "Preliminary consultations are held" .
 
 
-:startPermittingProcess a fno-steps:JourneyLevelStep;
-                        fno-steps:hasDescription :startPermittingProcessDescription;
-                        fno-steps:producesState states:architectAssists;
-                        fno-steps:requiresState fno-steps:emptyState .
+#:allPreliminaryChecksPass
+#    a fno-steps:ComponentLevelStep ;
+#    fno-steps:hasDescription :allPreliminaryChecksPassDescription ;
+#    fno-steps:producesState states:preliminaryCheckPassed ;
+#    fno-steps:requiresState states:administrativeProcessesDone, states:completenessCheckPassed, states:formatCheckPassed, states:projectRegistered .
+#
+#:allPreliminaryChecksPassDescription
+#    skosxl:literalForm "All preliminary checks pass" .
 
-:startPermittingProcessDescription skosxl:literalForm
-                                           "From plans to announcement of the permitting process" .
+#:announcePermittingProcess
+#    a fno-steps:ComponentLevelStep, fno-steps:ContainerLevelStep ;
+#    fno-steps:hasDescription :announcePermittingProcessDescription ;
+#    fno-steps:producesState states:permittingProcessAnnounced ;
+#    fno-steps:requiresState states:preliminaryCheckPassed .
+#
+#:announcePermittingProcessDescription
+#    skosxl:literalForm "Publicly announce the permitting process" .
 
-:getArchitect a fno-steps:ComponentLevelStep, fno-steps:ContainerLevelStep;
-  fno-steps:hasDescription :getArchitectDescription;
-  fno-steps:producesState states:architectAssists;
-  fno-steps:requiresState fno-steps:emptyState .
+#:buildingPermitApplicationPrepared
+#    a fno-steps:ComponentLevelStep ;
+#    fno-steps:hasDescription :buildingPermitApplicationPreparedDescription ;
+#    fno-steps:producesState states:buildingPermitApplicationPrepared ;
+#    fno-steps:requiresState states:architectHasPreliminaryInput, states:designAvailable, states:requiredDocumentsAvailable .
+#
+#:buildingPermitApplicationPreparedDescription
+#    skosxl:literalForm "The building permit application is prepared" .
+#
+#:checkBuildingLawCompliance
+#    a fno-steps:ComponentLevelStep, fno-steps:ContainerLevelStep ;
+#    fno-steps:hasDescription :checkBuildingLawComplianceDescription ;
+#    fno-steps:producesState states:buildingLawComplianceChecked ;
+#    fno-steps:requiresState states:permittingProcessAnnounced .
+#
+#:checkBuildingLawComplianceDescription
+#    skosxl:literalForm "Check if the project complies with the building law" .
+#
+#:checkCompleteness
+#    a fno-steps:ComponentLevelStep ;
+#    fno-steps:hasDescription :checkCompletenessDescription ;
+#    fno-steps:producesState states:completenessCheckPassed ;
+#    fno-steps:requiresState states:permitOfficerAssigned .
+#
+#:checkCompletenessDescription
+#    skosxl:literalForm "Permit officer checks if all required documents are present" .
+#
+#:checkFormat
+#    a fno-steps:ComponentLevelStep ;
+#    fno-steps:hasDescription :checkFormatDescription ;
+#    fno-steps:producesState states:formatCheckPassed ;
+#    fno-steps:requiresState states:permitOfficerAssigned .
+#
+#:checkFormatDescription
+#    skosxl:literalForm "Permit officer checks if all required documents are well formatted" .
+#
+#:checkPlanningLawCompliance
+#    a fno-steps:ComponentLevelStep, fno-steps:ContainerLevelStep ;
+#    fno-steps:hasDescription :checkPlanningLawComplianceDescription ;
+#    fno-steps:producesState states:planningLawComplianceChecked ;
+#    fno-steps:requiresState states:permittingProcessAnnounced .
+#
+#:checkPlanningLawComplianceDescription
+#    skosxl:literalForm "Check if the project complies with the planning law" .
+#
+#:collectAndDecide
+#    a fno-steps:ContainerLevelStep, fno-steps:JourneyLevelStep ;
+#    fno-steps:hasDescription :collectAndDecideDescription ;
+#    fno-steps:producesState states:decisionRatifiedOrRejected ;
+#    fno-steps:requiresState states:contentReviewPassed .
+#
+#:collectAndDecideDescription
+#    skosxl:literalForm "From collection neighbour objections to final ratification" .
+#
+#:collectStatementsOfAgenciesCity
+#    a fno-steps:ComponentLevelStep ;
+#    fno-steps:hasDescription :collectStatementsOfAgenciesCityDescription ;
+#    fno-steps:producesState states:agenciesAndDepartmentsConsulted ;
+#    fno-steps:requiresState states:ASTRIDveiligheidscommissieConsulted, states:agentschapOnroerendErfgoedConsulted, states:departementMobiliteitEnOpenbareWerkenConsulted, states:departmentToepassingWatertoetsConsulted .
+#
+#:collectStatementsOfAgenciesCityDescription
+#    skosxl:literalForm "Collect the statements of agencies and departments for the city center" .
+#
+#:collectStatementsOfAgenciesRural
+#    a fno-steps:ComponentLevelStep ;
+#    fno-steps:hasDescription :collectStatementsOfAgenciesRuralDescription ;
+#    fno-steps:producesState states:agenciesAndDepartmentsConsulted ;
+#    fno-steps:requiresState states:departementLandbouwEnVisserijConsulted, states:departementNatuurEnBosConsulted, states:departmentToepassingWatertoetsConsulted .
+#
+#:collectStatementsOfAgenciesRuralDescription
+#    skosxl:literalForm "Collect the statements of agencies and departments for a rural area" .
+#
+#:consultASTRIDveiligheidscommissie
+#    a fno-steps:ComponentLevelStep ;
+#    fno-steps:hasDescription :consultASTRIDveiligheidscommissieDescription ;
+#    fno-steps:producesState states:ASTRIDveiligheidscommissieConsulted ;
+#    fno-steps:requiresState states:locatedInCity .
+#
+#:consultASTRIDveiligheidscommissieDescription
+#    skosxl:literalForm "Consult the \"ASTRID veiligheidscommissie\"" .
+#
+#:consultAgenciesAndDepartments
+#    a fno-steps:ContainerLevelStep ;
+#    fno-steps:hasDescription :consultAgenciesAndDepartmentsDescription ;
+#    fno-steps:producesState states:agenciesAndDepartmentsConsulted ;
+#    fno-steps:requiresState states:permittingProcessAnnounced .
+#
+#:consultAgenciesAndDepartmentsDescription
+#    skosxl:literalForm "consult agencies and departments for advice" .
+#
+#:consultAgentschapOnroerendErfgoed
+#    a fno-steps:ComponentLevelStep ;
+#    fno-steps:hasDescription :consultAgentschapOnroerendErfgoedDescription ;
+#    fno-steps:producesState states:agentschapOnroerendErfgoedConsulted ;
+#    fno-steps:requiresState states:locatedInCity .
+#
+#:consultAgentschapOnroerendErfgoedDescription
+#    skosxl:literalForm "Consult the agency \"onroerend erfgoed\"" .
+#
+#:consultDepartementLandbouwEnVisserij
+#    a fno-steps:ComponentLevelStep ;
+#    fno-steps:hasDescription :consultDepartementLandbouwEnVisserijDescription ;
+#    fno-steps:producesState states:departementLandbouwEnVisserijConsulted ;
+#    fno-steps:requiresState states:locatedInRuralArea .
+#
+#:consultDepartementLandbouwEnVisserijDescription
+#    skosxl:literalForm "Consult the department \"Landbouw en Visserij\"" .
+#
+#:consultDepartementMobiliteitEnOpenbareWerken
+#    a fno-steps:ComponentLevelStep ;
+#    fno-steps:hasDescription :consultDepartementMobiliteitEnOpenbareWerkenDescription ;
+#    fno-steps:producesState states:departementMobiliteitEnOpenbareWerkenConsulted ;
+#    fno-steps:requiresState states:locatedInCity .
+#
+#:consultDepartementMobiliteitEnOpenbareWerkenDescription
+#    skosxl:literalForm "Consult the department \"Mobiliteit en Openbare Werken\"" .
+#
+#:consultDepartementNatuurEnBos
+#    a fno-steps:ComponentLevelStep ;
+#    fno-steps:hasDescription :consultDepartementNatuurEnBosDescription ;
+#    fno-steps:producesState states:departementNatuurEnBosConsulted ;
+#    fno-steps:requiresState states:locatedInRuralArea .
+#
+#:consultDepartementNatuurEnBosDescription
+#    skosxl:literalForm "Consult the department \"Natuur en Bos\"" .
+#
+#:consultDepartmentToepassingWatertoets
+#    a fno-steps:ComponentLevelStep ;
+#    fno-steps:hasDescription :consultDepartmentToepassingWatertoetsDescription ;
+#    fno-steps:producesState states:departmentToepassingWatertoetsConsulted ;
+#    fno-steps:requiresState states:permittingProcessAnnounced .
+#
+#:consultDepartmentToepassingWatertoetsDescription
+#    skosxl:literalForm "Consult the department responsible for \"Toepassing van de Watertoets\"" .
+#
+#:endContentReview
+#    a fno-steps:ComponentLevelStep, fno-steps:ContainerLevelStep ;
+#    fno-steps:hasDescription :endContentReviewDescription ;
+#    fno-steps:producesState states:contentReviewPassed ;
+#    fno-steps:requiresState states:agenciesAndDepartmentsConsulted, states:buildingLawComplianceChecked, states:planningLawComplianceChecked .
+#
+#:endContentReviewDescription
+#    skosxl:literalForm "All steps for the content review are performed" .
+#
+#:evaluateDecision
+#    a fno-steps:ComponentLevelStep ;
+#    fno-steps:hasDescription :evaluateDecisionDescription ;
+#    fno-steps:producesState states:decisionRatifiedOrRejected ;
+#    fno-steps:requiresState states:advisoryDocumentReady .
+#
+#:evaluateDecisionDescription
+#    skosxl:literalForm "The city counsil evaluates the decisionwritten in the advisory document" .
 
-:getArchitectDescription skosxl:literalForm
-    "An architect is required to assist with the building permit application" .
+
+#:getPermitOfficer
+#    a fno-steps:ComponentLevelStep, fno-steps:ContainerLevelStep ;
+#    fno-steps:hasDescription :getPermitOfficerDescription ;
+#    fno-steps:producesState states:permitOfficerAssigned ;
+#    fno-steps:requiresState states:buildingPermitApplicationSubmitted .
+#
+#:getPermitOfficerDescription
+#    skosxl:literalForm "A permit officer working at the city administration is assigned" .
+#
+#:locatedInCityCenter
+#    a fno-steps:ComponentLevelStep ;
+#    fno-steps:hasDescription :locatedInCityCenterDescription ;
+#    fno-steps:producesState states:locatedInCity ;
+#    fno-steps:requiresState states:permittingProcessAnnounced .
+#
+#:locatedInCityCenterDescription
+#    skosxl:literalForm "The project is located in the city center" .
+#
+#:locatedInRuralArea
+#    a fno-steps:ComponentLevelStep ;
+#    fno-steps:hasDescription :locatedInRuralAreaDescription ;
+#    fno-steps:producesState states:locatedInRuralArea ;
+#    fno-steps:requiresState states:permittingProcessAnnounced .
+#
+#:locatedInRuralAreaDescription
+#    skosxl:literalForm "The project is located in a rural area" .
+#
+#:neighboursCanObject
+#    a fno-steps:ComponentLevelStep ;
+#    fno-steps:hasDescription :neighboursCanObjectDescription ;
+#    fno-steps:producesState states:neighbourObjectionsCollected ;
+#    fno-steps:requiresState states:contentReviewPassed .
+#
+#:neighboursCanObjectDescription
+#    skosxl:literalForm "Neighbours have some time to object" .
+#
+#:performAdministrativeProcesses
+#    a fno-steps:ComponentLevelStep ;
+#    fno-steps:hasDescription :performAdministrativeProcessesDescription ;
+#    fno-steps:producesState states:administrativeProcessesDone ;
+#    fno-steps:requiresState states:permitOfficerAssigned .
+#
+#:performAdministrativeProcessesDescription
+#    skosxl:literalForm "Administrative processes (e.g. send reception letter)" .
+#
+#:performContentReview
+#    a fno-steps:JourneyLevelStep ;
+#    fno-steps:hasDescription :performContentReviewDescription ;
+#    fno-steps:producesState states:contentReviewPassed ;
+#    fno-steps:requiresState states:permittingProcessAnnounced .
+#
+#:performContentReviewDescription
+#    skosxl:literalForm "The authority performs a thorough content review and checks" .
+#
+#:preliminaryAuthorityCheck
+#    a fno-steps:ContainerLevelStep ;
+#    fno-steps:hasDescription :preliminaryAuthorityCheckDescription ;
+#    fno-steps:producesState states:preliminaryCheckPassed ;
+#    fno-steps:requiresState states:permitOfficerAssigned .
+#
+#:preliminaryAuthorityCheckDescription
+#    skosxl:literalForm "The authority preforms pleliminary checks" .
+
+#:prepareDesign
+#    a fno-steps:ComponentLevelStep ;
+#    fno-steps:hasDescription :prepareDesignDescription ;
+#    fno-steps:producesState states:designAvailable ;
+#    fno-steps:requiresState states:architectAssists .
+#
+#:prepareDesignDescription
+#    skosxl:literalForm "Prepare the design of the building" .
+#
+#:prepareRequiredDocuments
+#    a fno-steps:ComponentLevelStep ;
+#    fno-steps:hasDescription :prepareRequiredDocumentsDescription ;
+#    fno-steps:producesState states:requiredDocumentsAvailable ;
+#    fno-steps:requiresState states:architectAssists .
+#
+#:prepareRequiredDocumentsDescription
+#    skosxl:literalForm "Prepare other required documents" .
+#
+#:registerProject
+#    a fno-steps:ComponentLevelStep ;
+#    fno-steps:hasDescription :registerProjectDescription ;
+#    fno-steps:producesState states:projectRegistered ;
+#    fno-steps:requiresState states:permitOfficerAssigned .
+#
+#:registerProjectDescription
+#    skosxl:literalForm "The project has to be registered" .
 
 
+
+#:submitApplication
+#    a fno-steps:ComponentLevelStep, fno-steps:ContainerLevelStep ;
+#    fno-steps:hasDescription :submitApplicationDescription ;
+#    fno-steps:producesState states:buildingPermitApplicationSubmitted ;
+#    fno-steps:requiresState states:buildingPermitApplicationPrepared .
+#
+#:submitApplicationDescription
+#    skosxl:literalForm "Submit the building permit applicaton" .
+#
+#:writeAdvisoryDocument
+#    a fno-steps:ComponentLevelStep ;
+#    fno-steps:hasDescription :writeAdvisoryDocumentDescription ;
+#    fno-steps:producesState states:advisoryDocumentReady ;
+#    fno-steps:requiresState states:neighbourObjectionsCollected .
+#
+#:writeAdvisoryDocumentDescription
+#    skosxl:literalForm "The project officer writes an advisory document with a final decision for the city counsil" .
+#

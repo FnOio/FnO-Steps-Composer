@@ -1,8 +1,149 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix : <http://localhost:8000/states#> .
 @prefix fno-steps: <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix shapes: <http://localhost:8000/shapes#> .
 
-:architectAssists a fno-steps:State;
-  rdfs:label "An architect is found to assist with the building permit application";
-  fno-steps:hasStateShape shapes:architectAssists .
+:architectAssists
+    a fno-steps:State ;
+    rdfs:label "An architect is found to assist with the building permit application" ;
+    fno-steps:hasStateShape shapes:architectAssists .
+
+:architectHasPreliminaryInput
+    a fno-steps:State ;
+    rdfs:label "Architect has input from authority (preliminary)" ;
+    fno-steps:hasStateShape shapes:architectHasPreliminaryInput .
+
+
+#:ASTRIDveiligheidscommissieConsulted
+#    a fno-steps:State ;
+#    rdfs:label "The 'ASTRID' safety commision has been consulted" ;
+#    fno-steps:hasStateShape shapes:ASTRIDveiligheidscommissieConsulted .
+#
+#:administrativeProcessesDone
+#    a fno-steps:State ;
+#    rdfs:label "All administrative processes (e.g. Sending reception letter) are done" ;
+#    fno-steps:hasStateShape shapes:administrativeProcessesDone .
+#
+#:advisoryDocumentReady
+#    a fno-steps:State ;
+#    rdfs:label "The project officer wrote an advisory document containing info from the content review and objections of neighbours" ;
+#    fno-steps:hasStateShape shapes:advisoryDocumentReady .
+#
+#:agenciesAndDepartmentsConsulted
+#    a fno-steps:State ;
+#    rdfs:label "Agencies and departments are requested to give statements" ;
+#    fno-steps:hasStateShape shapes:agenciesAndDepartmentsConsulted .
+#
+#:agentschapOnroerendErfgoedConsulted
+#    a fno-steps:State ;
+#    rdfs:label "The 'Agentschap Onroerend Erfgoed' has been consulted" ;
+#    fno-steps:hasStateShape shapes:agentschapOnroerendErfgoedConsulted .
+#
+#
+#:buildingLawComplianceChecked
+#    a fno-steps:State ;
+#    rdfs:label "The project is checked for building law compliance" ;
+#    fno-steps:hasStateShape shapes:buildingLawComplianceChecked .
+#
+#:buildingPermitApplicationPrepared
+#    a fno-steps:State ;
+#    rdfs:label "The building permit application is ready to be submitted" ;
+#    fno-steps:hasStateShape shapes:buildingPermitApplicationPrepared .
+#
+#:buildingPermitApplicationSubmitted
+#    a fno-steps:State ;
+#    rdfs:label "The building permit application is submitted", "The building permit application is submitted to authority" ;
+#    fno-steps:hasStateShape shapes:buildingPermitApplicationSubmitted .
+#
+#:completenessCheckPassed
+#    a fno-steps:State ;
+#    rdfs:label "All required documents are submitted" ;
+#    fno-steps:hasStateShape shapes:completenessCheckPassed .
+#
+#:contentReviewPassed
+#    a fno-steps:State ;
+#    rdfs:label "The content review passed" ;
+#    fno-steps:hasStateShape shapes:contentReviewPassed .
+#
+#:decisionRatifiedOrRejected
+#    a fno-steps:State ;
+#    rdfs:label "The city counsil ratified or rejected the final decision written in the advisory document" ;
+#    fno-steps:hasStateShape shapes:decisionRatifiedOrRejected .
+#
+#:departementLandbouwEnVisserijConsulted
+#    a fno-steps:State ;
+#    rdfs:label "The department 'Landbouw en Visserij' has been consulted" ;
+#    fno-steps:hasStateShape shapes:departementLandbouwEnVisserijConsulted .
+#
+#:departementMobiliteitEnOpenbareWerkenConsulted
+#    a fno-steps:State ;
+#    rdfs:label "The department 'Mobiliteit en Openbare Werken' has been consulted" ;
+#    fno-steps:hasStateShape shapes:departementMobiliteitEnOpenbareWerkenConsulted .
+#
+#:departementNatuurEnBosConsulted
+#    a fno-steps:State ;
+#    rdfs:label "The department 'Natuur en Bos' has been consulted" ;
+#    fno-steps:hasStateShape shapes:departementNatuurEnBosConsulted .
+#
+#:departmentToepassingWatertoetsConsulted
+#    a fno-steps:State ;
+#    rdfs:label "The department responsible for \"Toepassing van de Watertoets\" is consulted" ;
+#    fno-steps:hasStateShape shapes:departmentToepassingWatertoetsConsulted .
+#
+#:designAvailable
+#    a fno-steps:State ;
+#    rdfs:label "The design is ready." ;
+#    fno-steps:hasStateShape shapes:designAvailable .
+#
+#:formatCheckPassed
+#    a fno-steps:State ;
+#    rdfs:label "All required documents are in the right format" ;
+#    fno-steps:hasStateShape shapes:formatCheckPassed .
+#
+#:locatedInCity
+#    a fno-steps:State ;
+#    rdfs:label "The project is located in the city center" ;
+#    fno-steps:hasStateShape shapes:locatedInCity .
+#
+#:locatedInRuralArea
+#    a fno-steps:State ;
+#    rdfs:label "The project is located in a rural area" ;
+#    fno-steps:hasStateShape shapes:locatedInRuralArea .
+#
+#:neighbourObjectionsCollected
+#    a fno-steps:State ;
+#    rdfs:label "The objections of neighbours are collected" ;
+#    fno-steps:hasStateShape shapes:neighbourObjectionsCollected .
+#
+#:permitOfficerAssigned
+#    a fno-steps:State ;
+#    rdfs:label "A permit officer is assigned" ;
+#    fno-steps:hasStateShape shapes:permitOfficerAssigned .
+#
+#:permittingProcessAnnounced
+#    a fno-steps:State ;
+#    rdfs:label "The permitting process is publicly announced, so neighbours can object" ;
+#    fno-steps:hasStateShape shapes:permittingProcessAnnounced .
+#
+#:planningLawComplianceChecked
+#    a fno-steps:State ;
+#    rdfs:label "The project is checked for planning law compliance" ;
+#    fno-steps:hasStateShape shapes:planningLawComplianceChecked .
+#
+#:preliminaryCheckPassed
+#    a fno-steps:State ;
+#    rdfs:label "The building permit application passed the preliminary checks done bu the authority" ;
+#    fno-steps:hasStateShape shapes:preliminaryCheckPassed .
+#
+#:projectRegistered
+#    a fno-steps:State ;
+#    rdfs:label "The project is registered with the authority's system" ;
+#    fno-steps:hasStateShape shapes:projectRegistered .
+#
+#:requiredDocumentsAvailable
+#    a fno-steps:State ;
+#    rdfs:label "Other documents are available" ;
+#    fno-steps:hasStateShape shapes:requiredDocumentsAvailable .
+#
+#
