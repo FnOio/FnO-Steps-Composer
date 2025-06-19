@@ -1,113 +1,146 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix : <http://localhost:8000/states#> .
+@prefix fno-steps: <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix shapes: <http://localhost:8000/shapes#> .
 
-<http://localhost:8000/states#ASTRIDveiligheidscommissieConsulted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "The 'ASTRID' safety commision has been consulted";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#ASTRIDveiligheidscommissieConsulted> .
+:ASTRIDveiligheidscommissieConsulted
+    a fno-steps:State ;
+    rdfs:label "The 'ASTRID' safety commision has been consulted" ;
+    fno-steps:hasStateShape shapes:ASTRIDveiligheidscommissieConsulted .
 
-<http://localhost:8000/states#administrativeProcessesDone> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "All administrative processes (e.g. Sending reception letter) are done";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#administrativeProcessesDone> .
+:administrativeProcessesDone
+    a fno-steps:State ;
+    rdfs:label "All administrative processes (e.g. Sending reception letter) are done" ;
+    fno-steps:hasStateShape shapes:administrativeProcessesDone .
 
-<http://localhost:8000/states#advisoryDocumentReady> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "The project officer wrote an advisory document containing info from the content review and objections of neighbours";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#advisoryDocumentReady> .
+:advisoryDocumentReady
+    a fno-steps:State ;
+    rdfs:label "The project officer wrote an advisory document containing info from the content review and objections of neighbours" ;
+    fno-steps:hasStateShape shapes:advisoryDocumentReady .
 
-<http://localhost:8000/states#agenciesAndDepartmentsConsulted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "Agencies and departments are requested to give statements";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#agenciesAndDepartmentsConsulted> .
+:agenciesAndDepartmentsConsulted
+    a fno-steps:State ;
+    rdfs:label "Agencies and departments are requested to give statements" ;
+    fno-steps:hasStateShape shapes:agenciesAndDepartmentsConsulted .
 
-<http://localhost:8000/states#agentschapOnroerendErfgoedConsulted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "The 'Agentschap Onroerend Erfgoed' has been consulted";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#agentschapOnroerendErfgoedConsulted> .
+:agentschapOnroerendErfgoedConsulted
+    a fno-steps:State ;
+    rdfs:label "The 'Agentschap Onroerend Erfgoed' has been consulted" ;
+    fno-steps:hasStateShape shapes:agentschapOnroerendErfgoedConsulted .
 
-<http://localhost:8000/states#architectAssists> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "An architect is found to assist with the building permit application";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#architectAssists> .
+:architectAssists
+    a fno-steps:State ;
+    rdfs:label "An architect is found to assist with the building permit application" ;
+    fno-steps:hasStateShape shapes:architectAssists .
 
-<http://localhost:8000/states#architectHasPreliminaryInput> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "Architect has input from authority (preliminary)";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#architectHasPreliminaryInput> .
+:architectHasPreliminaryInput
+    a fno-steps:State ;
+    rdfs:label "Architect has input from authority (preliminary)" ;
+    fno-steps:hasStateShape shapes:architectHasPreliminaryInput .
 
-<http://localhost:8000/states#buildingLawComplianceChecked> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "The project is checked for building law compliance";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#buildingLawComplianceChecked> .
+:buildingLawComplianceChecked
+    a fno-steps:State ;
+    rdfs:label "The project is checked for building law compliance" ;
+    fno-steps:hasStateShape shapes:buildingLawComplianceChecked .
 
-<http://localhost:8000/states#buildingPermitApplicationPrepared> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "The building permit application is ready to be submitted";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#buildingPermitApplicationPrepared> .
+:buildingPermitApplicationPrepared
+    a fno-steps:State ;
+    rdfs:label "The building permit application is ready to be submitted" ;
+    fno-steps:hasStateShape shapes:buildingPermitApplicationPrepared .
 
-<http://localhost:8000/states#buildingPermitApplicationSubmitted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "The building permit application is submitted",
-    "The building permit application is submitted to authority";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#buildingPermitApplicationSubmitted> .
+:buildingPermitApplicationSubmitted
+    a fno-steps:State ;
+    rdfs:label "The building permit application is submitted", "The building permit application is submitted to authority" ;
+    fno-steps:hasStateShape shapes:buildingPermitApplicationSubmitted .
 
-<http://localhost:8000/states#completenessCheckPassed> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "All required documents are submitted";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#completenessCheckPassed> .
+:completenessCheckPassed
+    a fno-steps:State ;
+    rdfs:label "All required documents are submitted" ;
+    fno-steps:hasStateShape shapes:completenessCheckPassed .
 
-<http://localhost:8000/states#contentReviewPassed> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "The content review passed";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#contentReviewPassed> .
+:contentReviewPassed
+    a fno-steps:State ;
+    rdfs:label "The content review passed" ;
+    fno-steps:hasStateShape shapes:contentReviewPassed .
 
-<http://localhost:8000/states#decisionRatifiedOrRejected> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "The city counsil ratified or rejected the final decision written in the advisory document";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#decisionRatifiedOrRejected> .
+:decisionRatifiedOrRejected
+    a fno-steps:State ;
+    rdfs:label "The city counsil ratified or rejected the final decision written in the advisory document" ;
+    fno-steps:hasStateShape shapes:decisionRatifiedOrRejected .
 
-<http://localhost:8000/states#departementLandbouwEnVisserijConsulted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "The department 'Landbouw en Visserij' has been consulted";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#departementLandbouwEnVisserijConsulted> .
+:departementLandbouwEnVisserijConsulted
+    a fno-steps:State ;
+    rdfs:label "The department 'Landbouw en Visserij' has been consulted" ;
+    fno-steps:hasStateShape shapes:departementLandbouwEnVisserijConsulted .
 
-<http://localhost:8000/states#departementMobiliteitEnOpenbareWerkenConsulted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "The department 'Mobiliteit en Openbare Werken' has been consulted";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#departementMobiliteitEnOpenbareWerkenConsulted> .
+:departementMobiliteitEnOpenbareWerkenConsulted
+    a fno-steps:State ;
+    rdfs:label "The department 'Mobiliteit en Openbare Werken' has been consulted" ;
+    fno-steps:hasStateShape shapes:departementMobiliteitEnOpenbareWerkenConsulted .
 
-<http://localhost:8000/states#departementNatuurEnBosConsulted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "The department 'Natuur en Bos' has been consulted";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#departementNatuurEnBosConsulted> .
+:departementNatuurEnBosConsulted
+    a fno-steps:State ;
+    rdfs:label "The department 'Natuur en Bos' has been consulted" ;
+    fno-steps:hasStateShape shapes:departementNatuurEnBosConsulted .
 
-<http://localhost:8000/states#departmentToepassingWatertoetsConsulted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "The department responsible for \"Toepassing van de Watertoets\" is consulted";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#departmentToepassingWatertoetsConsulted> .
+:departmentToepassingWatertoetsConsulted
+    a fno-steps:State ;
+    rdfs:label "The department responsible for \"Toepassing van de Watertoets\" is consulted" ;
+    fno-steps:hasStateShape shapes:departmentToepassingWatertoetsConsulted .
 
-<http://localhost:8000/states#designAvailable> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "The design is ready.";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#designAvailable> .
+:designAvailable
+    a fno-steps:State ;
+    rdfs:label "The design is ready." ;
+    fno-steps:hasStateShape shapes:designAvailable .
 
-<http://localhost:8000/states#formatCheckPassed> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "All required documents are in the right format";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#formatCheckPassed> .
+:formatCheckPassed
+    a fno-steps:State ;
+    rdfs:label "All required documents are in the right format" ;
+    fno-steps:hasStateShape shapes:formatCheckPassed .
 
-<http://localhost:8000/states#locatedInCity> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "The project is located in the city center";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#locatedInCity> .
+:locatedInCity
+    a fno-steps:State ;
+    rdfs:label "The project is located in the city center" ;
+    fno-steps:hasStateShape shapes:locatedInCity .
 
-<http://localhost:8000/states#locatedInRuralArea> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "The project is located in a rural area";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#locatedInRuralArea> .
+:locatedInRuralArea
+    a fno-steps:State ;
+    rdfs:label "The project is located in a rural area" ;
+    fno-steps:hasStateShape shapes:locatedInRuralArea .
 
-<http://localhost:8000/states#neighbourObjectionsCollected> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "The objections of neighbours are collected";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#neighbourObjectionsCollected> .
+:neighbourObjectionsCollected
+    a fno-steps:State ;
+    rdfs:label "The objections of neighbours are collected" ;
+    fno-steps:hasStateShape shapes:neighbourObjectionsCollected .
 
-<http://localhost:8000/states#permitOfficerAssigned> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "A permit officer is assigned";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#permitOfficerAssigned> .
+:permitOfficerAssigned
+    a fno-steps:State ;
+    rdfs:label "A permit officer is assigned" ;
+    fno-steps:hasStateShape shapes:permitOfficerAssigned .
 
-<http://localhost:8000/states#permittingProcessAnnounced> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "The permitting process is publicly announced, so neighbours can object";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#permittingProcessAnnounced> .
+:permittingProcessAnnounced
+    a fno-steps:State ;
+    rdfs:label "The permitting process is publicly announced, so neighbours can object" ;
+    fno-steps:hasStateShape shapes:permittingProcessAnnounced .
 
-<http://localhost:8000/states#planningLawComplianceChecked> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "The project is checked for planning law compliance";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#planningLawComplianceChecked> .
+:planningLawComplianceChecked
+    a fno-steps:State ;
+    rdfs:label "The project is checked for planning law compliance" ;
+    fno-steps:hasStateShape shapes:planningLawComplianceChecked .
 
-<http://localhost:8000/states#preliminaryCheckPassed> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "The building permit application passed the preliminary checks done bu the authority";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#preliminaryCheckPassed> .
+:preliminaryCheckPassed
+    a fno-steps:State ;
+    rdfs:label "The building permit application passed the preliminary checks done bu the authority" ;
+    fno-steps:hasStateShape shapes:preliminaryCheckPassed .
 
-<http://localhost:8000/states#projectRegistered> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "The project is registered with the authority's system";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#projectRegistered> .
+:projectRegistered
+    a fno-steps:State ;
+    rdfs:label "The project is registered with the authority's system" ;
+    fno-steps:hasStateShape shapes:projectRegistered .
 
-<http://localhost:8000/states#requiredDocumentsAvailable> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "Other documents are available";
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> <http://localhost:8000/shapes#requiredDocumentsAvailable> .
+:requiredDocumentsAvailable
+    a fno-steps:State ;
+    rdfs:label "Other documents are available" ;
+    fno-steps:hasStateShape shapes:requiredDocumentsAvailable .
+
