@@ -1,0 +1,26 @@
+@prefix : <https://example.com/> .
+@prefix checks: <https://data.digichecks.eu/def/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:Jacky a prov:Person ;
+  rdfs:comment '''Jacky asks Amy, an architect, to assist with the building permit application.'''.
+
+:Amy a prov:Person .
+
+:TheProject
+  a checks:Project ;
+  prov:qualifiedAssociation :ProjectAssociatedToJacky, :ProjectAssociatedToAmy .
+
+:ProjectAssociatedToJacky
+    a prov:Association ;
+    prov:agent :Jacky ;
+    checks:role "Owner" .
+
+:ProjectAssociatedToAmy #architectAssists
+    a prov:Association ;
+    prov:agent :Amy ;
+    checks:role "Architect" .
+
+:FloorPlan_GroundLevel #designAvailable (analogous for requiredDocumentsAvailable and other design documents)
+    a checks:Document .

@@ -22,6 +22,20 @@
     shacl:path checks:role; ;
     shacl:hasValue "Architect" .
 
+:designAvailable
+    a fno-steps:StateShape ;
+    rdfs:label "TODO: provide a description" ;
+    shacl:property :designAvailablePropertyShape ;
+    shacl:targetClass checks:Document .
+
+:designAvailablePropertyShape
+    a shacl:PropertyShape ;
+    rdfs:label "TODO: provide a description" ;
+    shacl:datatype xmls:boolean ;
+    shacl:maxCount 1 ;
+    shacl:minCount 1 ;
+    shacl:class checks:Document .
+
 :architectHasPreliminaryInput
     a fno-steps:StateShape ;
     rdfs:label "TODO: provide a description" ;
@@ -37,6 +51,20 @@
     shacl:path prov:generated ;
     shacl:hasValue <https://example.com/PreliminaryAdvice> .
 
+:buildingPermitApplicationPrepared
+    a fno-steps:StateShape ;
+    rdfs:label "TODO: provide a description" ;
+    shacl:property :buildingPermitApplicationPreparedPropertyShape ;
+    shacl:targetClass prov:Activity  .
+
+:buildingPermitApplicationPreparedPropertyShape
+    a shacl:PropertyShape ;
+    rdfs:label "TODO: provide a description" ;
+    shacl:datatype xmls:boolean ;
+    shacl:maxCount 1 ;
+    shacl:minCount 1 ;
+    shacl:path prov:generated ;
+    shacl:pattern "true" .
 #:ASTRIDveiligheidscommissieConsulted
 #    a fno-steps:StateShape ;
 #    rdfs:label "TODO: provide a description" ;
@@ -262,20 +290,6 @@
 #    shacl:path ex:hasdepartmentToepassingWatertoetsConsulted ;
 #    shacl:pattern "true" .
 #
-#:designAvailable
-#    a fno-steps:StateShape ;
-#    rdfs:label "TODO: provide a description" ;
-#    shacl:property :designAvailablePropertyShape ;
-#    shacl:targetClass o-persoon:Inwoner .
-#
-#:designAvailablePropertyShape
-#    a shacl:PropertyShape ;
-#    rdfs:label "TODO: provide a description" ;
-#    shacl:datatype xmls:boolean ;
-#    shacl:maxCount 1 ;
-#    shacl:minCount 1 ;
-#    shacl:path ex:hasdesignAvailable ;
-#    shacl:pattern "true" .
 #
 #:formatCheckPassed
 #    a fno-steps:StateShape ;
@@ -412,17 +426,3 @@
 #    shacl:path ex:hasprojectRegistered ;
 #    shacl:pattern "true" .
 #
-#:requiredDocumentsAvailable
-#    a fno-steps:StateShape ;
-#    rdfs:label "TODO: provide a description" ;
-#    shacl:property :requiredDocumentsAvailablePropertyShape ;
-#    shacl:targetClass o-persoon:Inwoner .
-#
-#:requiredDocumentsAvailablePropertyShape
-#    a shacl:PropertyShape ;
-#    rdfs:label "TODO: provide a description" ;
-#    shacl:datatype xmls:boolean ;
-#    shacl:maxCount 1 ;
-#    shacl:minCount 1 ;
-#    shacl:path ex:hasrequiredDocumentsAvailable ;
-#    shacl:pattern "true" .

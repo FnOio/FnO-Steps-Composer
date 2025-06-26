@@ -14,6 +14,15 @@
     rdfs:label "Architect has input from authority (preliminary)" ;
     fno-steps:hasStateShape shapes:architectHasPreliminaryInput .
 
+:designAvailable
+    a fno-steps:State ;
+    rdfs:label "The design is ready." ;
+    fno-steps:hasStateShape shapes:designAvailable .
+
+:buildingPermitApplicationPrepared
+    a fno-steps:State ;
+    rdfs:label "The building permit application is ready to be submitted" ;
+    fno-steps:hasStateShape shapes:buildingPermitApplicationPrepared .
 
 #:ASTRIDveiligheidscommissieConsulted
 #    a fno-steps:State ;
@@ -91,10 +100,6 @@
 #    rdfs:label "The department responsible for \"Toepassing van de Watertoets\" is consulted" ;
 #    fno-steps:hasStateShape shapes:departmentToepassingWatertoetsConsulted .
 #
-#:designAvailable
-#    a fno-steps:State ;
-#    rdfs:label "The design is ready." ;
-#    fno-steps:hasStateShape shapes:designAvailable .
 #
 #:formatCheckPassed
 #    a fno-steps:State ;

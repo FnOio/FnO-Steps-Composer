@@ -11,7 +11,7 @@
 :startPermittingProcess
     a fno-steps:JourneyLevelStep ;
     fno-steps:hasDescription :startPermittingProcessDescription ;
-    fno-steps:producesState states:architectHasPreliminaryInput ;
+    fno-steps:producesState states:buildingPermitApplicationPrepared  ;
     fno-steps:requiresState fno-steps:emptyState .
 
 :startPermittingProcessDescription
@@ -37,11 +37,21 @@
 :prepareBuildingPermitApplication
     a fno-steps:ContainerLevelStep ;
     fno-steps:hasDescription :prepareBuildingPermitApplicationDescription ;
-    fno-steps:producesState states:architectHasPreliminaryInput ;
+    fno-steps:producesState states:buildingPermitApplicationPrepared  ;
     fno-steps:requiresState states:architectAssists .
 
 :prepareBuildingPermitApplicationDescription
     skosxl:literalForm "Prepare the building permit application" .
+
+# TODO: figure this out!
+:prepareDesign
+    a fno-steps:ComponentLevelStep ;
+    fno-steps:hasDescription :prepareDesignDescription ;
+    fno-steps:producesState states:designAvailable ;
+    fno-steps:requiresState states:architectAssists .
+
+:prepareDesignDescription
+    skosxl:literalForm "Prepare the design of the building" .
 
 :preliminaryInputFromAuthorities
     a fno-steps:ComponentLevelStep ;
@@ -51,6 +61,15 @@
 
 :preliminaryInputFromAuthoritiesDescription
     skosxl:literalForm "Preliminary consultations are held" .
+
+:buildingPermitApplicationPrepared
+    a fno-steps:ComponentLevelStep ;
+    fno-steps:hasDescription :buildingPermitApplicationPreparedDescription ;
+    fno-steps:producesState states:buildingPermitApplicationPrepared ;
+    fno-steps:requiresState states:architectHasPreliminaryInput, states:designAvailable.
+
+:buildingPermitApplicationPreparedDescription
+    skosxl:literalForm "The building permit application is prepared" .
 
 
 #:allPreliminaryChecksPass
@@ -287,24 +306,7 @@
 #
 #:preliminaryAuthorityCheckDescription
 #    skosxl:literalForm "The authority preforms pleliminary checks" .
-
-#:prepareDesign
-#    a fno-steps:ComponentLevelStep ;
-#    fno-steps:hasDescription :prepareDesignDescription ;
-#    fno-steps:producesState states:designAvailable ;
-#    fno-steps:requiresState states:architectAssists .
 #
-#:prepareDesignDescription
-#    skosxl:literalForm "Prepare the design of the building" .
-#
-#:prepareRequiredDocuments
-#    a fno-steps:ComponentLevelStep ;
-#    fno-steps:hasDescription :prepareRequiredDocumentsDescription ;
-#    fno-steps:producesState states:requiredDocumentsAvailable ;
-#    fno-steps:requiresState states:architectAssists .
-#
-#:prepareRequiredDocumentsDescription
-#    skosxl:literalForm "Prepare other required documents" .
 #
 #:registerProject
 #    a fno-steps:ComponentLevelStep ;

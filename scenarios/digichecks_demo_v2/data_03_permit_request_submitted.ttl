@@ -1,0 +1,35 @@
+@prefix : <https://example.com/> .
+@prefix checks: <https://data.digichecks.eu/def/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:Jacky a prov:Person ;
+  rdfs:comment '''Amy did some preliminary checks with Carla of Onroerend Erfgoed'''.
+
+:Amy a prov:Person .
+
+:Carla
+    a prov:Person ;
+    prov:actedOnBehalfOf :OnroerendErfgoed .
+
+:TheProject
+    a checks:Project ;
+    prov:qualifiedAssociation :ProjectAssociatedToJacky, :ProjectAssociatedToAmy .
+
+:ProjectAssociatedToJacky
+    a prov:Association ;
+    prov:agent :Jacky ;
+    checks:role "Owner" .
+
+:ProjectAssociatedToAmy #architectAssists
+    a prov:Association ;
+    prov:agent :Amy ;
+    checks:role "Architect" .
+
+:PreConsultation
+    a prov:Activity ;
+    prov:wasAssociatedWith :Amy, :Carla ;
+    prov:generated :PreliminaryAdvice . # architectHasPreliminaryInput
+
+:FloorPlan_GroundLevel #designAvailable (analogous for requiredDocumentsAvailable and other design documents)
+    a checks:Document .
