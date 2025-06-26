@@ -2,7 +2,7 @@
 
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix o-address: <https://data.vlaanderen.be/ns/adres#> .
-@prefix o-steps: <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#> .
+@prefix fno-steps: <https://w3id.org/imec/ns/fno-steps#> .
 @prefix o-persoon: <https://data.vlaanderen.be/ns/persoon#> .
 @prefix ex: <http://example.org/ns/example#> .
 @prefix xl: <http://www.w3.org/2008/05/skos-xl#> .
@@ -16,38 +16,38 @@
 @prefix shape: <http://localhost:8000/shapes#>.
 @prefix step: <http://localhost:8000/steps#>.
 
-step:installEquipment  a o-steps:JourneyLevelStep, o-steps:ContainerLevelStep ;
-  o-steps:hasDescription [ xl:literalForm "Install necessary systems"@en ];
-  o-steps:requiresState o-steps:emptyState ;
-  o-steps:producesState state:thermometerInstalled ,
+step:installEquipment  a fno-steps:JourneyLevelStep, fno-steps:ContainerLevelStep ;
+  fno-steps:hasDescription [ xl:literalForm "Install necessary systems"@en ];
+  fno-steps:requiresState fno-steps:emptyState ;
+  fno-steps:producesState state:thermometerInstalled ,
                         state:humiditySensorInstalled,
                         state:HVACConnected.
 
 
-step:roomEquiped  a o-steps:JourneyLevelStep, o-steps:ContainerLevelStep ;
-  o-steps:hasDescription [ xl:literalForm "Room is equiped with HVAC control"@en ];
-  o-steps:requiresState state:thermometerInstalled ,
+step:roomEquiped  a fno-steps:JourneyLevelStep, fno-steps:ContainerLevelStep ;
+  fno-steps:hasDescription [ xl:literalForm "Room is equiped with HVAC control"@en ];
+  fno-steps:requiresState state:thermometerInstalled ,
                         state:humiditySensorInstalled,
                         state:HVACConnected ;
-  o-steps:producesState state:roomEquipedForHVACControl .
+  fno-steps:producesState state:roomEquipedForHVACControl .
 
-step:installThermometer a o-steps:ComponentLevelStep ;
+step:installThermometer a fno-steps:ComponentLevelStep ;
   rdfs:label "Install a thermometer"@en ;
-  o-steps:hasDescription [ xl:literalForm "Install a thermometer"@en ];
-  o-steps:requiresState o-steps:emptyState ;
-  o-steps:producesState state:thermometerInstalled .
+  fno-steps:hasDescription [ xl:literalForm "Install a thermometer"@en ];
+  fno-steps:requiresState fno-steps:emptyState ;
+  fno-steps:producesState state:thermometerInstalled .
 
-step:installHumiditySensor a o-steps:ComponentLevelStep ;
+step:installHumiditySensor a fno-steps:ComponentLevelStep ;
   rdfs:label "Install a humidity sensor"@en ;
-  o-steps:hasDescription [ xl:literalForm "Install a humidity sensor"@en ];
-  o-steps:requiresState o-steps:emptyState ;
-  o-steps:producesState state:humiditySensorInstalled .
+  fno-steps:hasDescription [ xl:literalForm "Install a humidity sensor"@en ];
+  fno-steps:requiresState fno-steps:emptyState ;
+  fno-steps:producesState state:humiditySensorInstalled .
 
-step:connectToHVAC a o-steps:ContainerLevelStep,  o-steps:ComponentLevelStep;
-                   o-steps:hasDescription [ xl:literalForm "Room is connected to HVAC system"@en ];
-                   o-steps:requiresState state:thermometerInstalled ,
+step:connectToHVAC a fno-steps:ContainerLevelStep,  fno-steps:ComponentLevelStep;
+                   fno-steps:hasDescription [ xl:literalForm "Room is connected to HVAC system"@en ];
+                   fno-steps:requiresState state:thermometerInstalled ,
                    state:humiditySensorInstalled;
-                   o-steps:producesState state:HVACConnected .
+                   fno-steps:producesState state:HVACConnected .
 
 #step:emailDescriptionEnglish1 a xl:Label ;
 #  xl:literalForm "A valid email address containing the address, '@' symbol and hostname."@en .

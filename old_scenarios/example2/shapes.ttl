@@ -1,6 +1,6 @@
 @prefix ex: <http://example.org/ns/example#>.
 @prefix o-persoon: <http://data.vlaanderen.be/ns/persoon#>.
-@prefix o-steps: <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#>.
+@prefix fno-steps: <https://w3id.org/imec/ns/fno-steps#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix sh: <http://www.w3.org/ns/shacl#>.
 @prefix shapes: <http://fast.ilabt.imec.be/api/v7/shapes#>.
@@ -20,7 +20,7 @@ shapes:provideCitizenNationalNumberManually_shape rdfs:label "provideCitizenNati
     sh:maxCount "1"^^xsd:integer;
     a sh:PropertyShape.
 shapes:provideCitizenNationalNumberManually_shape sh:property <http://fast.ilabt.imec.be/api/v7/shapes#%40.3I%5BR_v*TuxH%23JnS%25QM>;
-    a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>.
+    a <https://w3id.org/imec/ns/fno-steps#StateShape>.
 shapes:provideCitizenEmailManually_shape rdfs:label "provideCitizenEmailManually_shape"@en;
     rdfs:comment "provideCitizenEmailManually_shape"@en;
     sh:targetClass <https://data.vlaanderen.be/ns/persoon#Inwoner>.
@@ -31,7 +31,7 @@ shapes:provideCitizenEmailManually_shape rdfs:label "provideCitizenEmailManually
     sh:minCount "1"^^xsd:integer;
     a sh:PropertyShape.
 shapes:provideCitizenEmailManually_shape sh:property <http://fast.ilabt.imec.be/api/v7/shapes#t%25(*p%7CA%2CR%24wkf%3DeO%60RGB>;
-    a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>.
+    a <https://w3id.org/imec/ns/fno-steps#StateShape>.
 shapes:newEidPincodeRequested_shape rdfs:label "newEidPincodeRequested_shape"@en;
     rdfs:comment "newEidPincodeRequested_shape"@en;
     sh:targetClass <https://data.vlaanderen.be/ns/persoon#Inwoner>.
@@ -42,4 +42,4 @@ shapes:newEidPincodeRequested_shape rdfs:label "newEidPincodeRequested_shape"@en
     sh:value "true";
     a sh:PropertyShape.
 shapes:newEidPincodeRequested_shape sh:property <http://fast.ilabt.imec.be/api/v7/shapes#8~)gG7mw%7C%3DXkq%2BsXL0k%5D>;
-    a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>.
+    a <https://w3id.org/imec/ns/fno-steps#StateShape>.

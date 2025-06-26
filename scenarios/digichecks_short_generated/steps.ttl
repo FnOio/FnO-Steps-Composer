@@ -1,122 +1,122 @@
 
-<http://localhost:8000/steps#announcePermittingProcess> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>,
-    <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ContainerLevelStep>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#announcePermittingProcessDescription>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#permittingProcessAnnounced>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#preliminaryCheckPassed> .
+<http://localhost:8000/steps#announcePermittingProcess> a <https://w3id.org/imec/ns/fno-steps#ComponentLevelStep>,
+    <https://w3id.org/imec/ns/fno-steps#ContainerLevelStep>;
+  <https://w3id.org/imec/ns/fno-steps#hasDescription> <http://localhost:8000/steps#announcePermittingProcessDescription>;
+  <https://w3id.org/imec/ns/fno-steps#producesState> <http://localhost:8000/states#permittingProcessAnnounced>;
+  <https://w3id.org/imec/ns/fno-steps#requiresState> <http://localhost:8000/states#preliminaryCheckPassed> .
 
 <http://localhost:8000/steps#announcePermittingProcessDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "Publicly announce the permitting process" .
 
-<http://localhost:8000/steps#checkCompleteness> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#checkCompletenessDescription>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#completenessCheckPassed>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#permitOfficerAssigned> .
+<http://localhost:8000/steps#checkCompleteness> a <https://w3id.org/imec/ns/fno-steps#ComponentLevelStep>;
+  <https://w3id.org/imec/ns/fno-steps#hasDescription> <http://localhost:8000/steps#checkCompletenessDescription>;
+  <https://w3id.org/imec/ns/fno-steps#producesState> <http://localhost:8000/states#completenessCheckPassed>;
+  <https://w3id.org/imec/ns/fno-steps#requiresState> <http://localhost:8000/states#permitOfficerAssigned> .
 
 <http://localhost:8000/steps#checkCompletenessDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "Permit officer checks if all required documents are present" .
 
-<http://localhost:8000/steps#checkFormat> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#checkFormatDescription>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#formatCheckPassed>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#permitOfficerAssigned> .
+<http://localhost:8000/steps#checkFormat> a <https://w3id.org/imec/ns/fno-steps#ComponentLevelStep>;
+  <https://w3id.org/imec/ns/fno-steps#hasDescription> <http://localhost:8000/steps#checkFormatDescription>;
+  <https://w3id.org/imec/ns/fno-steps#producesState> <http://localhost:8000/states#formatCheckPassed>;
+  <https://w3id.org/imec/ns/fno-steps#requiresState> <http://localhost:8000/states#permitOfficerAssigned> .
 
 <http://localhost:8000/steps#checkFormatDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "Permit officer checks if all required documents are well formatted" .
 
-<http://localhost:8000/steps#getArchitect> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#getArchitectDescription>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#architectAssists>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#emptyState> .
+<http://localhost:8000/steps#getArchitect> a <https://w3id.org/imec/ns/fno-steps#ComponentLevelStep>;
+  <https://w3id.org/imec/ns/fno-steps#hasDescription> <http://localhost:8000/steps#getArchitectDescription>;
+  <https://w3id.org/imec/ns/fno-steps#producesState> <http://localhost:8000/states#architectAssists>;
+  <https://w3id.org/imec/ns/fno-steps#requiresState> <https://w3id.org/imec/ns/fno-steps#emptyState> .
 
 <http://localhost:8000/steps#getArchitectDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "An architect is required to assist with the building permit application" .
 
-<http://localhost:8000/steps#getBuildingPermitApproved> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ContainerLevelStep>,
-    <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#JourneyLevelStep>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#getBuildingPermitApprovedDescription>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#buildingPermitApproved>,
+<http://localhost:8000/steps#getBuildingPermitApproved> a <https://w3id.org/imec/ns/fno-steps#ContainerLevelStep>,
+    <https://w3id.org/imec/ns/fno-steps#JourneyLevelStep>;
+  <https://w3id.org/imec/ns/fno-steps#hasDescription> <http://localhost:8000/steps#getBuildingPermitApprovedDescription>;
+  <https://w3id.org/imec/ns/fno-steps#producesState> <http://localhost:8000/states#buildingPermitApproved>,
     <http://localhost:8000/states#permittingProcessAnnounced>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#emptyState> .
+  <https://w3id.org/imec/ns/fno-steps#requiresState> <https://w3id.org/imec/ns/fno-steps#emptyState> .
 
 <http://localhost:8000/steps#getBuildingPermitApprovedDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "The whole flow to get a building permit approved," .
 
-<http://localhost:8000/steps#getPermitOfficer> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#getPermitOfficerDescription>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#permitOfficerAssigned>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#buildingPermitApplicationSubmitted> .
+<http://localhost:8000/steps#getPermitOfficer> a <https://w3id.org/imec/ns/fno-steps#ComponentLevelStep>;
+  <https://w3id.org/imec/ns/fno-steps#hasDescription> <http://localhost:8000/steps#getPermitOfficerDescription>;
+  <https://w3id.org/imec/ns/fno-steps#producesState> <http://localhost:8000/states#permitOfficerAssigned>;
+  <https://w3id.org/imec/ns/fno-steps#requiresState> <http://localhost:8000/states#buildingPermitApplicationSubmitted> .
 
 <http://localhost:8000/steps#getPermitOfficerDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "A permit officer is assigned" .
 
-<http://localhost:8000/steps#performAdministrativeProcesses> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#performAdministrativeProcessesDescription>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#administrativeProcessedDone>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#permitOfficerAssigned> .
+<http://localhost:8000/steps#performAdministrativeProcesses> a <https://w3id.org/imec/ns/fno-steps#ComponentLevelStep>;
+  <https://w3id.org/imec/ns/fno-steps#hasDescription> <http://localhost:8000/steps#performAdministrativeProcessesDescription>;
+  <https://w3id.org/imec/ns/fno-steps#producesState> <http://localhost:8000/states#administrativeProcessedDone>;
+  <https://w3id.org/imec/ns/fno-steps#requiresState> <http://localhost:8000/states#permitOfficerAssigned> .
 
 <http://localhost:8000/steps#performAdministrativeProcessesDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "Administrative processes (e.g. send reception letter)" .
 
-<http://localhost:8000/steps#preliminaryAuthorityCheck> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>,
-    <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ContainerLevelStep>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#preliminaryAuthorityCheckDescription>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#administrativeProcessedDone>,
+<http://localhost:8000/steps#preliminaryAuthorityCheck> a <https://w3id.org/imec/ns/fno-steps#ComponentLevelStep>,
+    <https://w3id.org/imec/ns/fno-steps#ContainerLevelStep>;
+  <https://w3id.org/imec/ns/fno-steps#hasDescription> <http://localhost:8000/steps#preliminaryAuthorityCheckDescription>;
+  <https://w3id.org/imec/ns/fno-steps#producesState> <http://localhost:8000/states#administrativeProcessedDone>,
     <http://localhost:8000/states#completenessCheckPassed>, <http://localhost:8000/states#formatCheckPassed>,
     <http://localhost:8000/states#preliminaryCheckPassed>, <http://localhost:8000/states#projectRegistered>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#buildingPermitApplicationSubmitted> .
+  <https://w3id.org/imec/ns/fno-steps#requiresState> <http://localhost:8000/states#buildingPermitApplicationSubmitted> .
 
 <http://localhost:8000/steps#preliminaryAuthorityCheckDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "The authority performs preliminary checks" .
 
-<http://localhost:8000/steps#preliminaryInputFromAuthorities> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#preliminaryInputFromAuthoritiesDescription>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#architectHasPreliminaryInput>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#architectAssists> .
+<http://localhost:8000/steps#preliminaryInputFromAuthorities> a <https://w3id.org/imec/ns/fno-steps#ComponentLevelStep>;
+  <https://w3id.org/imec/ns/fno-steps#hasDescription> <http://localhost:8000/steps#preliminaryInputFromAuthoritiesDescription>;
+  <https://w3id.org/imec/ns/fno-steps#producesState> <http://localhost:8000/states#architectHasPreliminaryInput>;
+  <https://w3id.org/imec/ns/fno-steps#requiresState> <http://localhost:8000/states#architectAssists> .
 
 <http://localhost:8000/steps#preliminaryInputFromAuthoritiesDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "preliminary consultations are held" .
 
-<http://localhost:8000/steps#prepareBuildingPermitApplication> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>,
-    <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ContainerLevelStep>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#prepareBuildingPermitApplicationDescription>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#architectHasPreliminaryInput>,
+<http://localhost:8000/steps#prepareBuildingPermitApplication> a <https://w3id.org/imec/ns/fno-steps#ComponentLevelStep>,
+    <https://w3id.org/imec/ns/fno-steps#ContainerLevelStep>;
+  <https://w3id.org/imec/ns/fno-steps#hasDescription> <http://localhost:8000/steps#prepareBuildingPermitApplicationDescription>;
+  <https://w3id.org/imec/ns/fno-steps#producesState> <http://localhost:8000/states#architectHasPreliminaryInput>,
     <http://localhost:8000/states#buildingPermitApplicationPrepared>, <http://localhost:8000/states#designAvailable>,
     <http://localhost:8000/states#requiredDocumentsAvailable>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#emptyState> .
+  <https://w3id.org/imec/ns/fno-steps#requiresState> <https://w3id.org/imec/ns/fno-steps#emptyState> .
 
 <http://localhost:8000/steps#prepareBuildingPermitApplicationDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "Prepare the building permit application" .
 
-<http://localhost:8000/steps#prepareDesign> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#prepareDesignDescription>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#designAvailable>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#architectAssists> .
+<http://localhost:8000/steps#prepareDesign> a <https://w3id.org/imec/ns/fno-steps#ComponentLevelStep>;
+  <https://w3id.org/imec/ns/fno-steps#hasDescription> <http://localhost:8000/steps#prepareDesignDescription>;
+  <https://w3id.org/imec/ns/fno-steps#producesState> <http://localhost:8000/states#designAvailable>;
+  <https://w3id.org/imec/ns/fno-steps#requiresState> <http://localhost:8000/states#architectAssists> .
 
 <http://localhost:8000/steps#prepareDesignDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "Prepare the design of the building" .
 
-<http://localhost:8000/steps#prepareRequiredDocuments> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#prepareRequiredDocumentsDescription>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#requiredDocumentsAvailable>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#architectAssists> .
+<http://localhost:8000/steps#prepareRequiredDocuments> a <https://w3id.org/imec/ns/fno-steps#ComponentLevelStep>;
+  <https://w3id.org/imec/ns/fno-steps#hasDescription> <http://localhost:8000/steps#prepareRequiredDocumentsDescription>;
+  <https://w3id.org/imec/ns/fno-steps#producesState> <http://localhost:8000/states#requiredDocumentsAvailable>;
+  <https://w3id.org/imec/ns/fno-steps#requiresState> <http://localhost:8000/states#architectAssists> .
 
 <http://localhost:8000/steps#prepareRequiredDocumentsDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "Prepare other required documents" .
 
-<http://localhost:8000/steps#registerProject> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#registerProjectDescription>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#projectRegistered>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#permitOfficerAssigned> .
+<http://localhost:8000/steps#registerProject> a <https://w3id.org/imec/ns/fno-steps#ComponentLevelStep>;
+  <https://w3id.org/imec/ns/fno-steps#hasDescription> <http://localhost:8000/steps#registerProjectDescription>;
+  <https://w3id.org/imec/ns/fno-steps#producesState> <http://localhost:8000/states#projectRegistered>;
+  <https://w3id.org/imec/ns/fno-steps#requiresState> <http://localhost:8000/states#permitOfficerAssigned> .
 
 <http://localhost:8000/steps#registerProjectDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "The project has to be registered" .
 
-<http://localhost:8000/steps#submitApplication> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>,
-    <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ContainerLevelStep>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#submitApplicationDescription>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#buildingPermitApplicationSubmitted>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#buildingPermitApplicationPrepared> .
+<http://localhost:8000/steps#submitApplication> a <https://w3id.org/imec/ns/fno-steps#ComponentLevelStep>,
+    <https://w3id.org/imec/ns/fno-steps#ContainerLevelStep>;
+  <https://w3id.org/imec/ns/fno-steps#hasDescription> <http://localhost:8000/steps#submitApplicationDescription>;
+  <https://w3id.org/imec/ns/fno-steps#producesState> <http://localhost:8000/states#buildingPermitApplicationSubmitted>;
+  <https://w3id.org/imec/ns/fno-steps#requiresState> <http://localhost:8000/states#buildingPermitApplicationPrepared> .
 
 <http://localhost:8000/steps#submitApplicationDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "The architect submits the building permit application to the authority." .

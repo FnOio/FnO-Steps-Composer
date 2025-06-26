@@ -19,7 +19,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Switched from CommonJS to ES modules
 - Switched from n3 to graphy to check turtle/rdf files
-- Removed target class `o-persoon:Inwoner` from `o-steps:StateShape`, so shapes can define their own target class.
+- Moved from `oslo-steps` to `fno-steps`.
+- Removed target class `o-persoon:Inwoner` from `fno-steps:StateShape`, so shapes can define their own target class.
 
 ## [1.0.0] - 2023-06-02
 

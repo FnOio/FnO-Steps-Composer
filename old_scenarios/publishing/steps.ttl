@@ -2,7 +2,7 @@
 
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix o-address: <https://data.vlaanderen.be/ns/adres#> .
-@prefix o-steps: <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#> .
+@prefix fno-steps: <https://w3id.org/imec/ns/fno-steps#> .
 @prefix o-persoon: <https://data.vlaanderen.be/ns/persoon#> .
 @prefix ex: <http://example.org/ns/example#> .
 @prefix xl: <http://www.w3.org/2008/05/skos-xl#> .
@@ -16,22 +16,22 @@
 @prefix shape: <http://localhost:8000/shapes#>.
 @prefix step: <http://localhost:8000/steps#>.
 
-step:receiveMail a o-steps:JourneyLevelStep, o-steps:ContainerLevelStep, o-steps:ComponentLevelStep ;
-  o-steps:producesState state:receivedMail ;               
-  o-steps:requiresState o-steps:emptyState .
+step:receiveMail a fno-steps:JourneyLevelStep, fno-steps:ContainerLevelStep, fno-steps:ComponentLevelStep ;
+  fno-steps:producesState state:receivedMail ;
+  fno-steps:requiresState fno-steps:emptyState .
 
-step:processMail a o-steps:JourneyLevelStep, o-steps:ContainerLevelStep ;
-  o-steps:producesState state:processedMail ;               
-  o-steps:requiresState o-steps:receivedMail .
+step:processMail a fno-steps:JourneyLevelStep, fno-steps:ContainerLevelStep ;
+  fno-steps:producesState state:processedMail ;
+  fno-steps:requiresState fno-steps:receivedMail .
 
-step:manuallyProcessMail a o-steps:ComponentLevelStep ;
-  o-steps:requiresState o-steps:receivedMail ;
-  o-steps:producesState state:processedMail .
+step:manuallyProcessMail a fno-steps:ComponentLevelStep ;
+  fno-steps:requiresState fno-steps:receivedMail ;
+  fno-steps:producesState state:processedMail .
 
-step:automaticallyProcessMail a o-steps:ComponentLevelStep ;
-  o-steps:requiresState o-steps:receivedMail ;
-  o-steps:producesState state:processedMail .
+step:automaticallyProcessMail a fno-steps:ComponentLevelStep ;
+  fno-steps:requiresState fno-steps:receivedMail ;
+  fno-steps:producesState state:processedMail .
 
-step:DoCalculationOnMail a o-steps:ComponentLevelStep ;
-  o-steps:requiresState o-steps:receivedMail ;
-  o-steps:producesState state:processedMail .
+step:DoCalculationOnMail a fno-steps:ComponentLevelStep ;
+  fno-steps:requiresState fno-steps:receivedMail ;
+  fno-steps:producesState state:processedMail .

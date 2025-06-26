@@ -2,7 +2,7 @@
 
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix o-address: <https://data.vlaanderen.be/ns/adres#> .
-@prefix o-steps: <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#> .
+@prefix fno-steps: <https://w3id.org/imec/ns/fno-steps#> .
 @prefix o-persoon: <https://data.vlaanderen.be/ns/persoon#> .
 @prefix ex: <http://example.org/ns/example#> .
 @prefix xl: <http://www.w3.org/2008/05/skos-xl#> .
@@ -16,8 +16,8 @@
 @prefix shape: <http://localhost:8000/shapes#>.
 @prefix step: <http://localhost:8000/steps#>.
 
-state:receivedMail a o-steps:State;
-  o-steps:hasStateShape shape:receivedMail .
+state:receivedMail a fno-steps:State;
+  fno-steps:hasStateShape shape:receivedMail .
 
-state:processedMail a o-steps:State;
-  o-steps:hasStateShape shape:processedMail . 
+state:processedMail a fno-steps:State;
+  fno-steps:hasStateShape shape:processedMail .

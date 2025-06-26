@@ -6,7 +6,7 @@
 @prefix gps: <http://josd.github.io/eye/reasoning/gps/gps-schema#>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix list: <http://www.w3.org/2000/10/swap/list#>.
-@prefix o-steps: <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#> .
+@prefix fno-steps: <https://w3id.org/imec/ns/fno-steps#> .
 @prefix : <http://example.org#>.
 
 # find paths in the state space from initial state to goal state within limits
@@ -27,14 +27,14 @@
     ?SCOPE e:call ?Goal.
     ("!") e:derive true.
 }.
-{?SCOPE gps:findpaths (?Maps_s ?Goal ?Path_s ?Duration_s ?Cost_s ?Belief_s ?Comfort_s ?Path ?Duration ?Cost ?Belief ?Comfort (?MaxDuration ?MaxCost ?MinBelief ?MinComfort ?MaxStagecount))} <= { 
+{?SCOPE gps:findpaths (?Maps_s ?Goal ?Path_s ?Duration_s ?Cost_s ?Belief_s ?Comfort_s ?Path ?Duration ?Cost ?Belief ?Comfort (?MaxDuration ?MaxCost ?MinBelief ?MinComfort ?MaxStagecount))} <= {
     {?Map gps:description (?From ?Transition ?To ?Action ?Duration_n ?Cost_n ?Belief_n ?Comfort_n)} <= ?Where.
 #    _:xx e:trace (?Action ?From).
-    
+
     ?SCOPE e:call ?From.
 
 #    _:xx e:trace 10.
-    
+
 
     #this test below can be critical in some applications
     ?SCOPE e:fail ?To.
@@ -104,7 +104,7 @@
 
 {?Path_s :permutationCheck ?Action.} <=
 {
-?Action  o-steps:requiresState o-steps:emptyState. 
+?Action  fno-steps:requiresState fno-steps:emptyState.
 
 ("!") e:derive true.
 ?Path_s :independentTail ( () ?tail).
@@ -131,7 +131,7 @@
 {?path :independentTail (?subtail ?tail)} <=
 {
 ?path list:last ?last.
-?last o-steps:requiresState o-steps:emptyState. 
+?last fno-steps:requiresState fno-steps:emptyState.
 ("!") e:derive true.
 
 
@@ -209,7 +209,7 @@
 <=
 {
     ?Path list:last ?last.
-    ?last o-steps:requiresState o-steps:emptyState. 
+    ?last fno-steps:requiresState fno-steps:emptyState.
     ("!") e:derive true.
 
     ?Path :independentTail (() ?tail).

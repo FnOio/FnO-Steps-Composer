@@ -1,5 +1,5 @@
 
-<http://localhost:8000/shapes#ProjectRegistered> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
+<http://localhost:8000/shapes#ProjectRegistered> a <https://w3id.org/imec/ns/fno-steps#StateShape>;
                                         <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
                                         <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#ProjectRegisteredProperty>;
                                         <http://www.w3.org/ns/shacl#targetClass> <https://data.digichecks.eu/def/Project> .

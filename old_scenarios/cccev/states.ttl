@@ -1,4 +1,4 @@
-@prefix o-steps: <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#> .
+@prefix fno-steps: <https://w3id.org/imec/ns/fno-steps#> .
 @prefix xl: <http://www.w3.org/2008/05/skos-xl#> .
 @prefix state: <https://fast.ilabt.imec.be/api/v5/states#> .
 @prefix step: <https://fast.ilabt.imec.be/api/v5/steps#> .
@@ -6,22 +6,22 @@
 @prefix cccev: <http://data.europa.eu/m8g/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-state:idcardInfo a o-steps:State ; # ALIGNMENT result should be market a cccev:Evidence
+state:idcardInfo a fno-steps:State ; # ALIGNMENT result should be market a cccev:Evidence
     rdfs:label "Inwoner ID kaart info"@nl ;
-    o-steps:hasStateShape shape:validatedIDcardInfoShape .
+    fno-steps:hasStateShape shape:validatedIDcardInfoShape .
 
-state:validatedIdcardInfo a o-steps:State ; # ALIGNMENT result should be market a cccev:Evidence
+state:validatedIdcardInfo a fno-steps:State ; # ALIGNMENT result should be market a cccev:Evidence
     rdfs:label "Gevalideerde Inwoner ID kaart info"@nl ;
-    o-steps:hasStateShape shape:validatedIDcardInfoShape .
-    
-state:validatedBirthDate a o-steps:State ; # ALIGNMENT result should be market a cccev:Evidence
+    fno-steps:hasStateShape shape:validatedIDcardInfoShape .
+
+state:validatedBirthDate a fno-steps:State ; # ALIGNMENT result should be market a cccev:Evidence
     rdfs:label "Gevalideerde verjaardag"@nl ;
-    o-steps:hasStateShape shape:validatedBirthDate .
+    fno-steps:hasStateShape shape:validatedBirthDate .
 
-state:validatedcitizenAge a o-steps:State, cccev:InformationConcept ; # ALIGNMENT
+state:validatedcitizenAge a fno-steps:State, cccev:InformationConcept ; # ALIGNMENT
     rdfs:label "Inwoner leeftijd"@nl ;
-    o-steps:hasStateShape shape:ageShape .
+    fno-steps:hasStateShape shape:ageShape .
 
-state:provenMajority a o-steps:State ;
+state:provenMajority a fno-steps:State ;
     rdfs:label "Proven majority"@nl ;
-    o-steps:hasStateShape shape:provenMajority .
+    fno-steps:hasStateShape shape:provenMajority .

@@ -1,6 +1,6 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix : <http://localhost:8000/shapes#> .
-@prefix fno-steps: <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#> .
+@prefix fno-steps: <https://w3id.org/imec/ns/fno-steps#> .
 @prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
 @prefix shacl: <http://www.w3.org/ns/shacl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .

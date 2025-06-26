@@ -6,7 +6,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix ops: <https://data.vlaanderen.be/shacl/persoon-basis#> .
-@prefix o-steps: <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#> .
+@prefix fno-steps: <https://w3id.org/imec/ns/fno-steps#> .
 @prefix o-persoon: <https://data.vlaanderen.be/ns/persoon#> .
 
 @prefix state: <http://localhost:8000/states#>.
@@ -28,7 +28,7 @@
 
 
 
-shape:firstNameShape a o-steps:StateShape ;
+shape:firstNameShape a fno-steps:StateShape ;
   rdfs:label "A citizen's first name"@en ;
   rdfs:comment "User with valid first name"@en ;
   sh:targetClass o-persoon:Inwoner ;
@@ -47,7 +47,7 @@ shape:firstNameLength a sh:PropertyShape ;
 #
 # last name (state shape)
 #
-shape:lastNameShape a o-steps:StateShape ;
+shape:lastNameShape a fno-steps:StateShape ;
   rdfs:label "A citizen's last name"@en ;
   rdfs:comment "User with valid last name"@en ;
   sh:targetClass o-persoon:Inwoner ;
@@ -67,7 +67,7 @@ shape:lastNameLength a sh:PropertyShape ;
 #
 # gender constraints (state)
 #
-shape:genderShape a o-steps:StateShape ;
+shape:genderShape a fno-steps:StateShape ;
   rdfs:label "A citizen's gender"@en ;
   rdfs:comment "User with a valid gender"@en ;
   sh:targetClass o-persoon:Inwoner ;
@@ -83,7 +83,7 @@ shape:genderValidValues a sh:PropertyShape ;
 #
 # Email address (state)
 #
-shape:emailAddressShape a o-steps:StateShape ;
+shape:emailAddressShape a fno-steps:StateShape ;
   rdfs:label "A citizen's email"@en ;
   rdfs:comment "User with a valid email address"@en ;
   sh:targetClass o-persoon:Inwoner ;
@@ -101,7 +101,7 @@ shape:emailPattern a sh:PropertyShape ;
 #
 # Mobile phone number
 #
-shape:mobilePhoneNumberShape a o-steps:StateShape ;
+shape:mobilePhoneNumberShape a fno-steps:StateShape ;
   rdfs:label "A citizen's mobile phone number"@en ;
   rdfs:comment "User with a valid mobile phone number"@en ;
   sh:targetClass o-persoon:Inwoner ;
@@ -124,7 +124,7 @@ shape:mobilePhoneNumberShape a o-steps:StateShape ;
 #
 # phone number
 #
-shape:phoneNumberShape a o-steps:StateShape ;
+shape:phoneNumberShape a fno-steps:StateShape ;
   rdfs:label "A citizen's phone number"@en ;
   rdfs:comment "User with a valid phone number"@en ;
   sh:targetClass o-persoon:Inwoner ;
@@ -147,7 +147,7 @@ shape:phoneNumberShape a o-steps:StateShape ;
 #
 # national number
 #
-shape:nationalNumberBelgiumShape a o-steps:StateShape ;
+shape:nationalNumberBelgiumShape a fno-steps:StateShape ;
   rdfs:label "Householder national number"@en ;
   rdfs:comment "User with valid Belgian national number"@en ;
   sh:targetClass o-persoon:Inwoner ;
@@ -170,7 +170,7 @@ shape:nationalNumberObliged a sh:PropertyShape ;
 #
 # bank account number (state)
 #
-shape:bankAccountNumberEuropeShape a o-steps:StateShape ;
+shape:bankAccountNumberEuropeShape a fno-steps:StateShape ;
   rdfs:label "Citizen bank account number"@en ;
   rdfs:comment "User with valid bank account number"@en ;
   sh:targetClass o-persoon:Inwoner ;
@@ -189,7 +189,7 @@ shape:bankAccountNumberPatternEurope a sh:PropertyShape ;
 #
 # nationality (state)
 #
-shape:nationalityShape a o-steps:StateShape ;
+shape:nationalityShape a fno-steps:StateShape ;
   rdfs:label "Citizen nationality"@en ;
   rdfs:comment "User with valid nationality"@en ;
   sh:targetClass o-persoon:Inwoner ;
@@ -205,7 +205,7 @@ shape:validNationality a sh:PropertyShape ;
 #
 # residence permit (state)
 #
-#shape:residencePermitShape a o-steps:StateShape ;
+#shape:residencePermitShape a fno-steps:StateShape ;
 #  rdfs:label "Citizen residence permit"@en ;
 #  rdfs:comment "User with valid residence permit"@en ;
 #  rdfs:comment "Assuming that if a Citizen has an official address there is also a residence permit. Needs a change!"@en ;
@@ -224,7 +224,7 @@ shape:validNationality a sh:PropertyShape ;
 #
 # birth date (state)
 #
-shape:birthDateShape a o-steps:StateShape ;
+shape:birthDateShape a fno-steps:StateShape ;
   rdfs:label "Citizen birth date"@en ;
   rdfs:comment "User with a valid birth date"@en ;
   sh:targetClass o-persoon:Inwoner ;
@@ -241,7 +241,7 @@ shape:validBirthDate a sh:PropertyShape ;
 #
 # applicatnt info
 #
-shape:applicantInfoSubmittedShape a o-steps:StateShape ;
+shape:applicantInfoSubmittedShape a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:applicantInfoValue .
 
@@ -251,7 +251,7 @@ shape:applicantInfoValue  a sh:PropertyShape ;
 #
 # city of birth (state)
 #
-shape:cityOfBirthShape a o-steps:StateShape ;
+shape:cityOfBirthShape a fno-steps:StateShape ;
   rdfs:label "Citizen city of birth"@en ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:validBirth .
@@ -270,7 +270,7 @@ shape:validBirth a sh:PropertyShape ;
 #
 # address
 #
-shape:addressShape a o-steps:StateShape ;
+shape:addressShape a fno-steps:StateShape ;
   rdfs:label "Citizen address"@en ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:addressExistence  .
@@ -285,7 +285,7 @@ shape:addressExistence a sh:PropertyShape ;
 #
 # profession
 #
-shape:professionShape a o-steps:StateShape ;
+shape:professionShape a fno-steps:StateShape ;
   rdfs:label "Citizen profession"@en ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:validProfession .
@@ -299,7 +299,7 @@ shape:validProfession a sh:PropertyShape ;
 #
 # number of family members
 #
-shape:numberOfFamilyMembersShape a o-steps:StateShape ;
+shape:numberOfFamilyMembersShape a fno-steps:StateShape ;
   rdfs:label "Citizen number of family members"@en ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:validNumberOfFamilyMembers .
@@ -315,7 +315,7 @@ shape:validNumberOfFamilyMembers a sh:PropertyShape ;
 #
 # moving date
 #
-shape:movingDateShape a o-steps:StateShape ;
+shape:movingDateShape a fno-steps:StateShape ;
   rdfs:label "Citizen moving date"@en ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:validMovingDate .
@@ -330,7 +330,7 @@ shape:validMovingDate a sh:PropertyShape ;
 #
 # moving addres
 #
-shape:movingAddressShape a o-steps:StateShape ;
+shape:movingAddressShape a fno-steps:StateShape ;
   rdfs:label "Citizen moving address"@en ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:validMovingAddress .
@@ -345,7 +345,7 @@ shape:validMovingAddress a sh:PropertyShape ;
 #
 # billing address
 #
-shape:billingAddressShape a o-steps:StateShape ;
+shape:billingAddressShape a fno-steps:StateShape ;
   rdfs:label "Citizen billing address"@en ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:validBillingAddress .
@@ -361,10 +361,10 @@ shape:validBillingAddress a sh:PropertyShape ;
 # moving city
 # TODO: that should actually be part of a Verblijfsplaats or Adresvoorstelling
 #
-shape:movingCity a o-steps:State ;
+shape:movingCity a fno-steps:State ;
   rdfs:label "City a citizen wants to move to"@en .
 
-shape:movingCityShape a o-steps:StateShape ;
+shape:movingCityShape a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:movingCityExistence .
 
@@ -376,7 +376,7 @@ shape:movingCityExistence a sh:PropertyShape ;
 
 
 #waste containers
-shape:number40LiterGreyWasteContainerShape a o-steps:StateShape ;
+shape:number40LiterGreyWasteContainerShape a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:number40LiterGreyWasteContainerExistence .
 
@@ -386,7 +386,7 @@ shape:number40LiterGreyWasteContainerExistence a sh:PropertyShape ;
   sh:maxCount 1 ;
   sh:minCount 1 .
 
-shape:number120LiterGreyWasteContainerShape a o-steps:StateShape ;
+shape:number120LiterGreyWasteContainerShape a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:number120LiterGreyWasteContainerExistence .
 
@@ -396,7 +396,7 @@ shape:number120LiterGreyWasteContainerExistence a sh:PropertyShape ;
   sh:maxCount 1 ;
   sh:minCount 1 .
 
-shape:number240LiterGreyWasteContainerShape a o-steps:StateShape ;
+shape:number240LiterGreyWasteContainerShape a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:number240LiterGreyWasteContainerExistence .
 
@@ -406,7 +406,7 @@ shape:number240LiterGreyWasteContainerExistence a sh:PropertyShape ;
   sh:maxCount 1 ;
   sh:minCount 1 .
 
-shape:greyWasteContainerLockShape a o-steps:StateShape ;
+shape:greyWasteContainerLockShape a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:lockNeededGreyWasteContainerExistence .
 
@@ -416,7 +416,7 @@ shape:lockNeededGreyWasteContainerExistence a sh:PropertyShape ;
   sh:maxCount 1 ;
   sh:minCount 1 .
 
-shape:number40LiterGreenWasteContainerShape a o-steps:StateShape ;
+shape:number40LiterGreenWasteContainerShape a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:number40LiterGreenWasteContainerExistence .
 
@@ -426,7 +426,7 @@ shape:number40LiterGreenWasteContainerExistence a sh:PropertyShape ;
   sh:maxCount 1 ;
   sh:minCount 1 .
 
-shape:number120LiterGreenWasteContainerShape a o-steps:StateShape ;
+shape:number120LiterGreenWasteContainerShape a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:number120LiterGreenWasteContainerExistence .
 
@@ -436,7 +436,7 @@ shape:number120LiterGreenWasteContainerExistence a sh:PropertyShape ;
   sh:maxCount 1 ;
   sh:minCount 1 .
 
-shape:greenWasteContainerLockShape  a o-steps:StateShape ;
+shape:greenWasteContainerLockShape  a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:lockNeededGreenWasteContainerExistence .
 
@@ -447,7 +447,7 @@ shape:lockNeededGreenWasteContainerExistence a sh:PropertyShape ;
   sh:minCount 1 .
 
 #todo: make a shortcut rule for "yes"
-shape:greenWasteSelfCompostShape a o-steps:StateShape ;
+shape:greenWasteSelfCompostShape a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:greenWasteSelfCompostExistence .
 
@@ -457,7 +457,7 @@ shape:greenWasteSelfCompostExistence a sh:PropertyShape ;
   sh:maxCount 1 ;
   sh:minCount 1 .
 
-shape:greenWasteContainerStopCollectingInfoShape  a o-steps:StateShape ;
+shape:greenWasteContainerStopCollectingInfoShape  a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:greenWasteContainerStopExistence .
 
@@ -467,7 +467,7 @@ shape:greenWasteContainerStopExistence a sh:PropertyShape ;
   sh:maxCount 1 ;
   sh:minCount 1 .
 
-shape:greenWasteInfoShape a o-steps:StateShape ;
+shape:greenWasteInfoShape a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:greenWasteInfoExistence .
 
@@ -476,7 +476,7 @@ shape:greenWasteInfoExistence a sh:PropertyShape ;
   sh:hasValue true .
 
 
-shape:number40LiterPaperWasteContainerShape a o-steps:StateShape ;
+shape:number40LiterPaperWasteContainerShape a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:number40LiterPaperWasteContainerExistence .
 
@@ -486,7 +486,7 @@ shape:number40LiterPaperWasteContainerExistence a sh:PropertyShape ;
   sh:maxCount 1 ;
   sh:minCount 1 .
 
-shape:number240LiterPaperWasteContainerShape a o-steps:StateShape ;
+shape:number240LiterPaperWasteContainerShape a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:number240LiterPaperWasteContainerExistence .
 
@@ -496,7 +496,7 @@ shape:number240LiterPaperWasteContainerExistence a sh:PropertyShape ;
   sh:maxCount 1 ;
   sh:minCount 1 .
 
-shape:number1100LiterPaperWasteContainerShape a o-steps:StateShape ;
+shape:number1100LiterPaperWasteContainerShape a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:number1100LiterPaperWasteContainerExistence .
 
@@ -506,7 +506,7 @@ shape:number1100LiterPaperWasteContainerExistence a sh:PropertyShape ;
   sh:maxCount 1 ;
   sh:minCount 1 .
 
-shape:wasteInfoShownShape a o-steps:StateShape ;
+shape:wasteInfoShownShape a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:wasteInfoShown .
 
@@ -515,7 +515,7 @@ shape:wasteInfoShown a sh:PropertyShape ;
   sh:hasValue true .
 
 #Confirmation of address change
-shape:addressChangeConfirmedShape a o-steps:StateShape ;
+shape:addressChangeConfirmedShape a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:addressChangeConfirmationValue .
 
@@ -523,7 +523,7 @@ shape:addressChangeConfirmationValue a sh:PropertyShape ;
   sh:path ex:confirmationOfAddressChange;
     sh:hasValue true .
 
-shape:addressChangeOnEIDShape a o-steps:StateShape ;
+shape:addressChangeOnEIDShape a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:addressChangeOnEIDExistence .
 
@@ -531,7 +531,7 @@ shape:addressChangeOnEIDExistence a sh:PropertyShape ;
   sh:path ex:addressChanged;
   sh:hasValue true .
 
-shape:appointmentShape a o-steps:StateShape ;
+shape:appointmentShape a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:appointmentExistence .
 
@@ -541,7 +541,7 @@ shape:appointmentExistence a sh:PropertyShape ;
   sh:maxCount 1 ;
   sh:minCount 1 .
 
-shape:wasteCollection a o-steps:StateShape ;
+shape:wasteCollection a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:wasteCollectionRequestValue .
 
@@ -549,7 +549,7 @@ shape:wasteCollectionRequestValue a sh:PropertyShape ;
   sh:path ex:wasteCollectionRequested;
   sh:hasValue true .
 
-shape:addressChangeDeclaredShape a o-steps:StateShape ;
+shape:addressChangeDeclaredShape a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:addressChangeValue .
 
@@ -558,7 +558,7 @@ shape:addressChangeValue  a sh:PropertyShape ;
   sh:hasValue true .
 
 
-shape:transportRequestedShape a o-steps:StateShape ;
+shape:transportRequestedShape a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:transportRequestedExistence .
 
@@ -568,7 +568,7 @@ shape:transportRequestedExistence  a sh:PropertyShape ;
   sh:maxCount 1 ;
   sh:minCount 1 .
 
-shape:mobilityRequestedShape a o-steps:StateShape ;
+shape:mobilityRequestedShape a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:mobilityRequestedExistence .
 
@@ -578,7 +578,7 @@ shape:mobilityRequestedExistence  a sh:PropertyShape ;
   sh:maxCount 1 ;
   sh:minCount 1 .
 
-shape:drivingLicenceExchangeRequestedShape a o-steps:StateShape ;
+shape:drivingLicenceExchangeRequestedShape a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:drivingLicenceExchangeExistence .
 
@@ -588,7 +588,7 @@ shape:drivingLicenceExchangeExistence  a sh:PropertyShape ;
   sh:maxCount 1 ;
   sh:minCount 1 .
 
-shape:policeVisitRequestedShape a o-steps:StateShape ;
+shape:policeVisitRequestedShape a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:policeVisitRequestedValue .
 
@@ -596,7 +596,7 @@ shape:policeVisitRequestedValue  a sh:PropertyShape ;
   sh:path ex:policeVisitRequested ;
   sh:hasValue true .
 
-shape:familyInfoProvidedShape a o-steps:StateShape ;
+shape:familyInfoProvidedShape a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:familyInfoValue .
 
@@ -604,7 +604,7 @@ shape:familyInfoValue a sh:PropertyShape ;
   sh:path ex:providedFamilyInformation ;
   sh:hasValue true .
 
-shape:availabilityShape a o-steps:StateShape ;
+shape:availabilityShape a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:availabilityExistence .
 
@@ -615,7 +615,7 @@ shape:availabilityExistence  a sh:PropertyShape ;
   sh:maxCount 5 ;
   sh:minCount 1 .
 
-shape:detailFamilyMemberShape a o-steps:StateShape ;
+shape:detailFamilyMemberShape a fno-steps:StateShape ;
   sh:targetClass o-persoon:Inwoner ;
   sh:property shape:detailFamilyMemberExistence .
 
@@ -627,4 +627,4 @@ shape:detailFamilyMemberExistence  a sh:PropertyShape ;
   sh:maxCount 15 .
 
 #
-# 
+#

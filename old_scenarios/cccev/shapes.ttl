@@ -1,4 +1,4 @@
-@prefix o-steps: <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#> .
+@prefix fno-steps: <https://w3id.org/imec/ns/fno-steps#> .
 @prefix xl: <http://www.w3.org/2008/05/skos-xl#> .
 @prefix state: <https://fast.ilabt.imec.be/api/v5/states#> .
 @prefix step: <https://fast.ilabt.imec.be/api/v5/steps#> .
@@ -10,7 +10,7 @@
 @prefix ex: <https://example.org/ns/example#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-shape:ageShape a o-steps:StateShape, cccev:Constraint ; # ALIGNMENT
+shape:ageShape a fno-steps:StateShape, cccev:Constraint ; # ALIGNMENT
     rdfs:label "A citizen's age"@en ;
     sh:targetClass o-persoon:Inwoner ;
     sh:property shape:agePattern .
@@ -21,13 +21,13 @@ shape:agePattern a sh:PropertyShape ;
     sh:datatype xsd:int ;
     sh:minCount 1 .
 
-shape:validatedIDcardInfoShape a o-steps:StateShape ;
+shape:validatedIDcardInfoShape a fno-steps:StateShape ;
     rdfs:label "A validated ID card info"@en ;
     sh:targetClass o-persoon:Inwoner ;
     # sh:targetClass cccev:Evidence ; # ALIGNMENT?
     sh:property shape:validatedIDcardInfoShapePattern . # TODO isAbout a person + all card info
 
-shape:validatedBirthDate a o-steps:StateShape ;
+shape:validatedBirthDate a fno-steps:StateShape ;
     rdfs:label "A validated birth date"@en ;
     sh:targetClass o-persoon:Inwoner ;
     # sh:targetClass cccev:Evidence ; # ALIGNMENT?
@@ -39,13 +39,13 @@ shape:validatedIDcardInfoShapePattern a sh:PropertyShape ;
     sh:datatype xsd:date ;
     sh:minCount 1 .
 
-shape:validatedcitizenAgeShape a o-steps:StateShape ;
+shape:validatedcitizenAgeShape a fno-steps:StateShape ;
     rdfs:label "A validated age"@en ;
     sh:targetClass o-persoon:Inwoner ;
     # sh:targetClass cccev:SupportedValue ; # ALIGNMENT?
     sh:property shape:agePattern . # TODO isAbout a person + all card info
 
-shape:provenMajority a o-steps:StateShape, cccev:Constraint ; # ALIGNMENT
+shape:provenMajority a fno-steps:StateShape, cccev:Constraint ; # ALIGNMENT
     rdfs:label "A citizen's proven majority"@en ;
     sh:targetClass o-persoon:Inwoner ;
     sh:property shape:provenMajorityPattern .

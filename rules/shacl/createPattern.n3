@@ -1,4 +1,4 @@
-@prefix o-steps: <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#> .
+@prefix fno-steps: <https://w3id.org/imec/ns/fno-steps#> .
 @prefix var: <https://example.org/ns/var#> .
 PREFIX log: <http://www.w3.org/2000/10/swap/log#>
 PREFIX e: <http://eulersharp.sourceforge.net/2003/03swap/log-rules#>
@@ -16,7 +16,7 @@ PREFIX list: <http://www.w3.org/2000/10/swap/list#>
 
 # 1. shape with targetClasss AND qualifiedValueShape
 {
-?shape a o-steps:StateShape ;
+?shape a fno-steps:StateShape ;
     sh:property ?p.
 
 ?p sh:path ?path;
@@ -37,7 +37,7 @@ PREFIX list: <http://www.w3.org/2000/10/swap/list#>
 
 # 2a. shape with targetClass and property where the path is not an array
 {
-?stateShape a o-steps:StateShape;
+?stateShape a fno-steps:StateShape;
     sh:property ?property.
 
 ?property sh:path ?path;
@@ -53,7 +53,7 @@ PREFIX list: <http://www.w3.org/2000/10/swap/list#>
 
 #TODO is this one correct? can it be removed?
 {
-?stateShape a o-steps:StateShape;
+?stateShape a fno-steps:StateShape;
     sh:property ?property.
 
 ?property sh:path ?path;
@@ -69,7 +69,7 @@ PREFIX list: <http://www.w3.org/2000/10/swap/list#>
 
 # 2b. shape with targetClass and property where the path _is_ an array
 {
-?stateShape a o-steps:StateShape;
+?stateShape a fno-steps:StateShape;
     sh:property ?property.
 
 ?property sh:path ?path;
@@ -121,7 +121,7 @@ PREFIX list: <http://www.w3.org/2000/10/swap/list#>
 
 # 3. shape where you have a value
 {
-?stateShape a o-steps:StateShape;
+?stateShape a fno-steps:StateShape;
     sh:property ?property;
     sh:targetClass ?class .
 

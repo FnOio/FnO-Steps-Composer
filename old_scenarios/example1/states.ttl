@@ -2,7 +2,7 @@
 
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix o-address: <https://data.vlaanderen.be/ns/adres#> .
-@prefix o-steps: <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#> .
+@prefix fno-steps: <https://w3id.org/imec/ns/fno-steps#> .
 @prefix o-persoon: <https://data.vlaanderen.be/ns/persoon#> .
 @prefix ex: <http://example.org/ns/example#> .
 @prefix xl: <http://www.w3.org/2008/05/skos-xl#> .
@@ -16,19 +16,19 @@
 @prefix shape: <http://localhost:8000/shapes#>.
 @prefix step: <http://localhost:8000/steps#>.
 
-state:citizenNationalNumber a o-steps:State;
+state:citizenNationalNumber a fno-steps:State;
   rdfs:label "Citizen national number"@en ;
   rdfs:label "Inwoner Rijksregisternummer"@nl ;
-  o-steps:hasStateShape shape:nationalNumberBelgiumShape . 
+  fno-steps:hasStateShape shape:nationalNumberBelgiumShape .
 
-state:citizenEmailAddress a o-steps:State ;
+state:citizenEmailAddress a fno-steps:State ;
   rdfs:label "Citizen email address"@en ;
   rdfs:label "Inwoner email address"@nl ;
   rdfs:label "Einwohner Email Adresse"@de ;
-  o-steps:hasStateShape shape:emailAddressShape .
+  fno-steps:hasStateShape shape:emailAddressShape .
 
-state:newEidPincodeRequested a o-steps:State ;
+state:newEidPincodeRequested a fno-steps:State ;
   rdfs:label "New pincode for eid requested"@en ;
   rdfs:label "Nieuw pincode voor eid aangevraagt"@nl ;
   rdfs:label "Neuer Pincode fuer EID angefragt"@de ;
-  o-steps:hasStateShape shape:newEidPincodeRequestedShape .
+  fno-steps:hasStateShape shape:newEidPincodeRequestedShape .

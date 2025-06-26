@@ -1,33 +1,33 @@
 
-<http://localhost:8000/steps#goToDestination> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ContainerLevelStep>,
-    <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#JourneyLevelStep>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#goToDestinationDescription>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#atDestination>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#emptyState> .
+<http://localhost:8000/steps#goToDestination> a <https://w3id.org/imec/ns/fno-steps#ContainerLevelStep>,
+    <https://w3id.org/imec/ns/fno-steps#JourneyLevelStep>;
+  <https://w3id.org/imec/ns/fno-steps#hasDescription> <http://localhost:8000/steps#goToDestinationDescription>;
+  <https://w3id.org/imec/ns/fno-steps#producesState> <http://localhost:8000/states#atDestination>;
+  <https://w3id.org/imec/ns/fno-steps#requiresState> <https://w3id.org/imec/ns/fno-steps#emptyState> .
 
 <http://localhost:8000/steps#goToDestinationDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "Go to the destination via a traffic light, wait for it to become green" .
 
-<http://localhost:8000/steps#goToTrafficLight> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#goToTrafficLightDescription>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#atTrafficLight>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#emptyState> .
+<http://localhost:8000/steps#goToTrafficLight> a <https://w3id.org/imec/ns/fno-steps#ComponentLevelStep>;
+  <https://w3id.org/imec/ns/fno-steps#hasDescription> <http://localhost:8000/steps#goToTrafficLightDescription>;
+  <https://w3id.org/imec/ns/fno-steps#producesState> <http://localhost:8000/states#atTrafficLight>;
+  <https://w3id.org/imec/ns/fno-steps#requiresState> <https://w3id.org/imec/ns/fno-steps#emptyState> .
 
 <http://localhost:8000/steps#goToTrafficLightDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "Go to the traffic light, which is red" .
 
-<http://localhost:8000/steps#reachDestination> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#reachDestinationDescription>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#atDestination>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#lightIsGreen> .
+<http://localhost:8000/steps#reachDestination> a <https://w3id.org/imec/ns/fno-steps#ComponentLevelStep>;
+  <https://w3id.org/imec/ns/fno-steps#hasDescription> <http://localhost:8000/steps#reachDestinationDescription>;
+  <https://w3id.org/imec/ns/fno-steps#producesState> <http://localhost:8000/states#atDestination>;
+  <https://w3id.org/imec/ns/fno-steps#requiresState> <http://localhost:8000/states#lightIsGreen> .
 
 <http://localhost:8000/steps#reachDestinationDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "When the light is green, go to destination" .
 
-<http://localhost:8000/steps#waitUntilGreen> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#waitUntilGreenDescription>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#lightIsGreen>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <http://localhost:8000/states#atTrafficLight> .
+<http://localhost:8000/steps#waitUntilGreen> a <https://w3id.org/imec/ns/fno-steps#ComponentLevelStep>;
+  <https://w3id.org/imec/ns/fno-steps#hasDescription> <http://localhost:8000/steps#waitUntilGreenDescription>;
+  <https://w3id.org/imec/ns/fno-steps#producesState> <http://localhost:8000/states#lightIsGreen>;
+  <https://w3id.org/imec/ns/fno-steps#requiresState> <http://localhost:8000/states#atTrafficLight> .
 
 <http://localhost:8000/steps#waitUntilGreenDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "Wait until the light is green." .

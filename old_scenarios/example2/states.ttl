@@ -1,6 +1,6 @@
 @prefix ex: <http://example.org/ns/example#>.
 @prefix o-persoon: <http://data.vlaanderen.be/ns/persoon#>.
-@prefix o-steps: <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#>.
+@prefix fno-steps: <https://w3id.org/imec/ns/fno-steps#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix sh: <http://www.w3.org/ns/shacl#>.
 @prefix shapes: <http://fast.ilabt.imec.be/api/v7/shapes#>.
@@ -10,11 +10,11 @@
 
 <http://fast.ilabt.imec.be/api/v7/states> a <http://www.w3.org/ns/ldp#Container>.
 states:provideCitizenNationalNumberManually rdfs:label "provideCitizenNationalNumberManually"@en, "provideCitizenNationalNumberManually"@nl, "provideCitizenNationalNumberManually"@de;
-    <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> shapes:provideCitizenNationalNumberManually_shape;
-    a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>.
+    <https://w3id.org/imec/ns/fno-steps#hasStateShape> shapes:provideCitizenNationalNumberManually_shape;
+    a <https://w3id.org/imec/ns/fno-steps#State>.
 states:provideCitizenEmailManually rdfs:label "provideCitizenEmailManually"@en, "provideCitizenEmailManually"@nl, "provideCitizenEmailManually"@de;
-    <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> shapes:provideCitizenEmailManually_shape;
-    a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>.
+    <https://w3id.org/imec/ns/fno-steps#hasStateShape> shapes:provideCitizenEmailManually_shape;
+    a <https://w3id.org/imec/ns/fno-steps#State>.
 states:newEidPincodeRequested rdfs:label "newEidPincodeRequested"@en, "newEidPincodeRequested"@nl, "newEidPincodeRequested"@de;
-    <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasStateShape> shapes:newEidPincodeRequested_shape;
-    a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#State>.
+    <https://w3id.org/imec/ns/fno-steps#hasStateShape> shapes:newEidPincodeRequested_shape;
+    a <https://w3id.org/imec/ns/fno-steps#State>.

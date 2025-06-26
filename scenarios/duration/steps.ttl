@@ -1,9 +1,9 @@
 
-<http://localhost:8000/steps#waitABit> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ComponentLevelStep>,
-    <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#ContainerLevelStep>, <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#JourneyLevelStep>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#hasDescription> <http://localhost:8000/steps#waitABitDescription>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#producesState> <http://localhost:8000/states#Response>;
-  <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#requiresState> <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#emptyState> .
+<http://localhost:8000/steps#waitABit> a <https://w3id.org/imec/ns/fno-steps#ComponentLevelStep>,
+    <https://w3id.org/imec/ns/fno-steps#ContainerLevelStep>, <https://w3id.org/imec/ns/fno-steps#JourneyLevelStep>;
+  <https://w3id.org/imec/ns/fno-steps#hasDescription> <http://localhost:8000/steps#waitABitDescription>;
+  <https://w3id.org/imec/ns/fno-steps#producesState> <http://localhost:8000/states#Response>;
+  <https://w3id.org/imec/ns/fno-steps#requiresState> <https://w3id.org/imec/ns/fno-steps#emptyState> .
 
 <http://localhost:8000/steps#waitABitDescription> <http://www.w3.org/2008/05/skos-xl#literalForm>
     "Wait long enough to get a response" .

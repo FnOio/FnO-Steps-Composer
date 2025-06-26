@@ -1,5 +1,5 @@
 
-<http://localhost:8000/shapes#administrativeProcessedDone> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
+<http://localhost:8000/shapes#administrativeProcessedDone> a <https://w3id.org/imec/ns/fno-steps#StateShape>;
   <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
   <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#administrativeProcessedDonePropertyShape>;
   <http://www.w3.org/ns/shacl#targetClass> <https://data.vlaanderen.be/ns/persoon#Inwoner> .
@@ -12,7 +12,7 @@
   <http://www.w3.org/ns/shacl#path> <http://example.com/ns#hasadministrativeProcessedDone>;
   <http://www.w3.org/ns/shacl#pattern> "true" .
 
-<http://localhost:8000/shapes#architectAssists> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
+<http://localhost:8000/shapes#architectAssists> a <https://w3id.org/imec/ns/fno-steps#StateShape>;
   <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
   <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#architectAssistsPropertyShape>;
   <http://www.w3.org/ns/shacl#targetClass> <https://data.vlaanderen.be/ns/persoon#Inwoner> .
@@ -25,7 +25,7 @@
   <http://www.w3.org/ns/shacl#path> <http://example.com/ns#hasarchitectAssists>;
   <http://www.w3.org/ns/shacl#pattern> "true" .
 
-<http://localhost:8000/shapes#architectHasPreliminaryInput> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
+<http://localhost:8000/shapes#architectHasPreliminaryInput> a <https://w3id.org/imec/ns/fno-steps#StateShape>;
   <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
   <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#architectHasPreliminaryInputPropertyShape>;
   <http://www.w3.org/ns/shacl#targetClass> <https://data.vlaanderen.be/ns/persoon#Inwoner> .
@@ -38,7 +38,7 @@
   <http://www.w3.org/ns/shacl#path> <http://example.com/ns#hasarchitectHasPreliminaryInput>;
   <http://www.w3.org/ns/shacl#pattern> "true" .
 
-<http://localhost:8000/shapes#buildingPermitApplicationPrepared> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
+<http://localhost:8000/shapes#buildingPermitApplicationPrepared> a <https://w3id.org/imec/ns/fno-steps#StateShape>;
   <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
   <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#buildingPermitApplicationPreparedPropertyShape>;
   <http://www.w3.org/ns/shacl#targetClass> <https://data.vlaanderen.be/ns/persoon#Inwoner> .
@@ -51,7 +51,7 @@
   <http://www.w3.org/ns/shacl#path> <http://example.com/ns#hasbuildingPermitApplicationPrepared>;
   <http://www.w3.org/ns/shacl#pattern> "true" .
 
-<http://localhost:8000/shapes#buildingPermitApplicationSubmitted> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
+<http://localhost:8000/shapes#buildingPermitApplicationSubmitted> a <https://w3id.org/imec/ns/fno-steps#StateShape>;
   <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
   <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#buildingPermitApplicationSubmittedPropertyShape>;
   <http://www.w3.org/ns/shacl#targetClass> <https://data.vlaanderen.be/ns/persoon#Inwoner> .
@@ -64,7 +64,7 @@
   <http://www.w3.org/ns/shacl#path> <http://example.com/ns#hasbuildingPermitApplicationSubmitted>;
   <http://www.w3.org/ns/shacl#pattern> "true" .
 
-<http://localhost:8000/shapes#buildingPermitApproved> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
+<http://localhost:8000/shapes#buildingPermitApproved> a <https://w3id.org/imec/ns/fno-steps#StateShape>;
   <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
   <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#buildingPermitApprovedPropertyShape>;
   <http://www.w3.org/ns/shacl#targetClass> <https://data.vlaanderen.be/ns/persoon#Inwoner> .
@@ -77,7 +77,7 @@
   <http://www.w3.org/ns/shacl#path> <http://example.com/ns#hasbuildingPermitApproved>;
   <http://www.w3.org/ns/shacl#pattern> "true" .
 
-<http://localhost:8000/shapes#completenessCheckPassed> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
+<http://localhost:8000/shapes#completenessCheckPassed> a <https://w3id.org/imec/ns/fno-steps#StateShape>;
   <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
   <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#completenessCheckPassedPropertyShape>;
   <http://www.w3.org/ns/shacl#targetClass> <https://data.vlaanderen.be/ns/persoon#Inwoner> .
@@ -90,7 +90,7 @@
   <http://www.w3.org/ns/shacl#path> <http://example.com/ns#hascompletenessCheckPassed>;
   <http://www.w3.org/ns/shacl#pattern> "true" .
 
-<http://localhost:8000/shapes#designAvailable> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
+<http://localhost:8000/shapes#designAvailable> a <https://w3id.org/imec/ns/fno-steps#StateShape>;
   <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
   <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#designAvailablePropertyShape>;
   <http://www.w3.org/ns/shacl#targetClass> <https://data.vlaanderen.be/ns/persoon#Inwoner> .
@@ -103,7 +103,7 @@
   <http://www.w3.org/ns/shacl#path> <http://example.com/ns#hasdesignAvailable>;
   <http://www.w3.org/ns/shacl#pattern> "true" .
 
-<http://localhost:8000/shapes#formatCheckPassed> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
+<http://localhost:8000/shapes#formatCheckPassed> a <https://w3id.org/imec/ns/fno-steps#StateShape>;
   <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
   <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#formatCheckPassedPropertyShape>;
   <http://www.w3.org/ns/shacl#targetClass> <https://data.vlaanderen.be/ns/persoon#Inwoner> .
@@ -116,7 +116,7 @@
   <http://www.w3.org/ns/shacl#path> <http://example.com/ns#hasformatCheckPassed>;
   <http://www.w3.org/ns/shacl#pattern> "true" .
 
-<http://localhost:8000/shapes#permitOfficerAssigned> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
+<http://localhost:8000/shapes#permitOfficerAssigned> a <https://w3id.org/imec/ns/fno-steps#StateShape>;
   <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
   <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#permitOfficerAssignedPropertyShape>;
   <http://www.w3.org/ns/shacl#targetClass> <https://data.vlaanderen.be/ns/persoon#Inwoner> .
@@ -129,7 +129,7 @@
   <http://www.w3.org/ns/shacl#path> <http://example.com/ns#haspermitOfficerAssigned>;
   <http://www.w3.org/ns/shacl#pattern> "true" .
 
-<http://localhost:8000/shapes#permittingProcessAnnounced> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
+<http://localhost:8000/shapes#permittingProcessAnnounced> a <https://w3id.org/imec/ns/fno-steps#StateShape>;
   <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
   <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#permittingProcessAnnouncedPropertyShape>;
   <http://www.w3.org/ns/shacl#targetClass> <https://data.vlaanderen.be/ns/persoon#Inwoner> .
@@ -142,7 +142,7 @@
   <http://www.w3.org/ns/shacl#path> <http://example.com/ns#haspermittingProcessAnnounced>;
   <http://www.w3.org/ns/shacl#pattern> "true" .
 
-<http://localhost:8000/shapes#preliminaryCheckPassed> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
+<http://localhost:8000/shapes#preliminaryCheckPassed> a <https://w3id.org/imec/ns/fno-steps#StateShape>;
   <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
   <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#preliminaryCheckPassedPropertyShape>;
   <http://www.w3.org/ns/shacl#targetClass> <https://data.vlaanderen.be/ns/persoon#Inwoner> .
@@ -155,7 +155,7 @@
   <http://www.w3.org/ns/shacl#path> <http://example.com/ns#haspreliminaryCheckPassed>;
   <http://www.w3.org/ns/shacl#pattern> "true" .
 
-<http://localhost:8000/shapes#projectRegistered> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
+<http://localhost:8000/shapes#projectRegistered> a <https://w3id.org/imec/ns/fno-steps#StateShape>;
   <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
   <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#projectRegisteredPropertyShape>;
   <http://www.w3.org/ns/shacl#targetClass> <https://data.vlaanderen.be/ns/persoon#Inwoner> .
@@ -168,7 +168,7 @@
   <http://www.w3.org/ns/shacl#path> <http://example.com/ns#hasprojectRegistered>;
   <http://www.w3.org/ns/shacl#pattern> "true" .
 
-<http://localhost:8000/shapes#requiredDocumentsAvailable> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
+<http://localhost:8000/shapes#requiredDocumentsAvailable> a <https://w3id.org/imec/ns/fno-steps#StateShape>;
   <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
   <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#requiredDocumentsAvailablePropertyShape>;
   <http://www.w3.org/ns/shacl#targetClass> <https://data.vlaanderen.be/ns/persoon#Inwoner> .

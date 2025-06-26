@@ -1,5 +1,5 @@
 
-<http://localhost:8000/shapes#atDestination> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
+<http://localhost:8000/shapes#atDestination> a <https://w3id.org/imec/ns/fno-steps#StateShape>;
   <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
   <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#atDestinationPropertyShape>;
   <http://www.w3.org/ns/shacl#targetClass> <https://data.vlaanderen.be/ns/persoon#Inwoner> .
@@ -12,7 +12,7 @@
   <http://www.w3.org/ns/shacl#path> <http://example.com/ns#hasatDestination>;
   <http://www.w3.org/ns/shacl#pattern> "true" .
 
-<http://localhost:8000/shapes#atTrafficLight> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
+<http://localhost:8000/shapes#atTrafficLight> a <https://w3id.org/imec/ns/fno-steps#StateShape>;
   <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
   <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#atTrafficLightPropertyShape>;
   <http://www.w3.org/ns/shacl#targetClass> <https://data.vlaanderen.be/ns/persoon#Inwoner> .
@@ -25,7 +25,7 @@
   <http://www.w3.org/ns/shacl#path> <http://example.com/ns#atTrafficLight>;
   <http://www.w3.org/ns/shacl#pattern> "true" .
 
-<http://localhost:8000/shapes#lightIsGreen> a <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#StateShape>;
+<http://localhost:8000/shapes#lightIsGreen> a <https://w3id.org/imec/ns/fno-steps#StateShape>;
   <http://www.w3.org/2000/01/rdf-schema#label> "TODO: provide a description";
   <http://www.w3.org/ns/shacl#property> <http://localhost:8000/shapes#lightIsGreenPropertyShape>;
   <http://www.w3.org/ns/shacl#targetClass> <http://example.com/ns#TrafficLight> .

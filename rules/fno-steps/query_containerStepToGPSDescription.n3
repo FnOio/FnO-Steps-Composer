@@ -1,4 +1,4 @@
-@prefix o-steps: <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#> .
+@prefix fno-steps: <https://w3id.org/imec/ns/fno-steps#> .
 @prefix ex: <https://example.org/ns/example#> .
 @prefix var: <https://example.org/ns/var#> .
 PREFIX e: <http://eulersharp.sourceforge.net/2003/03swap/log-rules#>
@@ -11,19 +11,19 @@ PREFIX list: <http://www.w3.org/2000/10/swap/list#>
 
 {
 
-?step a o-steps:ContainerLevelStep.
+?step a fno-steps:ContainerLevelStep.
 
 
 
-?step o-steps:producesState ?ov.
+?step fno-steps:producesState ?ov.
 
 
-_:x e:findall ( ?pattern { ?step o-steps:requiresState ?y. ?y o-steps:hasStateShape ?stateShape. ?stateShape :pattern ?pattern} ?inlist).
+_:x e:findall ( ?pattern { ?step fno-steps:requiresState ?y. ?y fno-steps:hasStateShape ?stateShape. ?stateShape :pattern ?pattern} ?inlist).
 
-_:x e:findall ( ?pattern {?step  o-steps:producesState ?y. ?y o-steps:hasStateShape ?stateShape. ?stateShape :pattern ?pattern} ?outlist ).
+_:x e:findall ( ?pattern {?step  fno-steps:producesState ?y. ?y fno-steps:hasStateShape ?stateShape. ?stateShape :pattern ?pattern} ?outlist ).
 
 #_:h e:trace ?outlist.
-?step  o-steps:producesState ?y. ?y o-steps:hasStateShape ?stateShape. ?stateShape :pattern ?pattern.
+?step  fno-steps:producesState ?y. ?y fno-steps:hasStateShape ?stateShape. ?stateShape :pattern ?pattern.
 
 
 ?inlist :separate ((true) ?ins1 (true) ?skolI).

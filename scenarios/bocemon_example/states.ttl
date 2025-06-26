@@ -2,7 +2,7 @@
 
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix o-address: <https://data.vlaanderen.be/ns/adres#> .
-@prefix o-steps: <https://fast.ilabt.imec.be/ns/oslo-steps/0.2#> .
+@prefix fno-steps: <https://w3id.org/imec/ns/fno-steps#> .
 @prefix o-persoon: <https://data.vlaanderen.be/ns/persoon#> .
 @prefix ex: <http://example.org/ns/example#> .
 @prefix xl: <http://www.w3.org/2008/05/skos-xl#> .
@@ -16,18 +16,18 @@
 @prefix shape: <http://localhost:8000/shapes#>.
 @prefix step: <http://localhost:8000/steps#>.
 
-state:roomEquipedForHVACControl a o-steps:State;
+state:roomEquipedForHVACControl a fno-steps:State;
   rdfs:label "The room is equiped for HVAC control"@en ;
-  o-steps:hasStateShape shape:roomEquipedForHVACControlShape .
+  fno-steps:hasStateShape shape:roomEquipedForHVACControlShape .
 
-state:thermometerInstalled a o-steps:State ;
+state:thermometerInstalled a fno-steps:State ;
   rdfs:label "Room has a thermometer"@en ;
-  o-steps:hasStateShape shape:thermometerInstalledShape .
+  fno-steps:hasStateShape shape:thermometerInstalledShape .
 
-state:humiditySensorInstalled a o-steps:State ;
+state:humiditySensorInstalled a fno-steps:State ;
   rdfs:label "Room has a humidity sensor."@en ;
-  o-steps:hasStateShape shape:humiditySensorInstalledShape .
+  fno-steps:hasStateShape shape:humiditySensorInstalledShape .
 
-state:HVACConnected a o-steps:State ;
+state:HVACConnected a fno-steps:State ;
                               rdfs:label "Room connected to HVAC."@en ;
-                              o-steps:hasStateShape shape:HVACConnectedShape .
+                              fno-steps:hasStateShape shape:HVACConnectedShape .
