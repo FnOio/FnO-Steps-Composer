@@ -29,7 +29,7 @@ Make sure all files are UTF-8 encoded.
 
 Here is an example of a scenario (`scenarios/fromAtoB`):
 ```
-bocemon_example/
+fromAtoB/
 ├── data_01.ttl
 ├── data_02.ttl
 ├── data_03.ttl
@@ -70,7 +70,7 @@ and `name of data file` is a certain data file.
 
 ### examples
 
-Run the `bocemon_example` scenario:
+Run the `fromAtoB` scenario:
 ```shell
 node scenario.js -s fromAtoB
 ```

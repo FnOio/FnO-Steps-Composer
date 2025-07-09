@@ -31,7 +31,6 @@
 :designAvailablePropertyShape
     a shacl:PropertyShape ;
     rdfs:label "TODO: provide a description" ;
-    shacl:datatype xmls:boolean ;
     shacl:maxCount 1 ;
     shacl:minCount 1 ;
     shacl:class checks:Document .
@@ -45,7 +44,6 @@
 :architectHasPreliminaryInputPropertyShape
     a shacl:PropertyShape ;
     rdfs:label "TODO: provide a description" ;
-    shacl:datatype xmls:boolean ;
     shacl:maxCount 1 ;
     shacl:minCount 1 ;
     shacl:path prov:generated ;

@@ -43,7 +43,6 @@
 :prepareBuildingPermitApplicationDescription
     skosxl:literalForm "Prepare the building permit application" .
 
-# TODO: figure this out!
 :prepareDesign
     a fno-steps:ComponentLevelStep ;
     fno-steps:hasDescription :prepareDesignDescription ;
