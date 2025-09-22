@@ -60,7 +60,8 @@ node scenario.js --help
 Usage: scenario [options]
 
 Options:
-  -s --scenario <name>               The scenario to run. It must be a subdirectory of `scenarios`
+  -s --scenario <name>               The scenario to run. It must be a subdirectory of `scenarios`.
+  -r --scenario-root <path>          An alternative path to a directory containing scenario subdirectory/ies. The default is ./scenarios.
   -d --dataFile <name of data file>  Use this option if you want to run only one data file.
   -h, --help                         display help for command
 ```

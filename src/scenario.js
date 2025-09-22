@@ -16,24 +16,27 @@ async function main() {
 
     // parse command line arguments
     program
-        .requiredOption('-s --scenario <name>', 'The scenario to run. It must be a subdirectory of `scenarios`')
+        .requiredOption('-s --scenario <name>', 'The scenario to run. It must be a subdirectory of `scenarios`.')
+        .option('-r --scenario-root <path>', 'An alternative path to a directory containing scenario subdirectory/ies. The default is ./scenarios.')
         .option('-d --dataFile <name of data file>', 'Use this option if you want to run only one data file.');
     program.parse(process.argv);
     const options = program.opts();
 
     const scenario = options.scenario;
     console.log(`Running scenario "${scenario}"`);
-    await _runScenario(scenario, options.dataFile);
+    await _runScenario(scenario, options.dataFile, options.scenarioRoot);
 }
 
 /**
  * Runs a scenario
  * @param {String} scenario The name of the scenario; it must be the name of a directory in the `scenarios` directory.
+ * @param {String} dataFile Optional. The name of a single data file to run instead of a complete scenario.
+ * @param {String} scenarioRoot Optional. The path to a directory containing scenario subdirectory/ies. The default is ./scenarios.
  * @returns {Promise<void>} The returned promise
  * @private
  */
-async function _runScenario(scenario, dataFile) {
-    const scenarioPath = path.resolve(basePath, 'scenarios', scenario);
+async function _runScenario(scenario, dataFile, scenarioRoot) {
+    const scenarioPath = scenarioRoot ? path.resolve(scenarioRoot, scenario) : path.resolve(basePath, 'scenarios', scenario);
 
     const shapesPath =  path.resolve(scenarioPath, 'shapes.ttl');
     const statesPath = path.resolve(scenarioPath, 'states.ttl');
