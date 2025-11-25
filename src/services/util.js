@@ -81,9 +81,15 @@ function formatStep(stepNode, n3store) {
     const id = stepNode.value.split('#')[1];
 
     // get description of step
-    const descriptionNode = n3store.getObjects(stepNode, new NamedNode('https://w3id.org/imec/ns/fno-steps#hasDescription'))[0];
-    const description = n3store.getObjects(descriptionNode, new NamedNode('http://www.w3.org/2008/05/skos-xl#literalForm'))[0].value;
-
+    let description = "no description";
+    const descriptionNodes = n3store.getObjects(stepNode, new NamedNode('https://w3id.org/imec/ns/fno-steps#hasDescription'));
+    if (descriptionNodes.length > 0 ) {
+        const descriptionNode = descriptionNodes[0];
+        const descValueNodes = n3store.getObjects(descriptionNode, new NamedNode('http://www.w3.org/2008/05/skos-xl#literalForm'));
+        if (descValueNodes.length > 0) {
+            description = descValueNodes[0].value;
+        }
+    }
     return `${id} (${description})`;
 }
 
